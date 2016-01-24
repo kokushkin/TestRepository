@@ -27,16 +27,17 @@ namespace WpfGraficApplication
             InitializeComponent();
 
             PointArray = new Point[4];
-            PointArray[0] = new Point(0, 0);
+            PointArray[0] = new Point(0, 100);
             PointArray[1] = new Point(20, 20);
-            PointArray[2] = new Point(64, 30);
-            PointArray[3] = new Point(100, 200);
+            PointArray[2] = new Point(70, 20);
+            PointArray[3] = new Point(140, 200);
             Polyline polyLine = new Polyline();
-            polyLine.Stroke =new SolidColorBrush(Color.FromRgb(255,0,0));
+            polyLine.Stroke = new SolidColorBrush(Color.FromRgb(0, 255, 0));
             polyLine.StrokeThickness = 2;
             PointCollection pColl = new PointCollection(PointArray);
             polyLine.Points = pColl;
-            R2.Children.Add(polyLine);
+
+            Grafic.R2.Children.Add(polyLine);
             
         }
     }
