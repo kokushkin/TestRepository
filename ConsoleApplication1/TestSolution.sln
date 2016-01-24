@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1.csproj", "{41E74646-D52C-46D7-9939-BBBF8D664BCB}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleAppRef", "..\TestConsoleAppRef\TestConsoleAppRef.csproj", "{053E09F2-A61C-4DF2-854F-C40F92671DB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDerivedInterface", "TestDerivedInterface\TestDerivedInterface.csproj", "{05417975-BC99-4FB5-A1B9-5E984F6E8905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGraficApplication", "..\WpfGraficApplication\WpfGraficApplication.csproj", "{C05AFC94-EBF8-451A-B066-F84645C57CB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{05417975-BC99-4FB5-A1B9-5E984F6E8905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05417975-BC99-4FB5-A1B9-5E984F6E8905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05417975-BC99-4FB5-A1B9-5E984F6E8905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C05AFC94-EBF8-451A-B066-F84645C57CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05AFC94-EBF8-451A-B066-F84645C57CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05AFC94-EBF8-451A-B066-F84645C57CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05AFC94-EBF8-451A-B066-F84645C57CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
