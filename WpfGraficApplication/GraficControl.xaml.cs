@@ -38,5 +38,20 @@ namespace WpfGraficApplication
             polyLine.Points = pColl;
             R2.Children.Add(polyLine);
         }
+
+        public void AddFunction(IEnumerable<Point> points, Color color, string Description)
+        {
+            Polyline polyline = new Polyline();
+            polyline.Stroke = new SolidColorBrush(color);
+            polyline.StrokeThickness = 1;
+            PointCollection pColl = new PointCollection(points);
+            polyline.Points = pColl;
+            R2.Children.Add(polyline);
+
+            Label lbl = new Label();
+            lbl.Content = Description;
+            lbl.Foreground = new SolidColorBrush(color);
+            Descriptions.Children.Add(lbl);
+        }
     }
 }
