@@ -27,7 +27,7 @@ namespace WpfGraficApplication
             InitializeComponent();
 
             PointArray = new Point[4];
-            PointArray[0] = new Point(0, 100);
+            PointArray[0] = new Point(0, -100);
             PointArray[1] = new Point(20, 20);
             PointArray[2] = new Point(70, 20);
             PointArray[3] = new Point(140, 200);

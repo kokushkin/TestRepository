@@ -20,26 +20,16 @@ namespace WpfGraficApplication
     /// </summary>
     public partial class GraficControl : UserControl
     {
-        public Point[] PointArray { get; set; }
-        public Polyline[] Functions { get; set; }
+
+        private Dictionary<string, Tuple<Polyline, Label>> functions = new Dictionary<string, Tuple<Polyline, Label>>();
 
         public GraficControl()
         {
             InitializeComponent();
-            PointArray = new Point[4];
-            PointArray[0] = new Point(0, 0);
-            PointArray[1] = new Point(20, 20);
-            PointArray[2] = new Point(64, 30);
-            PointArray[3] = new Point(100, 200);
-            Polyline polyLine = new Polyline();
-            polyLine.Stroke = new SolidColorBrush(Color.FromRgb(255, 0, 0));
-            polyLine.StrokeThickness = 2;
-            PointCollection pColl = new PointCollection(PointArray);
-            polyLine.Points = pColl;
-            R2.Children.Add(polyLine);
+
         }
 
-        public void AddFunction(IEnumerable<Point> points, Color color, string Description)
+        public void AddFunction(IEnumerable<Point> points, Color color, string description)
         {
             Polyline polyline = new Polyline();
             polyline.Stroke = new SolidColorBrush(color);
@@ -49,9 +39,23 @@ namespace WpfGraficApplication
             R2.Children.Add(polyline);
 
             Label lbl = new Label();
-            lbl.Content = Description;
+            lbl.Content = description;
             lbl.Foreground = new SolidColorBrush(color);
             Descriptions.Children.Add(lbl);
+
+            functions.Add(description, new Tuple<Polyline, Label>(polyline, lbl));
+        }
+
+        public void RemoveFunction(string description)
+        {
+            Tuple<Polyline, Label> function = null;
+            functions.TryGetValue(description, out function);
+            if(function != null)
+            {
+                R2.Children.Remove(function.Item1);
+                Descriptions.Children.Remove(function.Item2);
+                functions.Remove(description);
+            }
         }
     }
 }
