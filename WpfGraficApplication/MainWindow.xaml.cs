@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfGraficApplication
 {
@@ -20,27 +21,32 @@ namespace WpfGraficApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Point[] PointArray { get; set; }
+
+        DispatcherTimer countTimer = new DispatcherTimer();
+
+        double x = 0;
+        double y = 100;
+
+        Random rnd = new Random();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            PointArray = new Point[4];
-            PointArray[0] = new Point(0, -100);
-            PointArray[1] = new Point(20, 20);
-            PointArray[2] = new Point(70, 20);
-            PointArray[3] = new Point(140, 200);
-            //Polyline polyLine = new Polyline();
-            //polyLine.Stroke = new SolidColorBrush(Colors.Green);
-            //polyLine.StrokeThickness = 2;
-            //PointCollection pColl = new PointCollection(PointArray);
-            //polyLine.Points = pColl;
-
-            //Grafic.R2.Children.Add(polyLine);
+            Point[] PointArray = new Point[1];
+            PointArray[0] = new Point(x, y);
 
             Grafic.AddFunction(PointArray, Colors.Green, "Green line");
-            
+            countTimer.Tick += new EventHandler((sender, e) => AddPoint());
+            countTimer.Interval = new TimeSpan(0, 0, 3);
+            countTimer.Start();
+        }
+
+        void AddPoint()
+        {
+            x += 10;
+            y += -10 + rnd.Next(20);
+            Grafic.AddPoint(new Point(x, y), "Green line");
         }
     }
 }

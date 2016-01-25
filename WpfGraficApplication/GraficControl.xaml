@@ -6,16 +6,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Viewbox Stretch="Fill">
-                <Canvas Name="R2" Width="200" Height="200">
 
-                </Canvas>
-            </Viewbox>
-            <StackPanel Orientation="Vertical" Name="Descriptions">
-                <Label>Description functions:</Label>
-            </StackPanel>
-        </StackPanel>
+        <Viewbox Stretch="Fill" >
+            <Canvas Name="R2"  Background="AliceBlue">
+                <Viewbox Stretch="Fill" Panel.ZIndex="1" Canvas.Top="0" Canvas.Left="0">
+                    <Canvas  >
+
+                    </Canvas>
+                </Viewbox>
+                <StackPanel Orientation="Vertical" Name="Descriptions" Panel.ZIndex="2" Canvas.Top="0" Canvas.Left="100">
+                    <Label>Description functions:</Label>
+                </StackPanel>
+            </Canvas>
+
+        </Viewbox>
+
 
     </Grid>
 </UserControl>

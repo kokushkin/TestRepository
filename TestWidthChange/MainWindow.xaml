@@ -1,0 +1,12 @@
+﻿<Window x:Class="TestWidthChange.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Button Height="100" Width="100" Name="Hoho">HO-Ho</Button>
+            <Button Width="50" Height="50" Click="Button_Click">cHANGE</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

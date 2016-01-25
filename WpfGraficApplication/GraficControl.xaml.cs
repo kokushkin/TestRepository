@@ -44,6 +44,26 @@ namespace WpfGraficApplication
             Descriptions.Children.Add(lbl);
 
             functions.Add(description, new Tuple<Polyline, Label>(polyline, lbl));
+
+            var maxX = points.Max(p => p.X);
+            var maxY = points.Max(p => p.Y);
+            R2.Width = maxX;
+            R2.Height = maxY;
+        }
+
+        public void AddPoint(Point point, string description)
+        {
+            Tuple<Polyline, Label> function = null;
+            functions.TryGetValue(description, out function);
+            if (function != null)
+            {
+                function.Item1.Points.Add(point);
+            }
+
+            if (R2.Width < point.X)
+                R2.Width = point.X;
+            if (R2.Height < point.Y)
+                R2.Height = point.Y;
         }
 
         public void RemoveFunction(string description)

@@ -4,6 +4,14 @@
         xmlns:myCtrls="clr-namespace:WpfGraficApplication"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <myCtrls:GraficControl x:Name="Grafic"></myCtrls:GraficControl>
     </Grid>
 </Window>
