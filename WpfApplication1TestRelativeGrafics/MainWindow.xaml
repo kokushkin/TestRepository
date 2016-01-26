@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfApplication1TestRelativeGrafics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Canvas Margin="0,-10,0,10" >
+            <Polygon Canvas.Left="130" Canvas.Top="40" Stroke="Blue" StrokeThickness="4" 
+      Points="0,0 30,140 50,168 70,120 90,185 110,100 130,200 150,80 170,215 190,60 210,250"
+      Fill="LightGreen"></Polygon>
+            <Polygon Canvas.Left="10" Canvas.Top="40" Stroke="Blue" StrokeThickness="4" 
+      Points="0,0 30,140 50,168 70,120 90,185 110,100 130,200 150,80 170,215 190,60 210,250"
+      Fill="LightGreen"></Polygon>
+        </Canvas>
+
+    </Grid>
+</Window>

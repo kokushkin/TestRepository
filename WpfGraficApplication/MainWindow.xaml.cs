@@ -25,7 +25,10 @@ namespace WpfGraficApplication
         DispatcherTimer countTimer = new DispatcherTimer();
 
         double x = 0;
-        double y = 100;
+        double y = 0;
+
+        double x1 = 0;
+        double y1 = 0;
 
         Random rnd = new Random();
 
@@ -40,6 +43,13 @@ namespace WpfGraficApplication
             countTimer.Tick += new EventHandler((sender, e) => AddPoint());
             countTimer.Interval = new TimeSpan(0, 0, 3);
             countTimer.Start();
+
+            Point[] PointArray1 = new Point[1];
+            PointArray1[0] = new Point(x1, y1);
+
+            Grafic.AddFunction(PointArray1, Colors.Red, "Red line");
+
+
         }
 
         void AddPoint()
@@ -47,6 +57,10 @@ namespace WpfGraficApplication
             x += 10;
             y += -10 + rnd.Next(20);
             Grafic.AddPoint(new Point(x, y), "Green line");
+
+            x1 += 10;
+            y1 += -20 + rnd.Next(40);
+            Grafic.AddPoint(new Point(x1, y1), "Red line");
         }
     }
 }

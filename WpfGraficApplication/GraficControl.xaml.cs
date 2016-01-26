@@ -38,6 +38,8 @@ namespace WpfGraficApplication
             polyline.Points = pColl;
             R2.Children.Add(polyline);
 
+            //Canvas.SetLeft(polyline, R2.Width / 2);
+
             Label lbl = new Label();
             lbl.Content = description;
             lbl.Foreground = new SolidColorBrush(color);

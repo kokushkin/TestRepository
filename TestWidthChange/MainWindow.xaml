@@ -4,7 +4,14 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <StackPanel>
-            <Button Height="100" Width="100" Name="Hoho">HO-Ho</Button>
+            <Button Height="100" Width="100" Name="Hoho">HO-Ho
+                <Button.RenderTransformOrigin>
+                    <Point X="0" Y="0.5"/>
+                </Button.RenderTransformOrigin>
+                <Button.RenderTransform>
+                    <ScaleTransform ScaleY="-1"></ScaleTransform>
+                </Button.RenderTransform>
+            </Button>
             <Button Width="50" Height="50" Click="Button_Click">cHANGE</Button>
         </StackPanel>
 
