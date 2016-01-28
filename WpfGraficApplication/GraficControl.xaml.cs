@@ -63,50 +63,59 @@ namespace WpfGraficApplication
 
         public void AddFunction(IEnumerable<Point> points, Color color, string description)
         {
-            Polyline polyline = new Polyline();
-            polyline.Stroke = new SolidColorBrush(color);
-            polyline.StrokeThickness = (R2.Width + R2.Height) * 0.01;
-            PointCollection pColl = new PointCollection(points);
-            polyline.Points = pColl;
-            R2.Children.Add(polyline);
+            if(!squaresFunctions.ContainsKey(description) && !functions.ContainsKey(description))
+            {
+                Polyline polyline = new Polyline();
+                polyline.Stroke = new SolidColorBrush(color);
+                polyline.StrokeThickness = (R2.Width + R2.Height) * 0.005;
+                PointCollection pColl = new PointCollection(points);
+                polyline.Points = pColl;
 
-            var nwFour = new Four(polyline.Points.Min(p => p.X), polyline.Points.Max(p => p.Y),
-                polyline.Points.Min(p => p.Y), polyline.Points.Max(p => p.Y));
 
-            if(squaresFunctions.ContainsKey(description))
-
-            squaresFunctions.Add(description, nwFour);
-            if(ChangeMinMax(ref minX, ref maxX, ref minY, ref maxY,
-                nwFour.minX, nwFour.maxX, nwFour.minY, nwFour.maxY))
-                GoToCenter();
-
-            
-
-            Label lbl = new Label();
-            lbl.Content = description;
-            lbl.Foreground = new SolidColorBrush(color);
-            Descriptions.Children.Add(lbl);
-
-            functions.Add(description, new Tuple<Polyline, Label>(polyline, lbl));
-
+                var nwFour = new Four(polyline.Points.Min(p => p.X), polyline.Points.Max(p => p.Y),
+                    polyline.Points.Min(p => p.Y), polyline.Points.Max(p => p.Y));
            
+                squaresFunctions.Add(description, nwFour);
+
+                RecalculateSquare();
+                GoToCenter();
+                DrowCoordinates();
+
+                R2.Children.Add(polyline);
+
+                Label lbl = new Label();
+                lbl.Content = description;
+                lbl.Foreground = new SolidColorBrush(color);
+                Descriptions.Children.Add(lbl);
+
+                functions.Add(description, new Tuple<Polyline, Label>(polyline, lbl));
+            }
         }
 
         public void AddPoint(Point point, string description)
         {
-            Tuple<Polyline, Label> function = null;
-            functions.TryGetValue(description, out function);
-            if (function != null)
+            if(squaresFunctions.ContainsKey(description) && functions.ContainsKey(description))
             {
-                function.Item1.Points.Add(point);
+                Tuple<Polyline, Label> function = null;
+                functions.TryGetValue(description, out function);
+                if (function != null)
+                {
+                    function.Item1.Points.Add(point);
+                }
+
+                var fSqr = squaresFunctions[description];
+                ChangeMinMax(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
+                    point.X, point.X, point.Y, point.Y);
+                if (ChangeMinMax(ref minX, ref maxX, ref minY, ref maxY,
+                    fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY))
+                {
+                    GoToCenter();
+                    DrowCoordinates();
+                }
+                    
             }
 
-            var fSqr = squaresFunctions[description];
-            ChangeMinMax(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
-                point.X, point.X, point.Y, point.Y);
-            if(ChangeMinMax(ref minX, ref maxX, ref minY, ref maxY,
-                fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY))
-                GoToCenter();         
+         
         }
 
         public void RemoveFunction(string description)
@@ -157,7 +166,13 @@ namespace WpfGraficApplication
             {
                 Canvas.SetLeft(func.Value.Item1, -minX);
                 Canvas.SetTop(func.Value.Item1, -minY);
-                func.Value.Item1.StrokeThickness = (R2.Width + R2.Height) * 0.01;
+                func.Value.Item1.StrokeThickness = (R2.Width + R2.Height) * 0.005;
+            }
+            foreach(var line in coordLines)
+            {
+                Canvas.SetLeft(line, -minX);
+                Canvas.SetTop(line, -minY);
+                line.StrokeThickness = (R2.Width + R2.Height) * 0.001;
             }
         }
 
@@ -181,7 +196,7 @@ namespace WpfGraficApplication
             xLine.Y2 = (maxY - minY)/2;
             xLine.Stroke = new SolidColorBrush(Colors.Black);
             xLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 0.2 :
-                (R2.Width + R2.Height) * 0.01;
+                (R2.Width + R2.Height) * 0.001;
 
             var yLine = new Line();
             yLine.X1 = (maxX - minX) / 2;
@@ -190,7 +205,7 @@ namespace WpfGraficApplication
             yLine.Y2 = maxY - minY;
             yLine.Stroke = new SolidColorBrush(Colors.Black);
             yLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 0.2 : 
-                (R2.Width + R2.Height) * 0.01;
+                (R2.Width + R2.Height) * 0.001;
 
             coordLines.Add(xLine);
             coordLines.Add(yLine);
