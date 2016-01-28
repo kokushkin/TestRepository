@@ -50,10 +50,11 @@ namespace WpfGraficApplication
         public GraficControl()
         {
             InitializeComponent();
-            minX = 100;
+            minX = 0;
             maxX = 100;
-            minY = 100;
+            minY = 0;
             maxY = 100;
+            DrowCoordinates();
         }
 
 
@@ -103,9 +104,7 @@ namespace WpfGraficApplication
                 point.X, point.X, point.Y, point.Y);
             if(ChangeMinMax(ref minX, ref maxX, ref minY, ref maxY,
                 fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY))
-                GoToCenter();
-
-            
+                GoToCenter();         
         }
 
         public void RemoveFunction(string description)
@@ -170,19 +169,32 @@ namespace WpfGraficApplication
 
         void DrowCoordinates()
         {
+            foreach (var line in coordLines)
+                R2.Children.Remove(line);
+
             var xLine = new Line();
             xLine.X1 = 0;
             xLine.X2 = maxX - minX;
             xLine.Y1 = (maxY - minY)/2;
             xLine.Y2 = (maxY - minY)/2;
             xLine.Stroke = new SolidColorBrush(Colors.Black);
-            xLine.StrokeThickness = (R2.Width + R2.Height) * 0.01;
+            xLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 1 :
+                (R2.Width + R2.Height) * 0.01;
 
             var yLine = new Line();
             yLine.X1 = (maxX - minX) / 2;
             yLine.X2 = (maxX - minX) / 2;
             yLine.Y1 = 0;
             yLine.Y2 = maxY - minY;
+            yLine.Stroke = new SolidColorBrush(Colors.Black);
+            yLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 1 : 
+                (R2.Width + R2.Height) * 0.01;
+
+            coordLines.Add(xLine);
+            coordLines.Add(yLine);
+
+            R2.Children.Add(xLine);
+            R2.Children.Add(yLine);
         }
 
     }

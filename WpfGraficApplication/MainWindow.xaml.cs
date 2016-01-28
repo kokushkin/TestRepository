@@ -60,7 +60,7 @@ namespace WpfGraficApplication
             Grafic.AddFunction(PointArray, Colors.Green, "Green line");
             countTimer.Tick += new EventHandler((sender1, e1) => AddPoint());
             countTimer.Interval = new TimeSpan(0, 0, 3);
-            //countTimer.Start();
+            countTimer.Start();
 
             Point[] PointArray1 = new Point[1];
             PointArray1[0] = new Point(x1, y1);
