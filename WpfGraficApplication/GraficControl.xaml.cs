@@ -54,6 +54,8 @@ namespace WpfGraficApplication
             maxX = 100;
             minY = 0;
             maxY = 100;
+            R2.Width = maxX - minX;
+            R2.Height = maxY - minY;
             DrowCoordinates();
         }
 
@@ -178,7 +180,7 @@ namespace WpfGraficApplication
             xLine.Y1 = (maxY - minY)/2;
             xLine.Y2 = (maxY - minY)/2;
             xLine.Stroke = new SolidColorBrush(Colors.Black);
-            xLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 1 :
+            xLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 0.2 :
                 (R2.Width + R2.Height) * 0.01;
 
             var yLine = new Line();
@@ -187,7 +189,7 @@ namespace WpfGraficApplication
             yLine.Y1 = 0;
             yLine.Y2 = maxY - minY;
             yLine.Stroke = new SolidColorBrush(Colors.Black);
-            yLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 1 : 
+            yLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 0.2 : 
                 (R2.Width + R2.Height) * 0.01;
 
             coordLines.Add(xLine);
