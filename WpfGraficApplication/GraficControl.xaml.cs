@@ -40,6 +40,8 @@ namespace WpfGraficApplication
 
         private Dictionary<string, Four> squaresFunctions = new Dictionary<string, Four>();
 
+        private List<Line> coordLines = new List<Line>();
+
         public double minX;
         public double maxX;
         public double minY;
@@ -48,21 +50,27 @@ namespace WpfGraficApplication
         public GraficControl()
         {
             InitializeComponent();
-
+            minX = 100;
+            maxX = 100;
+            minY = 100;
+            maxY = 100;
         }
+
+
 
         public void AddFunction(IEnumerable<Point> points, Color color, string description)
         {
             Polyline polyline = new Polyline();
             polyline.Stroke = new SolidColorBrush(color);
-            polyline.StrokeThickness = 1;
+            polyline.StrokeThickness = (R2.Width + R2.Height) * 0.01;
             PointCollection pColl = new PointCollection(points);
             polyline.Points = pColl;
             R2.Children.Add(polyline);
 
-            //Canvas.SetLeft(polyline, R2.Width / 2);
             var nwFour = new Four(polyline.Points.Min(p => p.X), polyline.Points.Max(p => p.Y),
                 polyline.Points.Min(p => p.Y), polyline.Points.Max(p => p.Y));
+
+            if(squaresFunctions.ContainsKey(description))
 
             squaresFunctions.Add(description, nwFour);
             if(ChangeMinMax(ref minX, ref maxX, ref minY, ref maxY,
@@ -78,15 +86,6 @@ namespace WpfGraficApplication
 
             functions.Add(description, new Tuple<Polyline, Label>(polyline, lbl));
 
-
-            //minX = points.Min(p => p.X) < mi
-
-
-
-            //var maxX = points.Max(p => p.X);
-            //var maxY = points.Max(p => p.Y);
-            //R2.Width = maxX;
-            //R2.Height = maxY;
            
         }
 
@@ -99,10 +98,6 @@ namespace WpfGraficApplication
                 function.Item1.Points.Add(point);
             }
 
-            //if (R2.Width < point.X)
-            //    R2.Width = point.X;
-            //if (R2.Height < point.Y)
-            //    R2.Height = point.Y;
             var fSqr = squaresFunctions[description];
             ChangeMinMax(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
                 point.X, point.X, point.Y, point.Y);
@@ -155,13 +150,40 @@ namespace WpfGraficApplication
 
         void GoToCenter()
         {
+            R2.Width = maxX - minX;
+            R2.Height = maxY - minY;
             foreach(var func in functions)
             {
                 Canvas.SetLeft(func.Value.Item1, -minX);
                 Canvas.SetTop(func.Value.Item1, -minY);
+                func.Value.Item1.StrokeThickness = (R2.Width + R2.Height) * 0.01;
             }
-            R2.Width = maxX - minX;
-            R2.Height = maxY - minY;
         }
+
+        void RecalculateSquare()
+        {
+            minX = squaresFunctions.Min(sq => sq.Value.minX);
+            maxX = squaresFunctions.Max(sq => sq.Value.maxX);
+            minY = squaresFunctions.Min(sq => sq.Value.minY);
+            maxY = squaresFunctions.Max(sq => sq.Value.maxY);
+        }
+
+        void DrowCoordinates()
+        {
+            var xLine = new Line();
+            xLine.X1 = 0;
+            xLine.X2 = maxX - minX;
+            xLine.Y1 = (maxY - minY)/2;
+            xLine.Y2 = (maxY - minY)/2;
+            xLine.Stroke = new SolidColorBrush(Colors.Black);
+            xLine.StrokeThickness = (R2.Width + R2.Height) * 0.01;
+
+            var yLine = new Line();
+            yLine.X1 = (maxX - minX) / 2;
+            yLine.X2 = (maxX - minX) / 2;
+            yLine.Y1 = 0;
+            yLine.Y2 = maxY - minY;
+        }
+
     }
 }

@@ -36,18 +36,7 @@ namespace WpfGraficApplication
         {
             InitializeComponent();
 
-            Point[] PointArray = new Point[1];
-            PointArray[0] = new Point(x, y);
 
-            Grafic.AddFunction(PointArray, Colors.Green, "Green line");
-            countTimer.Tick += new EventHandler((sender, e) => AddPoint());
-            countTimer.Interval = new TimeSpan(0, 0, 3);
-            countTimer.Start();
-
-            Point[] PointArray1 = new Point[1];
-            PointArray1[0] = new Point(x1, y1);
-
-            Grafic.AddFunction(PointArray1, Colors.Red, "Red line");
 
 
         }
@@ -61,6 +50,28 @@ namespace WpfGraficApplication
             x1 += 10;
             y1 += -20 + rnd.Next(40);
             Grafic.AddPoint(new Point(x1, y1), "Red line");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Point[] PointArray = new Point[1];
+            PointArray[0] = new Point(x, y);
+
+            Grafic.AddFunction(PointArray, Colors.Green, "Green line");
+            countTimer.Tick += new EventHandler((sender1, e1) => AddPoint());
+            countTimer.Interval = new TimeSpan(0, 0, 3);
+            //countTimer.Start();
+
+            Point[] PointArray1 = new Point[1];
+            PointArray1[0] = new Point(x1, y1);
+
+            Grafic.AddFunction(PointArray1, Colors.Red, "Red line");
+
+
+            Point[] PointArray2 = new Point[2];
+            PointArray2[0] = new Point(0, 0);
+            PointArray2[0] = new Point(1, 1);
+            Grafic.AddFunction(PointArray2, Colors.Black, "Black line");
         }
     }
 }

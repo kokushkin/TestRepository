@@ -11,9 +11,9 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition  Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+        <!--Height="{Binding ElementName=Vb, Path=Height}" Width="{Binding ElementName=Vb, Path=Width}"-->
 
-        <Viewbox Stretch="Fill">
+        <Viewbox Name="Vb" Stretch="Fill">
             <Canvas Name="R2"  Background="AliceBlue" >
                 <Canvas.RenderTransformOrigin>
                     <Point X="0" Y="0.5"/>

@@ -13,5 +13,6 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <myCtrls:GraficControl x:Name="Grafic"></myCtrls:GraficControl>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="54,85,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>
