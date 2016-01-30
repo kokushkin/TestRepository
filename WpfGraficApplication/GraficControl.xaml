@@ -12,17 +12,19 @@
             <ColumnDefinition  Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!--Height="{Binding ElementName=Vb, Path=Height}" Width="{Binding ElementName=Vb, Path=Width}"-->
+        <!--<ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">-->
+            <Viewbox Name="Vb" Stretch="Fill">
+                <Canvas Name="R2"  Background="White" >
+                    <Canvas.RenderTransformOrigin>
+                        <Point X="0" Y="0.5"/>
+                    </Canvas.RenderTransformOrigin>
+                    <Canvas.RenderTransform>
+                        <ScaleTransform ScaleY="-1"></ScaleTransform>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Viewbox>
+        <!--</ScrollViewer>-->
 
-        <Viewbox Name="Vb" Stretch="Fill">
-            <Canvas Name="R2"  Background="White" >
-                <Canvas.RenderTransformOrigin>
-                    <Point X="0" Y="0.5"/>
-                </Canvas.RenderTransformOrigin>
-                <Canvas.RenderTransform>
-                    <ScaleTransform ScaleY="-1"></ScaleTransform>
-                </Canvas.RenderTransform>
-            </Canvas>
-        </Viewbox>
 
         <StackPanel Orientation="Vertical"  Grid.Column="1" Name="Descriptions">
             <Label>Description functions:</Label>

@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWidthChange", "..\TestW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1TestRelativeGrafics", "..\WpfApplication1TestRelativeGrafics\WpfApplication1TestRelativeGrafics.csproj", "{F5A921E1-E92D-4E00-83F3-109407976143}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "..\WpfApplication1\WpfApplication1.csproj", "{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{F5A921E1-E92D-4E00-83F3-109407976143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5A921E1-E92D-4E00-83F3-109407976143}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5A921E1-E92D-4E00-83F3-109407976143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
