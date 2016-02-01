@@ -67,7 +67,7 @@ namespace WpfGraficApplication
             {
                 Polyline polyline = new Polyline();
                 polyline.Stroke = new SolidColorBrush(color);
-                polyline.StrokeThickness = (R2.Width + R2.Height) * 0.005;
+                polyline.StrokeThickness = CalculateThickness(0.005, R2.Width, R2.Height);
                 PointCollection pColl = new PointCollection(points);
                 polyline.Points = pColl;
 
@@ -131,7 +131,7 @@ namespace WpfGraficApplication
         }
 
 
-        bool ChangeMinMax(ref double oldMinX, ref double oldMaxX,ref double oldMinY,ref double oldMaxY, 
+        static bool ChangeMinMax(ref double oldMinX, ref double oldMaxX,ref double oldMinY,ref double oldMaxY, 
             double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
         {
             bool flag = false;
@@ -166,13 +166,13 @@ namespace WpfGraficApplication
             {
                 Canvas.SetLeft(func.Value.Item1, -minX);
                 Canvas.SetTop(func.Value.Item1, -minY);
-                func.Value.Item1.StrokeThickness = (R2.Width + R2.Height) * 0.005;
+                func.Value.Item1.StrokeThickness = CalculateThickness(0.005, R2.Width, R2.Height);
             }
             foreach(var line in coordLines)
             {
                 Canvas.SetLeft(line, -minX);
                 Canvas.SetTop(line, -minY);
-                line.StrokeThickness = (R2.Width + R2.Height) * 0.001;
+                line.StrokeThickness = CalculateThickness(0.001, R2.Width, R2.Height);
             }
         }
 
@@ -196,7 +196,7 @@ namespace WpfGraficApplication
             xLine.Y2 = (maxY - minY)/2;
             xLine.Stroke = new SolidColorBrush(Colors.Black);
             xLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 0.2 :
-                (R2.Width + R2.Height) * 0.001;
+                CalculateThickness(0.001, R2.Width, R2.Height);
 
             var yLine = new Line();
             yLine.X1 = (maxX - minX) / 2;
@@ -204,8 +204,8 @@ namespace WpfGraficApplication
             yLine.Y1 = 0;
             yLine.Y2 = maxY - minY;
             yLine.Stroke = new SolidColorBrush(Colors.Black);
-            yLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 0.2 : 
-                (R2.Width + R2.Height) * 0.001;
+            yLine.StrokeThickness = (double.IsNaN(R2.Width) || double.IsNaN(R2.Height)) ? 0.2 :
+                CalculateThickness(0.001, R2.Width, R2.Height);
 
             coordLines.Add(xLine);
             coordLines.Add(yLine);
@@ -214,5 +214,12 @@ namespace WpfGraficApplication
             R2.Children.Add(yLine);
         }
 
+
+        static double CalculateThickness(double coef, double width, double height)
+        {
+            var coef1 = width / height < 1 ? width / height : height / width;
+
+            return width * coef1 * coef + height * coef1 * coef;
+        }
     }
 }

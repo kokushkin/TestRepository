@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1TestRelative
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestQueueConsoleApplication", "..\TestQueueConsoleApplication\TestQueueConsoleApplication.csproj", "{9F79BC3E-177D-431B-A21C-0B126C182A05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "..\WpfApplication1\WpfApplication1.csproj", "{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDateTimeToDictionaryConsoleApplication", "TestDateTimeToDictionaryConsoleApplication\TestDateTimeToDictionaryConsoleApplication.csproj", "{3B1EBBA1-05B8-40A2-A033-28118B590D3E}"
 EndProject
 Global
@@ -111,6 +113,10 @@ Global
 		{3B1EBBA1-05B8-40A2-A033-28118B590D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B1EBBA1-05B8-40A2-A033-28118B590D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B1EBBA1-05B8-40A2-A033-28118B590D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1752FD-C8D7-4F0E-BEBC-A4490E6B234A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

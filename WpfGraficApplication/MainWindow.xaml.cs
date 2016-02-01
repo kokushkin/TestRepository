@@ -44,11 +44,11 @@ namespace WpfGraficApplication
         void AddPoint()
         {
             x += 10;
-            y += -10 + rnd.Next(20);
+            y += -10 + rnd.Next(200);
             Grafic.AddPoint(new Point(x, y), "Green line");
 
             x1 += 10;
-            y1 += -20 + rnd.Next(40);
+            y1 += -20 + rnd.Next(400);
             Grafic.AddPoint(new Point(x1, y1), "Red line");
         }
 
