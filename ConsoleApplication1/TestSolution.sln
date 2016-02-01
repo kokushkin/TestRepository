@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1.csproj", "{41E74646-D52C-46D7-9939-BBBF8D664BCB}"
 EndProject
@@ -32,6 +32,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWidthChange", "..\TestWidthChange\TestWidthChange.csproj", "{4BA4A673-106E-4E53-99AE-5F0592AFFB1D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1TestRelativeGrafics", "..\WpfApplication1TestRelativeGrafics\WpfApplication1TestRelativeGrafics.csproj", "{F5A921E1-E92D-4E00-83F3-109407976143}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestQueueConsoleApplication", "..\TestQueueConsoleApplication\TestQueueConsoleApplication.csproj", "{9F79BC3E-177D-431B-A21C-0B126C182A05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDateTimeToDictionaryConsoleApplication", "TestDateTimeToDictionaryConsoleApplication\TestDateTimeToDictionaryConsoleApplication.csproj", "{3B1EBBA1-05B8-40A2-A033-28118B590D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +103,14 @@ Global
 		{F5A921E1-E92D-4E00-83F3-109407976143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5A921E1-E92D-4E00-83F3-109407976143}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5A921E1-E92D-4E00-83F3-109407976143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F79BC3E-177D-431B-A21C-0B126C182A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F79BC3E-177D-431B-A21C-0B126C182A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F79BC3E-177D-431B-A21C-0B126C182A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F79BC3E-177D-431B-A21C-0B126C182A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1EBBA1-05B8-40A2-A033-28118B590D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1EBBA1-05B8-40A2-A033-28118B590D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1EBBA1-05B8-40A2-A033-28118B590D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1EBBA1-05B8-40A2-A033-28118B590D3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
