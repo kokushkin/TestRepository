@@ -1,16 +1,32 @@
 ﻿<Window x:Class="WpfTestGrafic.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:databinding="clr-namespace:WpfTestGrafic"
         Title="MainWindow" Height="409.701" Width="533.954">
+    <Window.Resources>
+        <databinding:ScaleConverter x:Key="ScConverter"></databinding:ScaleConverter>
+    </Window.Resources>
     <Grid x:Name="grid">
         <Grid.Resources>
-            <ScaleTransform x:Key="transform"
-                        ScaleX="{Binding ActualWidth, ElementName=grid}"
-                        ScaleY="{Binding ActualHeight, ElementName=grid}"/>
+            <ScaleTransform x:Key="transform">
+                            <ScaleTransform.ScaleX>
+                                <MultiBinding Converter="{StaticResource ScConverter}">
+                                     <Binding Path="ActualWidth"></Binding>
+                                     <Binding Path="ActualWidth"></Binding>
+                                </MultiBinding>
+                            </ScaleTransform.ScaleX>
+                            <ScaleTransform.ScaleY>
+                                <MultiBinding Converter="{StaticResource ScConverter}">
+                                    <Binding Path="ActualHeight"></Binding>
+                                    <Binding Path="ActualHeight"></Binding>
+                                </MultiBinding>
+                            </ScaleTransform.ScaleY>
+            </ScaleTransform>
+
         </Grid.Resources>
         <Path Stroke="Black" StrokeThickness="1">
             <Path.Data>
-                <LineGeometry StartPoint="0.1,0.1" EndPoint="0.9,0.9"
+                <LineGeometry StartPoint="500,400" EndPoint="0,10"
                           Transform="{StaticResource transform}"/>
             </Path.Data>
         </Path>

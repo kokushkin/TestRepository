@@ -21,7 +21,7 @@ namespace WpfTestGrafic
             return actualSize / maxGraficSize;
         }
 
-        public object ConvertBack(object[] values, Type targetType, object parameter,
+        public object[] ConvertBack(object values, Type[] targetType, object parameter,
             System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
