@@ -11,14 +11,14 @@
             <ScaleTransform x:Key="transform">
                             <ScaleTransform.ScaleX>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
-                                     <Binding Path="ActualWidth"></Binding>
-                                     <Binding Path="ActualWidth"></Binding>
+                                    <Binding Path="ActualWidth" ElementName="grid"></Binding>
+                                    <Binding Path="ActualWidth" ElementName="grid" ></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleX>
                             <ScaleTransform.ScaleY>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
-                                    <Binding Path="ActualHeight"></Binding>
-                                    <Binding Path="ActualHeight"></Binding>
+                                    <Binding Path="ActualHeight" ElementName="grid"></Binding>
+                                    <Binding Path="ActualHeight" ElementName="grid"></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleY>
             </ScaleTransform>

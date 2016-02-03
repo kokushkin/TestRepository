@@ -15,10 +15,18 @@ namespace WpfTestGrafic
         public object Convert(object[] values, Type targetType, object parameter,
             System.Globalization.CultureInfo culture)
         {
-            double actualSize = (double)values[0];
-            double maxGraficSize = (double)values[1];
+            try
+            {
+                double actualSize = (double)values[0];
+                double maxGraficSize = (double)values[1];
 
-            return actualSize / maxGraficSize;
+                return actualSize / maxGraficSize;
+            }
+            catch(Exception ex)
+            {
+                return 1;
+            }
+ 
         }
 
         public object[] ConvertBack(object values, Type[] targetType, object parameter,
