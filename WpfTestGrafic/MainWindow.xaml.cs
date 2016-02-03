@@ -20,8 +20,16 @@ namespace WpfTestGrafic
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public double MinX { get; set; }
+        public double MaxX { get; set; }
+        public double MinY { get; set; }
+        public double MaxY { get; set; }
+
         public MainWindow()
         {
+            MinX = 10;
+
             InitializeComponent();
         }
     }
