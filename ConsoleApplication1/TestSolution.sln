@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1.csproj", "{41E74646-D52C-46D7-9939-BBBF8D664BCB}"
 EndProject
@@ -48,6 +48,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationCancelForToken", "ConsoleApplicationCancelForToken\ConsoleApplicationCancelForToken.csproj", "{AA38D3D8-0010-4F55-BAFE-AD72FAA7F87C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestGrafic", "..\WpfTestGrafic\WpfTestGrafic.csproj", "{87454BAD-311B-4D56-BB49-62A5DBDE38BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelExceptionTestProgect", "..\ParallelExceptionTestProgect\ParallelExceptionTestProgect.csproj", "{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
