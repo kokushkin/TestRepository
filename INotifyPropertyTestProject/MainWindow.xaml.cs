@@ -16,12 +16,15 @@ using System.Windows.Shapes;
 
 namespace INotifyPropertyTestProject
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
-    {
 
+    public class TextSaver : INotifyPropertyChanged
+    {
+        public string TextValue
+        {
+            get;
+
+            set;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -32,23 +35,31 @@ namespace INotifyPropertyTestProject
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+    }
 
-        public string TextValue 
-        { get;
-            
-          set; }
+
+
+
+    /// <summary>
+    /// Логика взаимодействия для MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+
+        public TextSaver TxtSvr { get; set; }
 
         public MainWindow()
         {
+            TxtSvr = new TextSaver();
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int countClick = Convert.ToInt32(TextValue);
+            int countClick = Convert.ToInt32(TxtSvr.TextValue);
             countClick++;
-            TextValue = countClick.ToString();
-            NotifyPropertyChanged("TextValue");
+            TxtSvr.TextValue = countClick.ToString();
+            TxtSvr.NotifyPropertyChanged("TextValue");
         }
     }
 }
