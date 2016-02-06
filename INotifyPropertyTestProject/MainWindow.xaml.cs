@@ -60,6 +60,7 @@ namespace INotifyPropertyTestProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string StringBuffer { get; set; }
 
         public TextSaver TxtSvr { get; set; }
 

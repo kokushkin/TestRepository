@@ -1,10 +1,23 @@
 ﻿<Window x:Class="INotifyPropertyTestProject.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:npropPrd="clr-namespace:INotifyPropertyTestProject"
         Title="MainWindow" Height="350" Width="525" DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <Grid>
+
+    <Window.Resources>
+        <npropPrd:Save2Converter x:Key="S2Converter"></npropPrd:Save2Converter>
+    </Window.Resources>  
+
+        <Grid>
         <StackPanel Orientation="Vertical" Margin="5">
-            <TextBox MinHeight="200" Margin="5" Text="{Binding Path=TxtSvr.Dic[TestKey].TextValue}"></TextBox>
+            <TextBox MinHeight="200" Margin="5" >
+                <TextBox.Text>
+                    <MultiBinding Converter="{StaticResource S2Converter}">
+                        <Binding Path="StringBuffer" FallbackValue="1" ></Binding>
+                        <Binding Path="TxtSvr.Dic[TestKey].TextValue"></Binding>
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
             <Button HorizontalAlignment="Right" Margin="5" Padding="3" Click="Button_Click">Click</Button>
         </StackPanel>
     </Grid>
