@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestGrafic", "..\WpfTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelExceptionTestProgect", "..\ParallelExceptionTestProgect\ParallelExceptionTestProgect.csproj", "{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INotifyPropertyTestProject", "..\INotifyPropertyTestProject\INotifyPropertyTestProject.csproj", "{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBE8E7EC-B3A4-4782-B9E3-4FA83302B501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
