@@ -17,8 +17,19 @@ using System.Windows.Shapes;
 namespace INotifyPropertyTestProject
 {
 
-    public class TestItem
+    public class TestItem : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         public string TextValue
         {
             get;
@@ -28,7 +39,7 @@ namespace INotifyPropertyTestProject
     }
 
 
-    public class TextSaver : INotifyPropertyChanged
+    public class TextSaver
     {
 
         public Dictionary<string, TestItem> Dic { get; set; }
@@ -41,18 +52,7 @@ namespace INotifyPropertyTestProject
             Dic["TestKey"] = tItm;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(String propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
-
-
 
 
     /// <summary>
@@ -74,7 +74,7 @@ namespace INotifyPropertyTestProject
             int countClick = Convert.ToInt32(TxtSvr.Dic["TestKey"].TextValue);
             countClick++;
             TxtSvr.Dic["TestKey"].TextValue = countClick.ToString();
-            TxtSvr.NotifyPropertyChanged("Dic[TestKey].TextValue");
+            TxtSvr.Dic["TestKey"].NotifyPropertyChanged("TextValue");
         }
     }
 }
