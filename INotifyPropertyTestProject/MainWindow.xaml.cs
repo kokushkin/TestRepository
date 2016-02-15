@@ -64,6 +64,8 @@ namespace INotifyPropertyTestProject
 
         public TextSaver TxtSvr { get; set; }
 
+        MultiBindingExpression mbindingExpression = null;
+
         public MainWindow()
         {
             TxtSvr = new TextSaver();
@@ -77,5 +79,19 @@ namespace INotifyPropertyTestProject
             TxtSvr.Dic["TestKey"].TextValue = countClick.ToString();
             TxtSvr.Dic["TestKey"].NotifyPropertyChanged("TextValue");
         }
+
+        private void Binding_TargetUpdated(object sender, DataTransferEventArgs e)
+        {
+            string txt = TestTextBox.Text;
+            mbindingExpression =
+                BindingOperations.GetMultiBindingExpression(e.TargetObject, e.Property);
+            mbindingExpression.UpdateSource();
+            
+            foreach (var bind in mbindingExpression.BindingExpressions)
+                bind.UpdateSource();
+        }
+
+
+
     }
 }
