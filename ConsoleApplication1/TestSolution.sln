@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelExceptionTestProgec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INotifyPropertyTestProject", "..\INotifyPropertyTestProject\INotifyPropertyTestProject.csproj", "{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateSourceExperiment", "..\UpdateSourceExperiment\UpdateSourceExperiment.csproj", "{71F1F2C4-6ADF-4234-8950-5796503A6FD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2D89E11-4011-4623-BB21-D0D2E4FC18B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F1F2C4-6ADF-4234-8950-5796503A6FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F1F2C4-6ADF-4234-8950-5796503A6FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F1F2C4-6ADF-4234-8950-5796503A6FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F1F2C4-6ADF-4234-8950-5796503A6FD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
