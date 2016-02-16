@@ -39,7 +39,7 @@ namespace INotifyPropertyTestProject
     }
 
 
-    public class TextSaver
+    public class TextSaver : UIElement
     {
 
         public Dictionary<string, TestItem> Dic { get; set; }
