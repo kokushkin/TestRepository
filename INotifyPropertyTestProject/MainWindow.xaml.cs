@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace INotifyPropertyTestProject
+namespace UpdateSourceExperiment
 {
 
     public class TestItem : INotifyPropertyChanged

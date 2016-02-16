@@ -41,7 +41,7 @@ namespace UpdateSourceExperiment
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int countClick = Convert.ToInt32(StringBuffer);
+            int countClick = StringBuffer != "" ? Convert.ToInt32(StringBuffer) : 0;
             countClick++;
             StringBuffer = countClick.ToString();
             NotifyPropertyChanged("StringBuffer");

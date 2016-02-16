@@ -1,12 +1,18 @@
 ﻿<Window x:Class="UpdateSourceExperiment.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:npropPrd="clr-namespace:UpdateSourceExperiment"
         Title="MainWindow" Height="350" Width="525" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Window.Resources>
+        <npropPrd:SimpleConverter x:Key="SimpleConverter"></npropPrd:SimpleConverter>
+    </Window.Resources>
+
     <Grid>
         <StackPanel Orientation="Vertical" Margin="5">
-            <TextBox MinHeight="200" Margin="5"  Name="TestTextBox" TargetUpdated="Binding_TargetUpdated" >
+            <TextBox MinHeight="200" Margin="5"  TargetUpdated="Binding_TargetUpdated" >
                 <TextBox.Text>
-                    <Binding Path="StringBuffer" NotifyOnTargetUpdated="True"></Binding>
+                    <Binding Path="StringBuffer" Converter="{StaticResource SimpleConverter}" NotifyOnTargetUpdated="True"></Binding>
                 </TextBox.Text>
             </TextBox>
             <Button HorizontalAlignment="Right" Margin="5" Padding="3" Click="Button_Click">Click</Button>
