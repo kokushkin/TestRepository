@@ -22,6 +22,8 @@ namespace UpdateSourceExperiment
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
 
+        BindingExpression bexpr = default(BindingExpression);
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged(String propertyName = "")
@@ -30,6 +32,8 @@ namespace UpdateSourceExperiment
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+            if (bexpr != default(BindingExpression))
+                bexpr.UpdateSource();
         }
 
         public string StringBuffer { get; set; }
@@ -49,12 +53,12 @@ namespace UpdateSourceExperiment
 
         private void Binding_TargetUpdated(object sender, DataTransferEventArgs e)
         {
-            var bindingExpression =
+            bexpr =
                 BindingOperations.GetBindingExpression(e.TargetObject, e.Property);
 
 
 
-            bindingExpression.UpdateSource();
+            
         }
     }
 }
