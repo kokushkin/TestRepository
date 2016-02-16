@@ -46,5 +46,15 @@ namespace UpdateSourceExperiment
             StringBuffer = countClick.ToString();
             NotifyPropertyChanged("StringBuffer");
         }
+
+        private void Binding_TargetUpdated(object sender, DataTransferEventArgs e)
+        {
+            var bindingExpression =
+                BindingOperations.GetBindingExpression(e.TargetObject, e.Property);
+
+
+
+            bindingExpression.UpdateSource();
+        }
     }
 }

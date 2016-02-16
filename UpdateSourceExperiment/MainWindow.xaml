@@ -4,9 +4,9 @@
         Title="MainWindow" Height="350" Width="525" DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="5">
-            <TextBox MinHeight="200" Margin="5"  Name="TestTextBox"  >
-                <TextBox.Text >
-                    <Binding Path="StringBuffer"></Binding>
+            <TextBox MinHeight="200" Margin="5"  Name="TestTextBox" TargetUpdated="Binding_TargetUpdated" >
+                <TextBox.Text>
+                    <Binding Path="StringBuffer" NotifyOnTargetUpdated="True"></Binding>
                 </TextBox.Text>
             </TextBox>
             <Button HorizontalAlignment="Right" Margin="5" Padding="3" Click="Button_Click">Click</Button>
