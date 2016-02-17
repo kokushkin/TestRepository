@@ -6,14 +6,11 @@
 
     <Window.Resources>
         <npropPrd:Save2Converter x:Key="S2Converter"></npropPrd:Save2Converter>
-        <!--<Style x:Key="SaveBnd">
-            <EventSetter Event="Binding.TargetUpdated" Handler="OnTargetUpdated"></EventSetter>
-        </Style>-->
     </Window.Resources>  
 
         <Grid>
         <StackPanel Orientation="Vertical" Margin="5">
-            <TextBox MinHeight="200" Margin="5" TargetUpdated="Binding_TargetUpdated" Name="TestTextBox" >
+            <TextBox MinHeight="200" Margin="5" TargetUpdated="Binding_TargetUpdated">
                 <TextBox.Text >
                     <MultiBinding Converter="{StaticResource S2Converter}" NotifyOnTargetUpdated="True">
                         <Binding Path="StringBuffer" ></Binding>                      
