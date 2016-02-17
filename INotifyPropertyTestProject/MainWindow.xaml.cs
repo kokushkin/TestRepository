@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UpdateSourceExperiment
+namespace INotifyPropertyTestProject
 {
 
     public class TestItem : INotifyPropertyChanged
@@ -60,6 +60,9 @@ namespace UpdateSourceExperiment
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Queue<DataTransferEventArgs> QueueForUpdate = new Queue<DataTransferEventArgs>();
+
         public string StringBuffer { get; set; }
 
         public TextSaver TxtSvr { get; set; }
@@ -78,17 +81,18 @@ namespace UpdateSourceExperiment
             countClick++;
             TxtSvr.Dic["TestKey"].TextValue = countClick.ToString();
             TxtSvr.Dic["TestKey"].NotifyPropertyChanged("TextValue");
+            while(QueueForUpdate.Count != 0)
+            {
+                var dtea = QueueForUpdate.Dequeue();
+                mbindingExpression =
+                       BindingOperations.GetMultiBindingExpression(dtea.TargetObject, dtea.Property);
+                mbindingExpression.UpdateSource();
+            }
         }
 
         private void Binding_TargetUpdated(object sender, DataTransferEventArgs e)
         {
-            string txt = TestTextBox.Text;
-            mbindingExpression =
-                BindingOperations.GetMultiBindingExpression(e.TargetObject, e.Property);
-            mbindingExpression.UpdateSource();
-            
-            foreach (var bind in mbindingExpression.BindingExpressions)
-                bind.UpdateSource();
+            QueueForUpdate.Enqueue(e);
         }
 
 
