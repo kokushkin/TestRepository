@@ -31,25 +31,30 @@ namespace TestTypeSerialiser
             var obj = new A {Sub = new SubA {Name = "Vasia", Old = 40}, Id = 23213};
 
             var DataSerializer = new XmlSerializer(typeof(A));
-            var TypeSerializer = new XmlSerializer(typeof(Type));
+            var TypeSerializer = new XmlSerializer(typeof(string));
+
+            Type tpA = typeof(A);
+            string TypeName = tpA.AssemblyQualifiedName;
 
             using(MemoryStream mStream = new MemoryStream())
             {
-                TypeSerializer.Serialize(mStream, typeof(A));
+                TypeSerializer.Serialize(mStream, TypeName);
                 DataSerializer.Serialize(mStream, obj);
                 
-                using(FileStream fStream = new FileStream("test.txt", FileMode.Create))
-                {
-                    File.WriteAllBytes("test.txt", mStream.ToArray());
-                }
+                File.WriteAllBytes("test.txt", mStream.ToArray());
             }
 
             byte[] bytes = File.ReadAllBytes("test.txt");
             using(MemoryStream mStream = new MemoryStream(bytes))
             {
-                Type tp = (Type)TypeSerializer.Deserialize(mStream);
-                var nwDataSerializer = new XmlSerializer(tp);
-                var desObj = nwDataSerializer.Deserialize(mStream);
+                mStream.Seek(0, SeekOrigin.Begin);
+                string tpNm = (string)TypeSerializer.Deserialize(mStream);
+                var tp = Type.GetType(tpNm);
+                if(tp != default(Type))
+                {
+                    var nwDataSerializer = new XmlSerializer(tp);
+                    var desObj = nwDataSerializer.Deserialize(mStream);
+                }              
             }
 
 
