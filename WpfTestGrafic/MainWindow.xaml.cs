@@ -26,9 +26,18 @@ namespace WpfTestGrafic
         public double MinY { get; set; }
         public double MaxY { get; set; }
 
+        public double MaximumWidth { get; set; }
+        public double MaximumHeight { get; set; }
+
         public MainWindow()
         {
             MinX = 10;
+            MaxX = 500;
+            MinY = 10;
+            MaxY = 600;
+            MaximumWidth = MaxX - MinX;
+            MaximumHeight = MaxY - MinY;
+
 
             InitializeComponent();
         }
