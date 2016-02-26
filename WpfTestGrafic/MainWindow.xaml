@@ -6,35 +6,39 @@
     <Window.Resources>
         <databinding:ScaleConverter x:Key="ScConverter"></databinding:ScaleConverter>
     </Window.Resources>
-    <Grid x:Name="grid">
+    <Grid x:Name="grid" RenderTransformOrigin="0.5,0.5">
         <Grid.Resources>
-            <ScaleTransform x:Key="transform">
-                            <ScaleTransform.ScaleX>
-                                <MultiBinding Converter="{StaticResource ScConverter}">
-                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualWidth" ></Binding>
-                                     <Binding Path="MaximumWidth"></Binding>
-                                </MultiBinding>
-                            </ScaleTransform.ScaleX>
-                            <ScaleTransform.ScaleY>
-                                <MultiBinding Converter="{StaticResource ScConverter}">
-                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualHeight"></Binding>
-                                    <Binding Path="MaximumHeight"></Binding>
-                                </MultiBinding>
-                            </ScaleTransform.ScaleY>
-                            
+            <ScaleTransform x:Key="scale_transform">
+                <ScaleTransform.ScaleX>
+                    <MultiBinding Converter="{StaticResource ScConverter}">
+                        <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualWidth" ></Binding>
+                        <Binding Path="MaximumWidth"></Binding>
+                    </MultiBinding>
+                </ScaleTransform.ScaleX>
+                <ScaleTransform.ScaleY>
+                    <MultiBinding Converter="{StaticResource ScConverter}">
+                        <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualHeight"></Binding>
+                        <Binding Path="MaximumHeight"></Binding>
+                    </MultiBinding>
+                </ScaleTransform.ScaleY>
             </ScaleTransform>
-
         </Grid.Resources>
+        <Grid.RenderTransform>
+            <TransformGroup ScaleTransform ="{StaticResource scale_transform}">
+
+            </TransformGroup>
+        </Grid.RenderTransform>
+
         <Path Stroke="Black" StrokeThickness="1">
             <Path.Data>
                 <LineGeometry  StartPoint="500,400" EndPoint="10,10"
-                          Transform="{StaticResource transform}"/>
+                          Transform="{StaticResource scale_transform}"/>
             </Path.Data>
         </Path>
-        <Path Stroke="Green" StrokeThickness="1">
+        <Path Stroke="Green" StrokeThickness="1" RenderTransformOrigin="0.5,0.5">
             <Path.Data>
                 <LineGeometry  StartPoint="100,100" EndPoint="300,600"
-                          Transform="{StaticResource transform}"/>
+                          Transform="{StaticResource scale_transform}"/>
             </Path.Data>
         </Path>
     </Grid>
