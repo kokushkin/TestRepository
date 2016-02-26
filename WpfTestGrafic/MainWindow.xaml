@@ -11,13 +11,13 @@
             <ScaleTransform x:Key="transform">
                             <ScaleTransform.ScaleX>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
-                                    <Binding Path="ActualWidth" ElementName="grid"></Binding>
+                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualWidth" ></Binding>
                                     <Binding Path="ActualWidth" ElementName="grid" ></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleX>
                             <ScaleTransform.ScaleY>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
-                                    <Binding Path="ActualHeight" ElementName="grid"></Binding>
+                        <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualHeight"></Binding>
                                     <Binding Path="ActualHeight" ElementName="grid"></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleY>
