@@ -6,37 +6,93 @@
     <Window.Resources>
         <databinding:ScaleConverter x:Key="ScConverter"></databinding:ScaleConverter>
     </Window.Resources>
-    <Grid x:Name="grid" Background="AliceBlue">
-        <Grid.Resources>
-            <TransformGroup x:Key="transform">
-                <TranslateTransform X="{Binding Path=OffsetX}" Y="{Binding Path=OffsetY}"/>
-                <ScaleTransform  CenterX="0" CenterY="0">
-                    <ScaleTransform.ScaleX>
-                        <MultiBinding Converter="{StaticResource ScConverter}">
-                            <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualWidth" ></Binding>
-                            <Binding Path="MaximumWidth"></Binding>
-                        </MultiBinding>
-                    </ScaleTransform.ScaleX>
-                    <ScaleTransform.ScaleY>
-                        <MultiBinding Converter="{StaticResource ScConverter}">
-                            <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualHeight"></Binding>
-                            <Binding Path="MaximumHeight"></Binding>
-                        </MultiBinding>
-                    </ScaleTransform.ScaleY>
-                </ScaleTransform>
-            </TransformGroup>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBox MinWidth="40"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                <TextBox MinWidth="40"></TextBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" x:Name="grid" Background="AliceBlue">
+                <Grid.Resources>
+                    <TransformGroup x:Key="transform">
+                        <TranslateTransform X="{Binding Path=OffsetX}" Y="{Binding Path=OffsetY}"/>
+                        <ScaleTransform  CenterX="0" CenterY="0">
+                            <ScaleTransform.ScaleX>
+                                <MultiBinding Converter="{StaticResource ScConverter}">
+                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualWidth" ></Binding>
+                                    <Binding Path="MaximumWidth"></Binding>
+                                </MultiBinding>
+                            </ScaleTransform.ScaleX>
+                            <ScaleTransform.ScaleY>
+                                <MultiBinding Converter="{StaticResource ScConverter}">
+                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualHeight"></Binding>
+                                    <Binding Path="MaximumHeight"></Binding>
+                                </MultiBinding>
+                            </ScaleTransform.ScaleY>
+                        </ScaleTransform>
+                    </TransformGroup>
 
 
-        </Grid.Resources>
-        <Path Stroke="Black" StrokeThickness="4">
-            <Path.Data>
-                <LineGeometry  StartPoint="500,400" EndPoint="40,40" Transform="{StaticResource transform}"/>
-            </Path.Data>
-        </Path>
-        <Path Stroke="Green" StrokeThickness="4">
-            <Path.Data>
-                <LineGeometry  StartPoint="100,100" EndPoint="300,600" Transform="{StaticResource transform}"/>
-            </Path.Data>
-        </Path>
+                </Grid.Resources>
+                <Path Stroke="Black" StrokeThickness="4">
+                    <Path.Data>
+                        <LineGeometry  StartPoint="500,400" EndPoint="40,40" Transform="{StaticResource transform}"/>
+                    </Path.Data>
+                </Path>
+                <Path Stroke="Green" StrokeThickness="4">
+                    <Path.Data>
+                        <LineGeometry  StartPoint="100,100" EndPoint="300,600" Transform="{StaticResource transform}"/>
+                    </Path.Data>
+                </Path>
+            </Grid>
+        <StackPanel Grid.Column="2">
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            <Label Foreground="Green">GreenLine</Label>
+            <Label Foreground="Black">BlackLine</Label>
+            
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBox MinWidth="40"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBox MinWidth="40"></TextBox>
+            </StackPanel>
+        </Grid>
+        
     </Grid>
+    
 </Window>
