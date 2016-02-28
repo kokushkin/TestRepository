@@ -37,7 +37,7 @@ namespace WpfTestGrafic
     public partial class MainWindow : Window
     {
 
-        private Dictionary<string, Tuple<PathGeometry, Label>> functions = new Dictionary<string, Tuple<PathGeometry, Label>>();
+        private Dictionary<string, Tuple<Path, Label>> functions = new Dictionary<string, Tuple<Path, Label>>();
 
         private Dictionary<string, Four> squaresFunctions = new Dictionary<string, Four>();
 
@@ -85,7 +85,14 @@ namespace WpfTestGrafic
                 path.Stroke = new SolidColorBrush(color);
                 path.StrokeThickness = StrokeThickness;
                 path.Data = geometry;
-                grid.Children.Add(path);               
+                grid.Children.Add(path);   
+            
+                Label lbl = new Label();
+                lbl.Content = description;
+                lbl.Foreground = new SolidColorBrush(color);
+                Descriptions.Children.Add(lbl);
+
+                functions.Add(description, new Tuple<Path, Label>(path, lbl));
             }
         }
     }

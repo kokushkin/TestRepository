@@ -66,24 +66,7 @@
         
 
         <ScrollViewer Grid.Column="3" VerticalScrollBarVisibility="Auto">
-            <StackPanel Grid.Column="2">
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-                <Label Foreground="Green">GreenLine</Label>
-                <Label Foreground="Black">BlackLine</Label>
-
+            <StackPanel Grid.Column="2" Name="Descriptions">
             </StackPanel>
         </ScrollViewer>
         
