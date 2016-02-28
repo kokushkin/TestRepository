@@ -28,20 +28,21 @@
                 <TextBox  MinWidth="40"></TextBox>
             </StackPanel>
         </Grid>
-        <Grid Grid.Column="1" x:Name="grid" Background="AliceBlue">
+        <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid  x:Name="grid" Background="AliceBlue">
                 <Grid.Resources>
                     <TransformGroup x:Key="transform">
                         <TranslateTransform X="{Binding Path=OffsetX}" Y="{Binding Path=OffsetY}"/>
                         <ScaleTransform  CenterX="0" CenterY="0">
                             <ScaleTransform.ScaleX>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
-                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualWidth" ></Binding>
+                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}" Path="ActualWidth" ></Binding>
                                     <Binding Path="MaximumWidth"></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleX>
                             <ScaleTransform.ScaleY>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
-                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualHeight"></Binding>
+                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}" Path="ActualHeight"></Binding>
                                     <Binding Path="MaximumHeight"></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleY>
@@ -61,6 +62,8 @@
                     </Path.Data>
                 </Path>
             </Grid>
+        </ScrollViewer>
+        
 
         <ScrollViewer Grid.Column="3" VerticalScrollBarVisibility="Auto">
             <StackPanel Grid.Column="2">
