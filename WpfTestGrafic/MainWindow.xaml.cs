@@ -15,11 +15,31 @@ using System.Windows.Shapes;
 
 namespace WpfTestGrafic
 {
+    sealed class Four
+    {
+        public Four(double _minX, double _maxX, double _minY, double _maxY)
+        {
+            minX = _minX;
+            maxX = _maxX;
+            minY = _minY;
+            maxY = _maxY;
+        }
+
+        public double minX;
+        public double maxX;
+        public double minY;
+        public double maxY;
+    }
+
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private Dictionary<string, Tuple<PathGeometry, Label>> functions = new Dictionary<string, Tuple<PathGeometry, Label>>();
+
+        private Dictionary<string, Four> squaresFunctions = new Dictionary<string, Four>();
 
         public double MinX { get; set; }
         public double MaxX { get; set; }
@@ -45,31 +65,28 @@ namespace WpfTestGrafic
 
             InitializeComponent();
 
-            PathFigure fig1 = new PathFigure();
-            fig1.StartPoint = new Point(500, 400);
-            fig1.Segments.Add(new LineSegment(new Point(40, 40), true));
-            PathGeometry pthGeom1 = new PathGeometry();
-            pthGeom1.Figures.Add(fig1);
-            pthGeom1.Transform = (Transform)grid.FindResource("transform");
-            Path blackPath = new Path();
-            blackPath.Stroke = new SolidColorBrush(Colors.Black);
-            blackPath.StrokeThickness = 4;
-            blackPath.Data = pthGeom1;
-            grid.Children.Add(blackPath);
-
-            PathFigure fig2 = new PathFigure();
-            fig2.StartPoint = new Point(100, 100);
-            fig2.Segments.Add(new LineSegment(new Point(300, 600), true));
-            PathGeometry pthGeom2 = new PathGeometry();
-            pthGeom2.Figures.Add(fig2);
-            pthGeom2.Transform = (Transform)grid.FindResource("transform");
-            Path greenPath = new Path();
-            greenPath.Stroke = new SolidColorBrush(Colors.Green);
-            greenPath.StrokeThickness = 4;
-            greenPath.Data = pthGeom2;
-            grid.Children.Add(greenPath);
-
+            AddFunction(new Point[] { new Point(500, 400), new Point(40, 40) }, Colors.Black, 4, "Simple black function");
+            AddFunction(new Point[] { new Point(100, 100), new Point(300, 600) }, Colors.Green, 4, "Simple green function");
         }
 
+
+        public void AddFunction(IEnumerable<Point> points, Color color, double StrokeThickness, string description)
+        {
+            if (!squaresFunctions.ContainsKey(description) && !functions.ContainsKey(description))
+            {
+                PathFigure figure = new PathFigure();
+                figure.StartPoint = points.FirstOrDefault();
+                foreach (var point in points.Skip(1))
+                    figure.Segments.Add(new LineSegment(point, true));
+                PathGeometry geometry = new PathGeometry();
+                geometry.Figures.Add(figure);
+                geometry.Transform = (Transform)grid.FindResource("transform");
+                Path path = new Path();
+                path.Stroke = new SolidColorBrush(color);
+                path.StrokeThickness = StrokeThickness;
+                path.Data = geometry;
+                grid.Children.Add(path);               
+            }
+        }
     }
 }
