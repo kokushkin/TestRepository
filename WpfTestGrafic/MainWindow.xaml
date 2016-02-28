@@ -25,7 +25,7 @@
                 <TextBox MinWidth="40"></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-                <TextBox MinWidth="40"></TextBox>
+                <TextBox  MinWidth="40"></TextBox>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1" x:Name="grid" Background="AliceBlue">
@@ -61,25 +61,29 @@
                     </Path.Data>
                 </Path>
             </Grid>
-        <StackPanel Grid.Column="2">
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            <Label Foreground="Green">GreenLine</Label>
-            <Label Foreground="Black">BlackLine</Label>
-            
-        </StackPanel>
+
+        <ScrollViewer Grid.Column="3" VerticalScrollBarVisibility="Auto">
+            <StackPanel Grid.Column="2">
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+                <Label Foreground="Green">GreenLine</Label>
+                <Label Foreground="Black">BlackLine</Label>
+
+            </StackPanel>
+        </ScrollViewer>
+        
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
