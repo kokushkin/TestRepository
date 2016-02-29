@@ -41,27 +41,62 @@ namespace WpfTestGrafic
 
         private Dictionary<string, Four> squaresFunctions = new Dictionary<string, Four>();
 
-        public double MinX { get; set; }
-        public double MaxX { get; set; }
-        public double MinY { get; set; }
-        public double MaxY { get; set; }
+        public double UserMinX { get; set; }
+        public double UserMaxX { get; set; }
+        public double UserMinY { get; set; }
+        public double UserMaxY { get; set; }
 
-        public double MaximumWidth { get; set; }
-        public double MaximumHeight { get; set; }
+        public double MinX = double.NaN;
+        public double MaxX = double.NaN;
+        public double MinY = double.NaN;
+        public double MaxY = double.NaN;
 
-        public double OffsetX { get; set; }
-        public double OffsetY { get; set; }
+        public double MaximumWidth
+        {
+            get
+            {
+                var minX = !double.IsNaN(UserMinX) ? UserMinX : MinX;
+                var maxX = !double.IsNaN(UserMaxX) ? UserMaxX : MaxX;
+                return maxX - minX;
+            }
+            set { }
+        }
+        public double MaximumHeight 
+        { 
+            get
+            {
+                var minY = !double.IsNaN(UserMinY) ? UserMinY : MinY;
+                var maxY = !double.IsNaN(UserMaxY) ? UserMaxY : MaxY;
+                return maxY - minY;
+            }
+            set { }
+        }
+
+
+        public double OffsetX 
+        {
+            get
+            {
+                return -(!double.IsNaN(UserMinX) ? UserMinX : MinX);
+            }
+
+            set { }
+        }
+        public double OffsetY 
+        {
+            get
+            {
+                return -(!double.IsNaN(UserMinY) ? UserMinY : MinY);
+            }
+            set { } 
+        }
 
         public MainWindow()
         {
-            MinX = 40;
-            MaxX = 500;
-            MinY = 40;
-            MaxY = 600;
-            MaximumWidth = MaxX - MinX;
-            MaximumHeight = MaxY - MinY;
-            OffsetX = -40;
-            OffsetY = -40;
+            UserMinX = double.NaN;
+            UserMaxX = double.NaN;
+            UserMinY = double.NaN;
+            UserMaxY = double.NaN;
 
             InitializeComponent();
 
@@ -93,7 +128,59 @@ namespace WpfTestGrafic
                 Descriptions.Children.Add(lbl);
 
                 functions.Add(description, new Tuple<Path, Label>(path, lbl));
+                var four = new Four(points.Min(p => p.X), points.Max(p => p.Y),
+                    points.Min(p => p.Y), points.Max(p => p.Y));
+                squaresFunctions.Add(description, four);
+                ChangeMinMax(ref MinX, ref MaxX, ref MinY, ref MaxY,
+                    four.minX, four.maxX, four.minY, four.maxY);
+
             }
+        }
+
+        public void AddPoint(Point point, string description)
+        {
+            if (squaresFunctions.ContainsKey(description) && functions.ContainsKey(description))
+            {
+                Tuple<Path, Label> function = null;
+                functions.TryGetValue(description, out function);
+                if (function != null)
+                    ((PathGeometry)function.Item1.Data).Figures.FirstOrDefault()
+                        .Segments.Add(new LineSegment(point, true));
+
+                var fSqr = squaresFunctions[description];
+
+                //ChangeMinMax(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
+                //    point.X, point.X, point.Y, point.Y);
+                //ChangeMinMax(ref minX, ref maxX, ref minY, ref maxY,
+                //    fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY);
+            }
+        }
+
+        static bool ChangeMinMax(ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
+    double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
+        {
+            bool flag = false;
+            if (double.IsNaN(oldMinX) || nwMinX < oldMinX)
+            {
+                oldMinX = nwMinX;
+                flag = true;
+            }
+            if (double.IsNaN(oldMaxX) || nwMaxX > oldMaxX)
+            {
+                oldMaxX = nwMaxX;
+                flag = true;
+            }
+            if (double.IsNaN(oldMinY) || nwMinY < oldMinY)
+            {
+                oldMinY = nwMinY;
+                flag = true;
+            }
+            if (double.IsNaN(oldMaxY) || nwMaxY > oldMaxY)
+            {
+                oldMaxY = nwMaxY;
+                flag = true;
+            }
+            return flag;
         }
     }
 }

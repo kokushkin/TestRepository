@@ -22,10 +22,10 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBox MinWidth="40"></TextBox>
+                <TextBox MinWidth="40" Text="{Binding UserMaxY}"></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-                <TextBox  MinWidth="40"></TextBox>
+                <TextBox  MinWidth="40" Text="{Binding UserMinY}"></TextBox>
             </StackPanel>
         </Grid>
         <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -76,10 +76,10 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
-                <TextBox MinWidth="40"></TextBox>
+                <TextBox MinWidth="40" Text="{Binding UserMinX}"></TextBox>
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBox MinWidth="40"></TextBox>
+                <TextBox MinWidth="40" Text="{Binding UserMaxX}"></TextBox>
             </StackPanel>
         </Grid>
         
