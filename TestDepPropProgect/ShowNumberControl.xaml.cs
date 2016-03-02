@@ -43,6 +43,7 @@ namespace TestDepPropProgect
         public ShowNumberControl()
         {
             InitializeComponent();
+           
         }
     }
 }

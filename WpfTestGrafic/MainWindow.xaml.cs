@@ -51,45 +51,53 @@ namespace WpfTestGrafic
         public double MinY = double.NaN;
         public double MaxY = double.NaN;
 
+
+
         public double MaximumWidth
         {
-            get
-            {
-                var minX = !double.IsNaN(UserMinX) ? UserMinX : MinX;
-                var maxX = !double.IsNaN(UserMaxX) ? UserMaxX : MaxX;
-                return maxX - minX;
-            }
-            set { }
-        }
-        public double MaximumHeight 
-        { 
-            get
-            {
-                var minY = !double.IsNaN(UserMinY) ? UserMinY : MinY;
-                var maxY = !double.IsNaN(UserMaxY) ? UserMaxY : MaxY;
-                return maxY - minY;
-            }
-            set { }
+            get { return (double)GetValue(MaximumWidthProperty); }
+            set { SetValue(MaximumWidthProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for MaximumWidth.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MaximumWidthProperty =
+            DependencyProperty.Register("MaximumWidth", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
 
-        public double OffsetX 
+
+
+        public double MaximumHeight
         {
-            get
-            {
-                return -(!double.IsNaN(UserMinX) ? UserMinX : MinX);
-            }
+            get { return (double)GetValue(MaximumHeightProperty); }
+            set { SetValue(MaximumHeightProperty, value); }
+        }
 
-            set { }
-        }
-        public double OffsetY 
+        // Using a DependencyProperty as the backing store for MaximumHeight.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MaximumHeightProperty =
+            DependencyProperty.Register("MaximumHeight", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
+
+
+        public double OffsetX
         {
-            get
-            {
-                return -(!double.IsNaN(UserMinY) ? UserMinY : MinY);
-            }
-            set { } 
+            get { return (double)GetValue(OffsetXProperty); }
+            set { SetValue(OffsetXProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for OffsetX.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OffsetXProperty =
+            DependencyProperty.Register("OffsetX", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
+
+
+
+        public double OffsetY
+        {
+            get { return (double)GetValue(OffsetYProperty); }
+            set { SetValue(OffsetYProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OffsetY.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OffsetYProperty =
+            DependencyProperty.Register("OffsetY", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
+
 
         public MainWindow()
         {
@@ -104,6 +112,19 @@ namespace WpfTestGrafic
             AddFunction(new Point[] { new Point(100, 100), new Point(300, 600) }, Colors.Green, 4, "Simple green function");
         }
 
+        public void UpdateGrafic()
+        {
+            var minX = !double.IsNaN(UserMinX) ? UserMinX : MinX;
+            var maxX = !double.IsNaN(UserMaxX) ? UserMaxX : MaxX;
+            MaximumWidth =  maxX - minX;
+
+            var minY = !double.IsNaN(UserMinY) ? UserMinY : MinY;
+            var maxY = !double.IsNaN(UserMaxY) ? UserMaxY : MaxY;
+            MaximumHeight =  maxY - minY;
+
+            OffsetX = -(!double.IsNaN(UserMinX) ? UserMinX : MinX);
+            OffsetY = -(!double.IsNaN(UserMinY) ? UserMinY : MinY);
+        }
 
         public void AddFunction(IEnumerable<Point> points, Color color, double StrokeThickness, string description)
         {
@@ -128,11 +149,15 @@ namespace WpfTestGrafic
                 Descriptions.Children.Add(lbl);
 
                 functions.Add(description, new Tuple<Path, Label>(path, lbl));
-                var four = new Four(points.Min(p => p.X), points.Max(p => p.Y),
+                var four = new Four(points.Min(p => p.X), points.Max(p => p.X),
                     points.Min(p => p.Y), points.Max(p => p.Y));
                 squaresFunctions.Add(description, four);
-                ChangeMinMax(ref MinX, ref MaxX, ref MinY, ref MaxY,
-                    four.minX, four.maxX, four.minY, four.maxY);
+
+                if (ChangeMinMax(ref MinX, ref MaxX, ref MinY, ref MaxY,
+                    four.minX, four.maxX, four.minY, four.maxY))
+                    UpdateGrafic();
+
+                
 
             }
         }
