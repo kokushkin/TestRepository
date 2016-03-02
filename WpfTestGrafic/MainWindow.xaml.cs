@@ -41,10 +41,58 @@ namespace WpfTestGrafic
 
         private Dictionary<string, Four> squaresFunctions = new Dictionary<string, Four>();
 
-        public double UserMinX { get; set; }
-        public double UserMaxX { get; set; }
-        public double UserMinY { get; set; }
-        public double UserMaxY { get; set; }
+        double _userMinX;
+        public double UserMinX
+        {
+            get
+            {
+                return _userMinX;
+            }
+            set
+            {
+                _userMinX = value;
+                UpdateGrafic();
+            }
+        }
+        double _userMaxX;
+        public double UserMaxX
+        {
+            get
+            {
+                return _userMaxX;
+            }
+            set
+            {
+                _userMaxX = value;
+                UpdateGrafic();
+            }
+        }
+        double _userMinY;
+        public double UserMinY
+        {
+            get
+            {
+                return _userMinY;
+            }
+            set
+            {
+                _userMinY = value;
+                UpdateGrafic();
+            }
+        }
+        double _userMaxY;
+        public double UserMaxY
+        {
+            get
+            {
+                return _userMaxY;
+            }
+            set
+            {
+                _userMaxY = value;
+                UpdateGrafic();
+            }
+        }
 
         public double MinX = double.NaN;
         public double MaxX = double.NaN;
