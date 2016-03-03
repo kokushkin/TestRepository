@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfTestGrafic
 {
@@ -36,6 +37,25 @@ namespace WpfTestGrafic
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        DispatcherTimer countTimer = new DispatcherTimer();
+
+        double x = 0;
+        double y = 0;
+
+        double x1 = 0;
+        double y1 = 0;
+
+        Random rnd = new Random();
+
+
+
+
+
+
+
+
+
 
         private Dictionary<string, Tuple<Path, Label>> functions = new Dictionary<string, Tuple<Path, Label>>();
 
@@ -156,8 +176,10 @@ namespace WpfTestGrafic
 
             InitializeComponent();
 
-            AddFunction(new Point[] { new Point(500, 400), new Point(40, 40) }, Colors.Black, 4, "Simple black function");
-            AddFunction(new Point[] { new Point(100, 100), new Point(300, 600) }, Colors.Green, 4, "Simple green function");
+            //AddFunction(new Point[] { new Point(500, 400), new Point(40, 40) }, Colors.Black, 4, "Simple black function");
+            //AddFunction(new Point[] { new Point(100, 100), new Point(300, 600) }, Colors.Green, 4, "Simple green function");
+
+            Button_Click(null, null);
         }
 
         public void UpdateGrafic()
@@ -172,6 +194,33 @@ namespace WpfTestGrafic
 
             OffsetX = -(!double.IsNaN(UserMinX) ? UserMinX : MinX);
             OffsetY = -(!double.IsNaN(UserMinY) ? UserMinY : MinY);
+        }
+
+        static bool ChangeMinMax(ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
+double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
+        {
+            bool flag = false;
+            if (double.IsNaN(oldMinX) || nwMinX < oldMinX)
+            {
+                oldMinX = nwMinX;
+                flag = true;
+            }
+            if (double.IsNaN(oldMaxX) || nwMaxX > oldMaxX)
+            {
+                oldMaxX = nwMaxX;
+                flag = true;
+            }
+            if (double.IsNaN(oldMinY) || nwMinY < oldMinY)
+            {
+                oldMinY = nwMinY;
+                flag = true;
+            }
+            if (double.IsNaN(oldMaxY) || nwMaxY > oldMaxY)
+            {
+                oldMaxY = nwMaxY;
+                flag = true;
+            }
+            return flag;
         }
 
         public void AddFunction(IEnumerable<Point> points, Color color, double StrokeThickness, string description)
@@ -204,9 +253,7 @@ namespace WpfTestGrafic
                 if (ChangeMinMax(ref MinX, ref MaxX, ref MinY, ref MaxY,
                     four.minX, four.maxX, four.minY, four.maxY))
                     UpdateGrafic();
-
-                
-
+              
             }
         }
 
@@ -222,38 +269,49 @@ namespace WpfTestGrafic
 
                 var fSqr = squaresFunctions[description];
 
-                //ChangeMinMax(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
-                //    point.X, point.X, point.Y, point.Y);
-                //ChangeMinMax(ref minX, ref maxX, ref minY, ref maxY,
-                //    fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY);
+                if(ChangeMinMax(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
+                   point.X, point.X, point.Y, point.Y))
+                    if (ChangeMinMax(ref MinX, ref MaxX, ref MinY, ref MaxY,
+                        fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY))
+                        UpdateGrafic();
             }
         }
 
-        static bool ChangeMinMax(ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
-    double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
+
+
+
+
+
+
+        void AddPoint()
         {
-            bool flag = false;
-            if (double.IsNaN(oldMinX) || nwMinX < oldMinX)
-            {
-                oldMinX = nwMinX;
-                flag = true;
-            }
-            if (double.IsNaN(oldMaxX) || nwMaxX > oldMaxX)
-            {
-                oldMaxX = nwMaxX;
-                flag = true;
-            }
-            if (double.IsNaN(oldMinY) || nwMinY < oldMinY)
-            {
-                oldMinY = nwMinY;
-                flag = true;
-            }
-            if (double.IsNaN(oldMaxY) || nwMaxY > oldMaxY)
-            {
-                oldMaxY = nwMaxY;
-                flag = true;
-            }
-            return flag;
+            x += 10;
+            y += -10 + rnd.Next(200);
+            AddPoint(new Point(x, y), "Green line");
+
+            x1 += 10;
+            y1 += -20 + rnd.Next(400);
+            AddPoint(new Point(x1, y1), "Red line");
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Point[] PointArray = new Point[1];
+            PointArray[0] = new Point(x, y);
+
+            AddFunction(PointArray, Colors.Green, 2, "Green line");
+            countTimer.Tick += new EventHandler((sender1, e1) => AddPoint());
+            countTimer.Interval = new TimeSpan(0, 0, 3);
+            countTimer.Start();
+
+            Point[] PointArray1 = new Point[1];
+            PointArray1[0] = new Point(x1, y1);
+
+            AddFunction(PointArray1, Colors.Red, 2, "Red line");
+
+        }
+
+
+
     }
 }
