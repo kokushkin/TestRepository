@@ -257,6 +257,24 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             }
         }
 
+        public void DeleteFunction(string description)
+        {
+            if (squaresFunctions.ContainsKey(description) && functions.ContainsKey(description))
+            {
+                var four = squaresFunctions[description];
+                squaresFunctions.Remove(description);
+                if (four.minX <= MinX)
+                    MinX = squaresFunctions.Min(sq => sq.Value.minX);
+                if (four.maxX >= MaxX)
+                    MaxX = squaresFunctions.Max(sq => sq.Value.maxX);
+                if (four.minY <= MinY)
+                    MinY = squaresFunctions.Min(sq => sq.Value.minY);
+                if (four.maxY >= MaxY)
+                    MaxY = squaresFunctions.Max(sq => sq.Value.maxY);
+
+            }
+        }
+
         public void AddPoint(Point point, string description)
         {
             if (squaresFunctions.ContainsKey(description) && functions.ContainsKey(description))
