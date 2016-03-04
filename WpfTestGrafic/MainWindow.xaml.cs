@@ -196,7 +196,7 @@ namespace WpfTestGrafic
             OffsetY = -(!double.IsNaN(UserMinY) ? UserMinY : MinY);
         }
 
-        static bool ChangeMinMax(ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
+        static bool ChangeMinMaxAdd(ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
 double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
         {
             bool flag = false;
@@ -218,6 +218,34 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             if (double.IsNaN(oldMaxY) || nwMaxY > oldMaxY)
             {
                 oldMaxY = nwMaxY;
+                flag = true;
+            }
+            return flag;
+        }
+
+        static bool ChangeMinMaxDelete(IEnumerable<Four> fourths, ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
+            double delMinX, double delMaxX, double delMinY, double delMaxY)
+        {
+            bool flag = false;
+            if (delMinX <= oldMinX)
+            {
+                oldMinX = fourths.Min(sq => sq.minX);
+                flag = true;
+            }              
+            if (delMaxX >= oldMaxX)
+            {
+                delMaxX = fourths.Max(sq => sq.maxX);
+                flag = true;
+            }               
+            if (delMinY <= oldMinY)
+            {
+                delMinY = fourths.Min(sq => sq.minY);
+                flag = true;
+            }
+                
+            if (delMaxY >= oldMaxY)
+            {
+                delMaxY = fourths.Max(sq => sq.maxY);
                 flag = true;
             }
             return flag;
@@ -250,7 +278,7 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
                     points.Min(p => p.Y), points.Max(p => p.Y));
                 squaresFunctions.Add(description, four);
 
-                if (ChangeMinMax(ref MinX, ref MaxX, ref MinY, ref MaxY,
+                if (ChangeMinMaxAdd(ref MinX, ref MaxX, ref MinY, ref MaxY,
                     four.minX, four.maxX, four.minY, four.maxY))
                     UpdateGrafic();
               
@@ -263,14 +291,10 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             {
                 var four = squaresFunctions[description];
                 squaresFunctions.Remove(description);
-                if (four.minX <= MinX)
-                    MinX = squaresFunctions.Min(sq => sq.Value.minX);
-                if (four.maxX >= MaxX)
-                    MaxX = squaresFunctions.Max(sq => sq.Value.maxX);
-                if (four.minY <= MinY)
-                    MinY = squaresFunctions.Min(sq => sq.Value.minY);
-                if (four.maxY >= MaxY)
-                    MaxY = squaresFunctions.Max(sq => sq.Value.maxY);
+
+                if(ChangeMinMaxDelete(squaresFunctions.Select(sq => sq.Value).ToArray(), ref MinX, ref MaxX, ref MinY, ref MaxY,
+                    four.minX, four.maxX, four.minY, four.maxY))
+                    UpdateGrafic();
 
             }
         }
@@ -287,9 +311,9 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
 
                 var fSqr = squaresFunctions[description];
 
-                if(ChangeMinMax(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
+                if (ChangeMinMaxAdd(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
                    point.X, point.X, point.Y, point.Y))
-                    if (ChangeMinMax(ref MinX, ref MaxX, ref MinY, ref MaxY,
+                    if (ChangeMinMaxAdd(ref MinX, ref MaxX, ref MinY, ref MaxY,
                         fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY))
                         UpdateGrafic();
             }
