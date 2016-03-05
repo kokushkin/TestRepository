@@ -38,24 +38,7 @@ namespace WpfTestGrafic
     public partial class MainWindow : Window
     {
 
-        DispatcherTimer countTimer = new DispatcherTimer();
-
-        double x = 0;
-        double y = 0;
-
-        double x1 = 0;
-        double y1 = 0;
-
         Random rnd = new Random();
-
-
-
-
-
-
-
-
-
 
         private Dictionary<string, Tuple<Path, Label>> functions = new Dictionary<string, Tuple<Path, Label>>();
 
@@ -176,10 +159,6 @@ namespace WpfTestGrafic
 
             InitializeComponent();
 
-            //AddFunction(new Point[] { new Point(500, 400), new Point(40, 40) }, Colors.Black, 4, "Simple black function");
-            //AddFunction(new Point[] { new Point(100, 100), new Point(300, 600) }, Colors.Green, 4, "Simple green function");
-
-            Button_Click(null, null);
         }
 
         public void UpdateGrafic()
@@ -229,23 +208,23 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             bool flag = false;
             if (delMinX <= oldMinX)
             {
-                oldMinX = fourths.Min(sq => sq.minX);
+                oldMinX = fourths.Count() != 0 ? fourths.Min(sq => sq.minX) : double.NaN;
                 flag = true;
             }              
             if (delMaxX >= oldMaxX)
             {
-                delMaxX = fourths.Max(sq => sq.maxX);
+                oldMaxX = fourths.Count() != 0 ? fourths.Max(sq => sq.maxX) : double.NaN;
                 flag = true;
             }               
             if (delMinY <= oldMinY)
             {
-                delMinY = fourths.Min(sq => sq.minY);
+                oldMinY = fourths.Count() != 0 ? fourths.Min(sq => sq.minY) : double.NaN;
                 flag = true;
             }
                 
             if (delMaxY >= oldMaxY)
             {
-                delMaxY = fourths.Max(sq => sq.maxY);
+                oldMaxY = fourths.Count() != 0 ? fourths.Max(sq => sq.maxY) : double.NaN;
                 flag = true;
             }
             return flag;
@@ -291,6 +270,12 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             {
                 var four = squaresFunctions[description];
                 squaresFunctions.Remove(description);
+                var tpl = functions[description];
+                functions.Remove(description);
+
+                grid.Children.Remove(tpl.Item1);
+                Descriptions.Children.Remove(tpl.Item2);
+
 
                 if(ChangeMinMaxDelete(squaresFunctions.Select(sq => sq.Value).ToArray(), ref MinX, ref MaxX, ref MinY, ref MaxY,
                     four.minX, four.maxX, four.minY, four.maxY))
@@ -322,35 +307,49 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
 
 
 
-
-
-
-        void AddPoint()
+        private void Button_Click_AddGreen(object sender, RoutedEventArgs e)
         {
-            x += 10;
-            y += -10 + rnd.Next(200);
-            AddPoint(new Point(x, y), "Green line");
-
-            x1 += 10;
-            y1 += -20 + rnd.Next(400);
-            AddPoint(new Point(x1, y1), "Red line");
+            Point[] PointArray = new Point[] { new Point(10, 100), new Point(30, 80), new Point(40, 40), new Point(70, 100) };
+            AddFunction(PointArray, Colors.Green, 2, "Green line");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_AddBlack(object sender, RoutedEventArgs e)
         {
-            Point[] PointArray = new Point[1];
-            PointArray[0] = new Point(x, y);
+            Point[] PointArray = new Point[] { new Point(50, 20), new Point(70, 30), new Point(80, 40), new Point(110, 12) };
+            AddFunction(PointArray, Colors.Black, 2, "Black line");
+        }
 
-            AddFunction(PointArray, Colors.Green, 2, "Green line");
-            countTimer.Tick += new EventHandler((sender1, e1) => AddPoint());
-            countTimer.Interval = new TimeSpan(0, 0, 3);
-            countTimer.Start();
+        private void Button_Click_DeleteGreen(object sender, RoutedEventArgs e)
+        {
+            DeleteFunction("Green line");
+        }
 
-            Point[] PointArray1 = new Point[1];
-            PointArray1[0] = new Point(x1, y1);
+        private void Button_Click_DeleteBlack(object sender, RoutedEventArgs e)
+        {
+            DeleteFunction("Black line");
+        }
 
-            AddFunction(PointArray1, Colors.Red, 2, "Red line");
+        private void Button_Click_AddGreenPoint(object sender, RoutedEventArgs e)
+        {
+            Tuple<Path, Label> tpl = null;
+            functions.TryGetValue("Green line", out tpl);
+            if(tpl != null)
+            {
+                var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
+                AddPoint(new Point(prevPoint.X + rnd.Next(50), prevPoint.Y + rnd.Next(100)), "Green line");
+            }
+            
+        }
 
+        private void Button_Click_AddBlackPoint(object sender, RoutedEventArgs e)
+        {
+            Tuple<Path, Label> tpl = null;
+            functions.TryGetValue("Black line", out tpl);
+            if (tpl != null)
+            {
+                var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
+                AddPoint(new Point(prevPoint.X + rnd.Next(50), prevPoint.Y + rnd.Next(100)), "Black line");
+            }
         }
 
 
