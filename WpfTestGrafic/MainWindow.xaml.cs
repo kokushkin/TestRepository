@@ -102,6 +102,90 @@ namespace WpfTestGrafic
         public double MinY = double.NaN;
         public double MaxY = double.NaN;
 
+        double _minXRestriction;
+        public double MinXRestriction
+        {
+            get
+            {
+                return _minXRestriction;
+            }
+            set
+            {
+                _minXRestriction = value;
+                UpdateGrafic();
+                
+            }
+        }
+        double _maxXRestriction;
+        public double MaxXRestriction
+        {
+            get
+            {
+                return _maxXRestriction;
+            }
+            set
+            {
+                _maxXRestriction = value;
+                UpdateGrafic();
+            }
+        }
+        double _xLengthRestriction;
+        public double XLengthRestriction
+        {
+            get
+            {
+                return _xLengthRestriction;
+            }
+            set
+            {
+                _xLengthRestriction = value;
+                UpdateGrafic();
+            }
+        }
+        double _minYRestriction;
+        public double MinYRestriction
+        {
+            get
+            {
+                return _minYRestriction;
+            }
+            set
+            {
+                _minYRestriction = value;
+                UpdateGrafic();
+            }
+        }
+        double _maxYRestriction;
+        public double MaxYRestriction
+        {
+            get
+            {
+                return _maxYRestriction;
+            }
+            set
+            {
+                _maxYRestriction = value;
+                UpdateGrafic();
+            }
+        }
+        double _yLengthRestriction;
+        public double YLengthRestriction
+        {
+            get
+            {
+                return _yLengthRestriction;
+            }
+            set
+            {
+                _yLengthRestriction = value;
+                UpdateGrafic();
+            }
+        }
+    
+    
+
+
+
 
 
         public double MaximumWidth
@@ -229,6 +313,18 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             }
             return flag;
         }
+
+        IEnumerable<Point> RestrictionCheck(IEnumerable<Point> points)
+        {
+            if(!double.IsNaN(MinXRestriction))
+
+
+            IEnumerable<Point> resPoints = null;
+            if (!double.IsNaN(MinXRestriction) && !double.IsNaN(MaxXRestriction) && !double.IsNaN(MinYRestriction) && !double.IsNaN(MaxYRestriction))
+                resPoints =  points.Where(pt => pt.X >= MinXRestriction && pt.X <= MaxXRestriction && pt.Y >= MinYRestriction && pt.Y <= MaxYRestriction).ToArray();
+
+        }
+
 
         public void AddFunction(IEnumerable<Point> points, Color color, double StrokeThickness, string description)
         {
