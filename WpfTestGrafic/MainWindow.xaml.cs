@@ -37,6 +37,8 @@ namespace WpfTestGrafic
     /// </summary>
     public partial class MainWindow : Window
     {
+        int restrictionCheckInterval = 10;
+        int restrictionCheckCount = 0;
 
         Random rnd = new Random();
 
@@ -112,6 +114,7 @@ namespace WpfTestGrafic
             set
             {
                 _minXRestriction = value;
+                RestrictAll();
                 UpdateGrafic();
                 
             }
@@ -126,6 +129,7 @@ namespace WpfTestGrafic
             set
             {
                 _maxXRestriction = value;
+                RestrictAll();
                 UpdateGrafic();
             }
         }
@@ -139,6 +143,7 @@ namespace WpfTestGrafic
             set
             {
                 _xLengthRestriction = value;
+                RestrictAll();
                 UpdateGrafic();
             }
         }
@@ -152,6 +157,7 @@ namespace WpfTestGrafic
             set
             {
                 _minYRestriction = value;
+                RestrictAll();
                 UpdateGrafic();
             }
         }
@@ -165,6 +171,7 @@ namespace WpfTestGrafic
             set
             {
                 _maxYRestriction = value;
+                RestrictAll();
                 UpdateGrafic();
             }
         }
@@ -178,6 +185,7 @@ namespace WpfTestGrafic
             set
             {
                 _yLengthRestriction = value;
+                RestrictAll();
                 UpdateGrafic();
             }
         }
@@ -241,6 +249,14 @@ namespace WpfTestGrafic
             UserMinY = double.NaN;
             UserMaxY = double.NaN;
 
+            MinXRestriction = double.NaN;
+            MaxXRestriction = double.NaN;
+            XLengthRestriction = double.PositiveInfinity;
+            MinYRestriction = double.NaN;
+            MaxYRestriction = double.NaN;
+            YLengthRestriction = double.PositiveInfinity;
+
+
             InitializeComponent();
 
         }
@@ -263,28 +279,63 @@ namespace WpfTestGrafic
 double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
         {
             bool flag = false;
-            if (double.IsNaN(oldMinX) || nwMinX < oldMinX)
+            if (double.IsNaN(oldMinX) || (!double.IsNaN(nwMinX) && nwMinX < oldMinX))
             {
                 oldMinX = nwMinX;
                 flag = true;
             }
-            if (double.IsNaN(oldMaxX) || nwMaxX > oldMaxX)
+            if (double.IsNaN(oldMaxX) || (!double.IsNaN(nwMaxX) && nwMaxX > oldMaxX))
             {
                 oldMaxX = nwMaxX;
                 flag = true;
             }
-            if (double.IsNaN(oldMinY) || nwMinY < oldMinY)
+            if (double.IsNaN(oldMinY) || (!double.IsNaN(nwMinY) && nwMinY < oldMinY))
             {
                 oldMinY = nwMinY;
                 flag = true;
             }
-            if (double.IsNaN(oldMaxY) || nwMaxY > oldMaxY)
+            if (double.IsNaN(oldMaxY) || (!double.IsNaN(nwMaxY) && nwMaxY > oldMaxY))
             {
                 oldMaxY = nwMaxY;
                 flag = true;
             }
             return flag;
         }
+
+        //Set new MinMax borders
+        static bool ChangeMinMaxDelete(ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
+double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
+        {
+            //bool flag = false;
+            //if (double.IsNaN(oldMinX) || nwMinX > oldMinX)
+            //{
+            //    oldMinX = nwMinX;
+            //    flag = true;
+            //}
+            //if (double.IsNaN(oldMaxX) || nwMaxX < oldMaxX)
+            //{
+            //    oldMaxX = nwMaxX;
+            //    flag = true;
+            //}
+            //if (double.IsNaN(oldMinY) || nwMinY > oldMinY)
+            //{
+            //    oldMinY = nwMinY;
+            //    flag = true;
+            //}
+            //if (double.IsNaN(oldMaxY) || nwMaxY < oldMaxY)
+            //{
+            //    oldMaxY = nwMaxY;
+            //    flag = true;
+            //}
+            //return flag;
+            oldMinX = nwMinX;
+            oldMaxX = nwMaxX;
+            oldMinY = nwMinY;
+            oldMaxY = nwMaxY;
+            return true;
+
+        }
+
 
         static bool ChangeMinMaxDelete(IEnumerable<Four> fourths, ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
             double delMinX, double delMaxX, double delMinY, double delMaxY)
@@ -316,24 +367,99 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
 
         IEnumerable<Point> RestrictionCheck(IEnumerable<Point> points)
         {
-            if(!double.IsNaN(MinXRestriction))
+            IEnumerable<Point> resPoints = points;
+
+            if (!double.IsInfinity(MinXRestriction) && !double.IsNaN(MinXRestriction))
+                resPoints = points.Where(pt => pt.X >= MinXRestriction);
+            if (!double.IsInfinity(MaxXRestriction) && !double.IsNaN(MaxXRestriction))
+                resPoints = points.Where(pt => pt.X >= MaxXRestriction);
 
 
-            IEnumerable<Point> resPoints = null;
-            if (!double.IsNaN(MinXRestriction) && !double.IsNaN(MaxXRestriction) && !double.IsNaN(MinYRestriction) && !double.IsNaN(MaxYRestriction))
-                resPoints =  points.Where(pt => pt.X >= MinXRestriction && pt.X <= MaxXRestriction && pt.Y >= MinYRestriction && pt.Y <= MaxYRestriction).ToArray();
+            if (double.IsPositiveInfinity(MaxXRestriction) && !double.IsInfinity(XLengthRestriction))
+            {
+                var maxX = points.Max(pt => pt.X);
+                maxX = !double.IsNaN(MaxX) ? Math.Max(maxX, MaxX) : maxX;
+                resPoints = points.Where(pt => pt.X >= maxX - XLengthRestriction);
+            }
+            if (double.IsNegativeInfinity(MinXRestriction) && !double.IsInfinity(XLengthRestriction))
+            {
+                var minX = points.Min(pt => pt.X);
+                minX = !double.IsNaN(MinX) ? Math.Min(minX, MinX) : minX;
+                resPoints = points.Where(pt => pt.X <= minX + XLengthRestriction);
+            }
 
+
+            if (!double.IsInfinity(MinYRestriction) && !double.IsNaN(MinYRestriction))
+                resPoints = points.Where(pt => pt.Y >= MinYRestriction);
+            if (!double.IsInfinity(MaxYRestriction) && !double.IsNaN(MaxYRestriction))
+                resPoints = points.Where(pt => pt.Y >= MaxYRestriction);
+
+
+            if (double.IsPositiveInfinity(MaxYRestriction) && !double.IsInfinity(YLengthRestriction))
+            {
+                var maxY = points.Max(pt => pt.Y);
+                maxY = !double.IsNaN(MaxY) ? Math.Max(maxY, MaxY) : maxY;
+                resPoints = points.Where(pt => pt.Y >= maxY - YLengthRestriction);
+            }
+            if (double.IsNegativeInfinity(MinYRestriction) && !double.IsInfinity(YLengthRestriction))
+            {
+                var minY = points.Min(pt => pt.Y);
+                minY = !double.IsNaN(MinY) ? Math.Min(minY, MinY) : minY;
+                resPoints = points.Where(pt => pt.Y <= minY + YLengthRestriction);
+            }
+
+            return resPoints.ToArray();
         }
 
+        void RestrictAll()
+        {
+            List<Point> delPoints = new List<Point>();
+
+            foreach (var func in functions)
+            {
+                var path = func.Value.Item1;
+
+                PathFigure pf = ((PathGeometry)path.Data).Figures.FirstOrDefault();
+                List<Point> lpt = new List<Point>();
+                lpt.Add(pf.StartPoint);
+                lpt.AddRange(pf.Segments.Select(sg => ((LineSegment)sg).Point).ToArray());
+                var lptnw = RestrictionCheck(lpt).ToList();
+
+                var delFuncPoints = lpt.Except(lptnw);
+                var fSqr = squaresFunctions[func.Key];
+                ChangeMinMaxDelete(ref fSqr.minX, ref fSqr.maxX, ref fSqr.minY, ref fSqr.maxY,
+                    lptnw.Count != 0 ? lptnw.Min(pt => pt.X) : double.NaN, 
+                    lptnw.Count != 0 ? lptnw.Max(pt => pt.X) : double.NaN, 
+                    lptnw.Count != 0 ? lptnw.Min(pt => pt.Y) : double.NaN,
+                    lptnw.Count != 0 ? lptnw.Max(pt => pt.Y) : double.NaN);
+
+                delPoints.AddRange(delFuncPoints);
+
+                pf.StartPoint = lptnw.FirstOrDefault();
+                pf.Segments.Clear();
+                foreach (var pnt in lptnw.Skip(1))
+                    pf.Segments.Add(new LineSegment(pnt, true));
+            }
+            if(delPoints.Count() != 0)
+                if(ChangeMinMaxDelete(squaresFunctions.Select(sq => sq.Value).ToArray(), ref MinX, ref MaxX, ref MinY, ref MaxY,
+                        delPoints.Min(pt=>pt.X), delPoints.Max(pt=>pt.X), delPoints.Min(pt=>pt.Y), delPoints.Max(pt=>pt.Y)))
+                        UpdateGrafic();
+        }
 
         public void AddFunction(IEnumerable<Point> points, Color color, double StrokeThickness, string description)
         {
             if (!squaresFunctions.ContainsKey(description) && !functions.ContainsKey(description))
             {
+                points = RestrictionCheck(points);
+
                 PathFigure figure = new PathFigure();
-                figure.StartPoint = points.FirstOrDefault();
-                foreach (var point in points.Skip(1))
-                    figure.Segments.Add(new LineSegment(point, true));
+                if(points.Count() != 0)
+                {
+                    figure.StartPoint = points.FirstOrDefault();
+                    foreach (var point in points.Skip(1))
+                        figure.Segments.Add(new LineSegment(point, true));
+                }
+
                 PathGeometry geometry = new PathGeometry();
                 geometry.Figures.Add(figure);
                 geometry.Transform = (Transform)grid.FindResource("transform");
@@ -349,8 +475,13 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
                 Descriptions.Children.Add(lbl);
 
                 functions.Add(description, new Tuple<Path, Label>(path, lbl));
-                var four = new Four(points.Min(p => p.X), points.Max(p => p.X),
-                    points.Min(p => p.Y), points.Max(p => p.Y));
+                Four four = new Four(double.NaN, double.NaN, double.NaN, double.NaN);
+                if(points.Count() != 0)
+                {
+                    four = new Four(points.Min(p => p.X), points.Max(p => p.X),
+    points.Min(p => p.Y), points.Max(p => p.Y));
+                }
+
                 squaresFunctions.Add(description, four);
 
                 if (ChangeMinMaxAdd(ref MinX, ref MaxX, ref MinY, ref MaxY,
@@ -384,6 +515,18 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
         {
             if (squaresFunctions.ContainsKey(description) && functions.ContainsKey(description))
             {
+                var res = RestrictionCheck(new Point[] { point });
+                if (res.Count() == 0)
+                    return;
+
+                restrictionCheckCount++;
+                if(restrictionCheckCount > restrictionCheckInterval)
+                {
+                    RestrictAll();
+                    UpdateGrafic();
+                    restrictionCheckCount = 0;
+                }
+
                 Tuple<Path, Label> function = null;
                 functions.TryGetValue(description, out function);
                 if (function != null)
@@ -431,20 +574,44 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             functions.TryGetValue("Green line", out tpl);
             if(tpl != null)
             {
-                var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
-                AddPoint(new Point(prevPoint.X + rnd.Next(50), prevPoint.Y + rnd.Next(100)), "Green line");
+                var figure = ((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault();
+                var lastSegment = figure.Segments.LastOrDefault();      
+                if(lastSegment != null)
+                {
+                    var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
+                    AddPoint(new Point(prevPoint.X + rnd.Next(50), prevPoint.Y + rnd.Next(100)), "Green line");
+                    return;
+                }
+                else
+                    AddPoint(new Point(MaxX + rnd.Next(50), MaxY + rnd.Next(50)), "Green line");
             }
             
         }
 
         private void Button_Click_AddBlackPoint(object sender, RoutedEventArgs e)
         {
+            //Tuple<Path, Label> tpl = null;
+            //functions.TryGetValue("Black line", out tpl);
+            //if (tpl != null)
+            //{
+            //    var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
+            //    AddPoint(new Point(prevPoint.X + rnd.Next(50), prevPoint.Y + rnd.Next(100)), "Black line");
+            //}
+
             Tuple<Path, Label> tpl = null;
             functions.TryGetValue("Black line", out tpl);
             if (tpl != null)
             {
-                var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
-                AddPoint(new Point(prevPoint.X + rnd.Next(50), prevPoint.Y + rnd.Next(100)), "Black line");
+                var figure = ((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault();
+                var lastSegment = figure.Segments.LastOrDefault();
+                if (lastSegment != null)
+                {
+                    var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
+                    AddPoint(new Point(prevPoint.X + rnd.Next(50), prevPoint.Y + rnd.Next(100)), "Black line");
+                    return;
+                }
+                else
+                    AddPoint(new Point(MaxX + rnd.Next(50), MaxY + rnd.Next(50)), "Black line");
             }
         }
 

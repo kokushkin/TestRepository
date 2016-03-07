@@ -16,6 +16,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid>
             <Grid.RowDefinitions>
@@ -92,7 +94,23 @@
             <Button Margin="3" Click="Button_Click_AddGreenPoint">AddGreenPoint</Button>
             <Button Margin="3" Click="Button_Click_AddBlackPoint">AddBlackPoint</Button>
         </StackPanel>
-        
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+            <Label>MinXRestriction</Label>
+            <TextBox Text="{Binding MinXRestriction}" MinWidth="40"></TextBox>
+            <Label>MaxXRestriction</Label>
+            <TextBox Text="{Binding MaxXRestriction}" MinWidth="40"></TextBox>
+            <Label>XLengthRestriction</Label>
+            <TextBox Text="{Binding XLengthRestriction}" MinWidth="40"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+            <Label>MinYRestriction</Label>
+            <TextBox Text="{Binding MinYRestriction}" MinWidth="40"></TextBox>
+            <Label>MaxYRestriction</Label>
+            <TextBox Text="{Binding MaxYRestriction}" MinWidth="40"></TextBox>
+            <Label>YLengthRestriction</Label>
+            <TextBox Text="{Binding YLengthRestriction}" MinWidth="40"></TextBox>
+        </StackPanel>
+
     </Grid>
     
 </Window>
