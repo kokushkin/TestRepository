@@ -303,48 +303,61 @@ namespace WpfTestGrafic
             //OffsetY = -(!double.IsNaN(UserMinY) ? UserMinY : MinY);
 
 
+            double lMinX = double.NaN;
+            double lMaxX = double.NaN;
+            double lMinY = double.NaN;
+            double lMaxY = double.NaN;
+            
+            if(!double.IsInfinity(UserMinX) && !double.IsNaN(UserMinX))
+                lMinX = UserMinX;
+            if (!double.IsInfinity(UserMaxX) && !double.IsNaN(UserMaxX))
+                lMaxX = UserMaxX;
+            if (!double.IsInfinity(UserMinY) && !double.IsNaN(UserMinY))
+                lMinY = UserMinY;
+            if (!double.IsInfinity(UserMaxY) && !double.IsNaN(UserMaxY))
+                lMaxY = UserMaxY;
+            
             
 
 
-
-            if (!double.IsInfinity(MinXRestriction) && !double.IsNaN(MinXRestriction))
-                resPoints = points.Where(pt => pt.X >= MinXRestriction);
-            if (!double.IsInfinity(MaxXRestriction) && !double.IsNaN(MaxXRestriction))
-                resPoints = points.Where(pt => pt.X >= MaxXRestriction);
-
-
-            if (double.IsPositiveInfinity(MaxXRestriction) && !double.IsInfinity(XLengthRestriction))
-            {
-                var maxX = points.Max(pt => pt.X);
-                maxX = !double.IsNaN(MaxX) ? Math.Max(maxX, MaxX) : maxX;
-                resPoints = points.Where(pt => pt.X >= maxX - XLengthRestriction);
-            }
-            if (double.IsNegativeInfinity(MinXRestriction) && !double.IsInfinity(XLengthRestriction))
-            {
-                var minX = points.Min(pt => pt.X);
-                minX = !double.IsNaN(MinX) ? Math.Min(minX, MinX) : minX;
-                resPoints = points.Where(pt => pt.X <= minX + XLengthRestriction);
-            }
+            //if (!double.IsInfinity(MinXRestriction) && !double.IsNaN(MinXRestriction))
+            //    resPoints = points.Where(pt => pt.X >= MinXRestriction);
+            //if (!double.IsInfinity(MaxXRestriction) && !double.IsNaN(MaxXRestriction))
+            //    resPoints = points.Where(pt => pt.X >= MaxXRestriction);
 
 
-            if (!double.IsInfinity(MinYRestriction) && !double.IsNaN(MinYRestriction))
-                resPoints = points.Where(pt => pt.Y >= MinYRestriction);
-            if (!double.IsInfinity(MaxYRestriction) && !double.IsNaN(MaxYRestriction))
-                resPoints = points.Where(pt => pt.Y >= MaxYRestriction);
+            //if (double.IsPositiveInfinity(MaxXRestriction) && !double.IsInfinity(XLengthRestriction))
+            //{
+            //    var maxX = points.Max(pt => pt.X);
+            //    maxX = !double.IsNaN(MaxX) ? Math.Max(maxX, MaxX) : maxX;
+            //    resPoints = points.Where(pt => pt.X >= maxX - XLengthRestriction);
+            //}
+            //if (double.IsNegativeInfinity(MinXRestriction) && !double.IsInfinity(XLengthRestriction))
+            //{
+            //    var minX = points.Min(pt => pt.X);
+            //    minX = !double.IsNaN(MinX) ? Math.Min(minX, MinX) : minX;
+            //    resPoints = points.Where(pt => pt.X <= minX + XLengthRestriction);
+            //}
 
 
-            if (double.IsPositiveInfinity(MaxYRestriction) && !double.IsInfinity(YLengthRestriction))
-            {
-                var maxY = points.Max(pt => pt.Y);
-                maxY = !double.IsNaN(MaxY) ? Math.Max(maxY, MaxY) : maxY;
-                resPoints = points.Where(pt => pt.Y >= maxY - YLengthRestriction);
-            }
-            if (double.IsNegativeInfinity(MinYRestriction) && !double.IsInfinity(YLengthRestriction))
-            {
-                var minY = points.Min(pt => pt.Y);
-                minY = !double.IsNaN(MinY) ? Math.Min(minY, MinY) : minY;
-                resPoints = points.Where(pt => pt.Y <= minY + YLengthRestriction);
-            }
+            //if (!double.IsInfinity(MinYRestriction) && !double.IsNaN(MinYRestriction))
+            //    resPoints = points.Where(pt => pt.Y >= MinYRestriction);
+            //if (!double.IsInfinity(MaxYRestriction) && !double.IsNaN(MaxYRestriction))
+            //    resPoints = points.Where(pt => pt.Y >= MaxYRestriction);
+
+
+            //if (double.IsPositiveInfinity(MaxYRestriction) && !double.IsInfinity(YLengthRestriction))
+            //{
+            //    var maxY = points.Max(pt => pt.Y);
+            //    maxY = !double.IsNaN(MaxY) ? Math.Max(maxY, MaxY) : maxY;
+            //    resPoints = points.Where(pt => pt.Y >= maxY - YLengthRestriction);
+            //}
+            //if (double.IsNegativeInfinity(MinYRestriction) && !double.IsInfinity(YLengthRestriction))
+            //{
+            //    var minY = points.Min(pt => pt.Y);
+            //    minY = !double.IsNaN(MinY) ? Math.Min(minY, MinY) : minY;
+            //    resPoints = points.Where(pt => pt.Y <= minY + YLengthRestriction);
+            //}
 
         }
 
