@@ -23,11 +23,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBox MinWidth="40" Text="{Binding UserMinY}"></TextBox>
+                <TextBox  MinWidth="40" Text="{Binding UserMinY}"></TextBox>
             </StackPanel>
-            <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+            <TextBox Grid.Row="1" MinWidth="40" Text="{Binding UserYLength}"></TextBox>
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
                 <TextBox  MinWidth="40" Text="{Binding UserMaxY}"></TextBox>
             </StackPanel>
         </Grid>
@@ -35,7 +37,7 @@
             <Grid  x:Name="grid" Background="AliceBlue">
                 <Grid.Resources>
                     <TransformGroup x:Key="transform">
-                        <TranslateTransform X="{Binding Path=OffsetX}" Y="{Binding Path=OffsetY}"/>
+                        <TranslateTransform X="{Binding Path=OffsetX}" Y="{Binding Path=OffsetY}" />
                         <ScaleTransform  CenterX="0" CenterY="0">
                             <ScaleTransform.ScaleX>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
@@ -77,11 +79,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
                 <TextBox MinWidth="40" Text="{Binding UserMinX}"></TextBox>
             </StackPanel>
-            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBox Grid.Column="1" MinWidth="40" Text="{Binding UserXLength}"></TextBox>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBox MinWidth="40" Text="{Binding UserMaxX}"></TextBox>
             </StackPanel>
         </Grid>

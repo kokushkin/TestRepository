@@ -291,18 +291,6 @@ namespace WpfTestGrafic
 
         public void UpdateGrafic()
         {
-            //var minX = !double.IsNaN(UserMinX) ? UserMinX : MinX;
-            //var maxX = !double.IsNaN(UserMaxX) ? UserMaxX : MaxX;
-            //MaximumWidth =  maxX - minX;
-
-            //var minY = !double.IsNaN(UserMinY) ? UserMinY : MinY;
-            //var maxY = !double.IsNaN(UserMaxY) ? UserMaxY : MaxY;
-            //MaximumHeight =  maxY - minY;
-
-            //OffsetX = -(!double.IsNaN(UserMinX) ? UserMinX : MinX);
-            //OffsetY = -(!double.IsNaN(UserMinY) ? UserMinY : MinY);
-
-
             double lMinX = double.NaN;
             double lMaxX = double.NaN;
             double lMinY = double.NaN;
@@ -317,47 +305,38 @@ namespace WpfTestGrafic
             if (!double.IsInfinity(UserMaxY) && !double.IsNaN(UserMaxY))
                 lMaxY = UserMaxY;
             
-            
+            if(double.IsNegativeInfinity(UserMinX) && !double.IsInfinity(UserXLength))
+            {
+                lMinX = MinX;
+                lMaxX = MinX + UserXLength;
+            }
+            if(double.IsPositiveInfinity(UserMaxX) && !double.IsInfinity(UserXLength))
+            {
+                lMaxX = MaxX;
+                lMinX = MaxX - UserXLength;
+            }
 
+            if (double.IsNegativeInfinity(UserMinY) && !double.IsInfinity(UserYLength))
+            {
+                lMinY = MinY;
+                lMaxY = MinY + UserYLength;
+            }
+            if (double.IsPositiveInfinity(UserMaxY) && !double.IsInfinity(UserYLength))
+            {
+                lMaxY = MaxY;
+                lMinY = MaxY - UserYLength;
+            }
 
-            //if (!double.IsInfinity(MinXRestriction) && !double.IsNaN(MinXRestriction))
-            //    resPoints = points.Where(pt => pt.X >= MinXRestriction);
-            //if (!double.IsInfinity(MaxXRestriction) && !double.IsNaN(MaxXRestriction))
-            //    resPoints = points.Where(pt => pt.X >= MaxXRestriction);
+            var minX = !double.IsNaN(lMinX) ? lMinX : MinX;
+            var maxX = !double.IsNaN(lMaxX) ? lMaxX : MaxX;
+            MaximumWidth = maxX - minX;
 
+            var minY = !double.IsNaN(lMinY) ? lMinY : MinY;
+            var maxY = !double.IsNaN(lMaxY) ? lMaxY : MaxY;
+            MaximumHeight = maxY - minY;
 
-            //if (double.IsPositiveInfinity(MaxXRestriction) && !double.IsInfinity(XLengthRestriction))
-            //{
-            //    var maxX = points.Max(pt => pt.X);
-            //    maxX = !double.IsNaN(MaxX) ? Math.Max(maxX, MaxX) : maxX;
-            //    resPoints = points.Where(pt => pt.X >= maxX - XLengthRestriction);
-            //}
-            //if (double.IsNegativeInfinity(MinXRestriction) && !double.IsInfinity(XLengthRestriction))
-            //{
-            //    var minX = points.Min(pt => pt.X);
-            //    minX = !double.IsNaN(MinX) ? Math.Min(minX, MinX) : minX;
-            //    resPoints = points.Where(pt => pt.X <= minX + XLengthRestriction);
-            //}
-
-
-            //if (!double.IsInfinity(MinYRestriction) && !double.IsNaN(MinYRestriction))
-            //    resPoints = points.Where(pt => pt.Y >= MinYRestriction);
-            //if (!double.IsInfinity(MaxYRestriction) && !double.IsNaN(MaxYRestriction))
-            //    resPoints = points.Where(pt => pt.Y >= MaxYRestriction);
-
-
-            //if (double.IsPositiveInfinity(MaxYRestriction) && !double.IsInfinity(YLengthRestriction))
-            //{
-            //    var maxY = points.Max(pt => pt.Y);
-            //    maxY = !double.IsNaN(MaxY) ? Math.Max(maxY, MaxY) : maxY;
-            //    resPoints = points.Where(pt => pt.Y >= maxY - YLengthRestriction);
-            //}
-            //if (double.IsNegativeInfinity(MinYRestriction) && !double.IsInfinity(YLengthRestriction))
-            //{
-            //    var minY = points.Min(pt => pt.Y);
-            //    minY = !double.IsNaN(MinY) ? Math.Min(minY, MinY) : minY;
-            //    resPoints = points.Where(pt => pt.Y <= minY + YLengthRestriction);
-            //}
+            OffsetX = -(!double.IsNaN(lMinX) ? lMinX : MinX);
+            OffsetY = -(!double.IsNaN(lMinY) ? lMinY : MinY);
 
         }
 
