@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1.csproj", "{41E74646-D52C-46D7-9939-BBBF8D664BCB}"
 EndProject
@@ -50,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestGrafic", "..\WpfTestGrafic\WpfTestGrafic.csproj", "{87454BAD-311B-4D56-BB49-62A5DBDE38BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDepPropProgect", "..\TestDepPropProgect\TestDepPropProgect.csproj", "{6C003505-0578-4BF7-A2AC-50D0E3F61798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationTestDoubleDateTimeStringConvert", "..\ConsoleApplicationTestDoubleDateTimeStringConvert\ConsoleApplicationTestDoubleDateTimeStringConvert.csproj", "{E56E7FBE-0DC4-4B78-9CD6-C786BA3C63B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{6C003505-0578-4BF7-A2AC-50D0E3F61798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C003505-0578-4BF7-A2AC-50D0E3F61798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C003505-0578-4BF7-A2AC-50D0E3F61798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56E7FBE-0DC4-4B78-9CD6-C786BA3C63B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56E7FBE-0DC4-4B78-9CD6-C786BA3C63B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56E7FBE-0DC4-4B78-9CD6-C786BA3C63B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56E7FBE-0DC4-4B78-9CD6-C786BA3C63B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
