@@ -7,29 +7,44 @@ using System.Windows.Data;
 
 namespace WpfTestGrafic
 {
+    public enum ConverterType
+    {
+        Border = 0,
+        Interval = 1
+    }
+
     public abstract class DoubleStringConverter
     {
-        abstract public string ToString(double value);
-        abstract public double ToDouble(string value);
+        abstract public string ToString(double value, ConverterType type, ref double min, ref double max);
+        abstract public double ToDouble(string value, ConverterType type, ref double min, ref double max);
     }
 
     public class DoubleStringDateTimeConverter : DoubleStringConverter
     {
-        public override string ToString(double value)
+        public override string ToString(double value, ConverterType type, ref double min, ref double max)
         {
-            if (double.IsNegativeInfinity(value))
-                return "-∞";
-            else if (double.IsPositiveInfinity(value))
-                return "∞";
-            else if (double.IsNaN(value))
-                return "NaN";
+            if(type == ConverterType.Border)
+            {
+                if (double.IsNegativeInfinity(value))
+                    return "-∞";
+                else if (double.IsPositiveInfinity(value))
+                    return "∞";
+                else if (double.IsNaN(value))
+                    return "NaN";
+                else
+                {
+                    DateTime dt = DateTime.FromOADate(value);
+                    return dt.ToString("yyyy.MM.dd HH:mm:ss.fff");
+                }
+            }
             else
             {
-                DateTime dt = DateTime.FromOADate(value);
-                return dt.ToString("yyyy.MM.dd HH:mm:ss.fff");
+
             }
+
+
         }
-        public override double ToDouble(string value)
+        public override double ToDouble(string value, ConverterType type, ref double min, ref double max)
         {
             double res;
             switch(value)

@@ -70,6 +70,7 @@ namespace ConsoleApplicationTestDoubleDateTimeStringConvert
             {
                 double expDouble = cnv.ToDouble("1.1.0 20:20:23.567");
                 DateTime dt = DateTime.FromOADate(expDouble);
+                TimeSpan ts = new TimeSpan();
                 
             }
             catch(Exception ex)
