@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
@@ -51,6 +52,44 @@ namespace WpfTestGrafic
             return res;
 
             
+        }
+    }
+
+    public class DoubleStringUnixTimeConverter : DoubleStringConverter
+    {
+        public override string ToString(double value)
+        {
+            if (double.IsNegativeInfinity(value))
+                return "-∞";
+            else if (double.IsPositiveInfinity(value))
+                return "∞";
+            else if (double.IsNaN(value))
+                return "NaN";
+            else
+                return string.Format("{0} sec.", value);
+
+        }
+        public override double ToDouble(string value)
+        {
+            double res = 0;
+            switch (value)
+            {
+                case "-∞":
+                    res = double.NegativeInfinity;
+                    break;
+                case "∞":
+                    res = double.PositiveInfinity;
+                    break;
+                case "NaN":
+                    res = double.NaN;
+                    break;
+                default:
+                    var groups = Regex.Match(value, @"^\s*(\d+)\s*sec.\s*$").Groups;
+                    if(groups != null)
+                        double.TryParse(groups[1].Value, out res);
+                    break;
+            }
+            return res;
         }
     }
 

@@ -285,9 +285,9 @@ namespace WpfTestGrafic
             YLengthRestriction = double.PositiveInfinity;
 
             var xConverter = new CostConverter();
-            xConverter.cnv = new DoubleStringDateTimeConverter();
+            xConverter.cnv = new DoubleStringUnixTimeConverter();
             var yConverter = new CostConverter();
-            yConverter.cnv = new DoubleStringDateTimeConverter();
+            yConverter.cnv = new DoubleStringUnixTimeConverter();
 
             this.Resources.Add("XConverter", xConverter);
             this.Resources.Add("YConverter", yConverter);
@@ -627,20 +627,20 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
         private void Button_Click_AddGreen(object sender, RoutedEventArgs e)
         {
             var stDate = new DateTime(2016, 1, 12);
-            Point[] PointArray = new Point[] { new Point(stDate.ToOADate(), 100), 
-                new Point(stDate.AddDays(1).ToOADate(), 80), 
-                new Point(stDate.AddDays(2).ToOADate(), 40), 
-                new Point(stDate.AddDays(3).ToOADate(), 100) };
+            Point[] PointArray = new Point[] { new Point(1457989481, 100), 
+                new Point(1457989600, 80), 
+                new Point(1457989800, 40), 
+                new Point(1457989900, 100) };
             AddFunction(PointArray, Colors.Green, 2, "Green line");
         }
 
         private void Button_Click_AddBlack(object sender, RoutedEventArgs e)
         {
             var stDate = new DateTime(2016, 1, 12);
-            Point[] PointArray = new Point[] { new Point(stDate.ToOADate(), 20), 
-                new Point(stDate.AddDays(1).ToOADate(), 30), 
-                new Point(stDate.AddDays(2).ToOADate(), 40), 
-                new Point(stDate.AddDays(3).ToOADate(), 12) };
+            Point[] PointArray = new Point[] { new Point(1457989481, 20), 
+                new Point(1457989600, 30), 
+                new Point(1457989800, 40), 
+                new Point(1457989900, 12) };
             AddFunction(PointArray, Colors.Black, 2, "Black line");
         }
 
@@ -665,12 +665,12 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
                 if(lastSegment != null)
                 {
                     var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
-                    AddPoint(new Point(DateTime.FromOADate(prevPoint.X).AddMinutes(rnd.Next(800)).ToOADate(),
+                    AddPoint(new Point(prevPoint.X + rnd.Next(300),
                         prevPoint.Y + rnd.Next(100)), "Green line");
                     return;
                 }
                 else
-                    AddPoint(new Point(DateTime.FromOADate(MaxX).AddMinutes(rnd.Next(800)).ToOADate(),
+                    AddPoint(new Point(MaxX + rnd.Next(300),
                         MaxY + rnd.Next(50)), "Green line");
             }
             
@@ -695,12 +695,12 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
                 if (lastSegment != null)
                 {
                     var prevPoint = ((LineSegment)((PathGeometry)tpl.Item1.Data).Figures.LastOrDefault().Segments.LastOrDefault()).Point;
-                    AddPoint(new Point(DateTime.FromOADate(prevPoint.X).AddMinutes(rnd.Next(800)).ToOADate(),
+                    AddPoint(new Point(prevPoint.X + rnd.Next(300),
                         prevPoint.Y + rnd.Next(100)), "Black line");
                     return;
                 }
                 else
-                    AddPoint(new Point(DateTime.FromOADate(MaxX).AddMinutes(rnd.Next(800)).ToOADate(),
+                    AddPoint(new Point(MaxX + rnd.Next(300),
                         MaxY + rnd.Next(50)), "Black line");
             }
         }
