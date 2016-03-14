@@ -64,8 +64,18 @@ namespace ConsoleApplicationTestDoubleDateTimeStringConvert
             double ninfDouble = double.NegativeInfinity;
             string str3 = cnv.ToString(ninfDouble);
 
-            DateTime dtpinf = DateTime.FromOADate(pinfDouble);
+            //DateTime dtpinf = DateTime.FromOADate(pinfDouble);
 
+            try
+            {
+                double expDouble = cnv.ToDouble("1.1.0 20:20:23.567");
+                DateTime dt = DateTime.FromOADate(expDouble);
+                
+            }
+            catch(Exception ex)
+            {
+
+            }
 
 
             Console.ReadLine();

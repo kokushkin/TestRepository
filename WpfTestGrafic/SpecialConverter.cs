@@ -57,17 +57,19 @@ namespace WpfTestGrafic
     [ValueConversion(typeof(double), typeof(string))]
     public class CostConverter : IValueConverter
     {
+        public DoubleStringConverter cnv;
+
         public object Convert(object value, Type targetType, object parameter,
             System.Globalization.CultureInfo culture)
         {
-            DoubleStringConverter cnv = (DoubleStringConverter)parameter;
+            //DoubleStringConverter cnv = (DoubleStringConverter)parameter;
             return cnv.ToString((double)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter,
             System.Globalization.CultureInfo culture)
         {
-            DoubleStringConverter cnv = (DoubleStringConverter)parameter;
+            //DoubleStringConverter cnv = (DoubleStringConverter)parameter;
             return cnv.ToDouble((string)value);
         }
     }

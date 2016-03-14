@@ -5,6 +5,8 @@
         Title="MainWindow" Height="409.701" Width="533.954" DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Window.Resources>
         <databinding:ScaleConverter x:Key="ScConverter"></databinding:ScaleConverter>
+        <!--<databinding:CostConverter x:Key="XConverter"></databinding:CostConverter>
+        <databinding:CostConverter x:Key="YConverter"></databinding:CostConverter>-->        
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,11 +28,11 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBox  MinWidth="40" Text="{Binding UserMinY}"></TextBox>
+                <TextBox  MinWidth="40" Text="{Binding Path=UserMinY, Converter={StaticResource YConverter}}"></TextBox>
             </StackPanel>
-            <TextBox Grid.Row="1" MinWidth="40" Text="{Binding UserYLength}"></TextBox>
+            <TextBox Grid.Row="1" MinWidth="40" Text="{Binding Path=UserYLength, Converter={StaticResource YConverter}}"></TextBox>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-                <TextBox  MinWidth="40" Text="{Binding UserMaxY}"></TextBox>
+                <TextBox  MinWidth="40" Text="{Binding Path=UserMaxY, Converter={StaticResource YConverter}}"></TextBox>
             </StackPanel>
         </Grid>
         <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -82,11 +84,11 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
-                <TextBox MinWidth="40" Text="{Binding UserMinX}"></TextBox>
+                <TextBox MinWidth="40" Text="{Binding Path=UserMinX, Converter={StaticResource XConverter}}"></TextBox>
             </StackPanel>
-            <TextBox Grid.Column="1" MinWidth="40" Text="{Binding UserXLength}"></TextBox>
+            <TextBox Grid.Column="1" MinWidth="40" Text="{Binding Path=UserXLength, Converter={StaticResource XConverter}}"></TextBox>
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBox MinWidth="40" Text="{Binding UserMaxX}"></TextBox>
+                <TextBox MinWidth="40" Text="{Binding Path=UserMaxX, Converter={StaticResource XConverter}}"></TextBox>
             </StackPanel>
         </Grid>
         
