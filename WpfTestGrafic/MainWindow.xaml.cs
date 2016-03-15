@@ -46,6 +46,8 @@ namespace WpfTestGrafic
 
         private Dictionary<string, Four> squaresFunctions = new Dictionary<string, Four>();
 
+        private Path coordPath;
+
         double _userMinX;
         public double UserMinX
         {
@@ -351,6 +353,47 @@ namespace WpfTestGrafic
             OffsetX = -(!double.IsNaN(lMinX) ? lMinX : MinX);
             OffsetY = -(!double.IsNaN(lMinY) ? lMinY : MinY);
 
+
+
+
+            //draw coordinate fild (9 lines)
+
+            if(grid != null)
+            {
+                if (coordPath != null)
+                    grid.Children.Remove(coordPath);
+
+                PathGeometry geometry = new PathGeometry();
+                geometry.Transform = (Transform)grid.FindResource("transform");
+
+                for (double x = minX; x < maxX; x += (maxX - minX) / 10)
+                {
+                    var pf = new PathFigure();
+                    pf.StartPoint = new Point(x, minY);
+                    pf.Segments.Add(new LineSegment(new Point(x, maxY), true));
+                    geometry.Figures.Add(pf);
+                }
+                for (double y = minY; y < maxY; y += (maxY - minY) / 10)
+                {
+                    var pf = new PathFigure();
+                    pf.StartPoint = new Point(minX, y);
+                    pf.Segments.Add(new LineSegment(new Point(maxX, y), true));
+                    geometry.Figures.Add(pf);
+                }
+
+                Path path = new Path();
+                path.Stroke = new SolidColorBrush(Colors.Black);
+                path.StrokeThickness = 1;
+                path.Data = geometry;
+                coordPath = path;
+                grid.Children.Add(coordPath);
+            }
+
+
+
+            ///////////
+
+
         }
 
         static bool ChangeMinMaxAdd(ref double oldMinX, ref double oldMaxX, ref double oldMinY, ref double oldMaxY,
@@ -531,6 +574,7 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
                 points = RestrictionCheck(points);
 
                 PathFigure figure = new PathFigure();
+                
                 if(points.Count() != 0)
                 {
                     figure.StartPoint = points.FirstOrDefault();
