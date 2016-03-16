@@ -671,20 +671,36 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
         private void Button_Click_AddGreen(object sender, RoutedEventArgs e)
         {
             var stDate = new DateTime(2016, 1, 12);
-            Point[] PointArray = new Point[] { new Point(1457989481, 100), 
-                new Point(1457989600, 80), 
-                new Point(1457989800, 40), 
-                new Point(1457989900, 100) };
+            //Point[] PointArray = new Point[] { new Point(1457989481, 100), 
+            //    new Point(1457989600, 80), 
+            //    new Point(1457989800, 40), 
+            //    new Point(1457989900, 100) };
+            //Point[] PointArray = new Point[] { new Point(9481, 100), 
+            //    new Point(9600, 80), 
+            //    new Point(9800, 40), 
+            //    new Point(9900, 100) };
+            Point[] PointArray = new Point[] { new Point(0, 0), 
+                new Point(10, 30), 
+                new Point(20, 20), 
+                new Point(30, 80) };
             AddFunction(PointArray, Colors.Green, 2, "Green line");
         }
 
         private void Button_Click_AddBlack(object sender, RoutedEventArgs e)
         {
             var stDate = new DateTime(2016, 1, 12);
-            Point[] PointArray = new Point[] { new Point(1457989481, 20), 
-                new Point(1457989600, 30), 
-                new Point(1457989800, 40), 
-                new Point(1457989900, 12) };
+            //Point[] PointArray = new Point[] { new Point(1457989481, 20), 
+            //    new Point(1457989600, 30), 
+            //    new Point(1457989800, 40), 
+            //    new Point(1457989900, 12) };
+            //Point[] PointArray = new Point[] { new Point(9481, 20), 
+            //    new Point(9600, 30), 
+            //    new Point(9800, 40), 
+            //    new Point(9900, 12) };
+            Point[] PointArray = new Point[] { new Point(0, 0), 
+                new Point(10, 30), 
+                new Point(20, 20), 
+                new Point(30, 80) };
             AddFunction(PointArray, Colors.Black, 2, "Black line");
         }
 
