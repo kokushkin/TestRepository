@@ -679,10 +679,14 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             //    new Point(9600, 80), 
             //    new Point(9800, 40), 
             //    new Point(9900, 100) };
-            Point[] PointArray = new Point[] { new Point(0, 0), 
-                new Point(10, 30), 
-                new Point(20, 20), 
-                new Point(30, 80) };
+            //Point[] PointArray = new Point[] { new Point(0, 0), 
+            //    new Point(10, 30), 
+            //    new Point(20, 20), 
+            //    new Point(30, 80) };
+            Point[] PointArray = new Point[] { new Point(30, 30), 
+                new Point(40, 60), 
+                new Point(50, 50), 
+                new Point(60, 110) };
             AddFunction(PointArray, Colors.Green, 2, "Green line");
         }
 

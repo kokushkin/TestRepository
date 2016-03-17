@@ -8,6 +8,7 @@
         <databinding:ScaleConverter x:Key="ScConverter"></databinding:ScaleConverter>
         <databinding:ArifmeticConverter x:Key="ArConverter"></databinding:ArifmeticConverter>
         <databinding:HalfConverter x:Key="HalfConverter"></databinding:HalfConverter>
+        <databinding:NegativeConverter x:Key="NegativeConverter"></databinding:NegativeConverter>
         <!--<databinding:CostConverter x:Key="XConverter"></databinding:CostConverter>
         <databinding:CostConverter x:Key="YConverter"></databinding:CostConverter>-->        
     </Window.Resources>
@@ -31,7 +32,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBox  MinWidth="40" Text="{Binding Path=UserMinY, Converter={StaticResource YConverter}}"></TextBox>
+                <TextBox  MinWidth="40" Text="{Binding UserMinY, Converter={StaticResource YConverter}}"/>
             </StackPanel>
             <TextBox Grid.Row="1" MinWidth="40" Text="{Binding Path=UserYLength, Converter={StaticResource YConverter}}"></TextBox>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
@@ -43,8 +44,9 @@
                 <Grid.Resources>
                     
                     <TransformGroup x:Key="transform">
-                        
-                        <ScaleTransform  CenterX="0" CenterY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=ActualHeight, Converter={StaticResource HalfConverter} }">
+
+                        <TranslateTransform X="{Binding Path=OffsetX}" Y="{Binding Path=OffsetY}" />
+                        <ScaleTransform  CenterX="0" CenterY="0">
                             <ScaleTransform.ScaleX>
                                 <MultiBinding Converter="{StaticResource ScConverter}">
                                     <MultiBinding.ConverterParameter>
@@ -58,14 +60,19 @@
                                 
                                 <MultiBinding Converter="{StaticResource ScConverter}">
                                     <MultiBinding.ConverterParameter>
-                                        <sys:String>Y</sys:String>
+                                        <sys:String>X</sys:String>
                                     </MultiBinding.ConverterParameter>
                                     <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}" Path="ActualHeight"></Binding>
                                     <Binding Path="MaximumHeight"></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleY>
+                            
                         </ScaleTransform>
-                        <!--<TranslateTransform X="{Binding Path=OffsetX}" Y="{Binding Path=OffsetY}" />-->
+                        
+                        <ScaleTransform CenterX="0" CenterY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=ActualHeight, Converter={StaticResource HalfConverter} }" ScaleY="-1"/>
+                        
+
+
                     </TransformGroup>
 
 
