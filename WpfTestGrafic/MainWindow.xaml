@@ -39,8 +39,8 @@
                 <TextBox  MinWidth="40" Text="{Binding Path=UserMaxY, Converter={StaticResource YConverter}}"></TextBox>
             </StackPanel>
         </Grid>
-        <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <Grid  x:Name="grid" Background="AliceBlue">
+        <!--<ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
+        <Grid Grid.Column="1"  x:Name="grid" Background="AliceBlue">
                 <Grid.Resources>
                     
                     <TransformGroup x:Key="transform">
@@ -52,8 +52,9 @@
                                     <MultiBinding.ConverterParameter>
                                         <sys:String>X</sys:String>
                                     </MultiBinding.ConverterParameter>                                    
-                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}" Path="ActualWidth" ></Binding>
-                                    <Binding Path="MaximumWidth"></Binding>
+                                    <!--<Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}" Path="ActualWidth" ></Binding>-->
+                                <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualWidth" ></Binding>
+                                <Binding Path="MaximumWidth"></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleX>
                             <ScaleTransform.ScaleY>
@@ -62,14 +63,15 @@
                                     <MultiBinding.ConverterParameter>
                                         <sys:String>X</sys:String>
                                     </MultiBinding.ConverterParameter>
-                                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}" Path="ActualHeight"></Binding>
-                                    <Binding Path="MaximumHeight"></Binding>
+                                    <!--<Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}" Path="ActualHeight"></Binding>-->
+                                <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}" Path="ActualHeight"></Binding>
+                                <Binding Path="MaximumHeight"></Binding>
                                 </MultiBinding>
                             </ScaleTransform.ScaleY>
                             
                         </ScaleTransform>
-                        
-                        <ScaleTransform CenterX="0" CenterY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=ActualHeight, Converter={StaticResource HalfConverter} }" ScaleY="-1"/>
+
+                    <ScaleTransform CenterX="0" CenterY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=ActualHeight, Converter={StaticResource HalfConverter} }" ScaleY="-1"/>
                         
 
 
@@ -88,7 +90,7 @@
                     </Path.Data>
                 </Path>-->
             </Grid>
-        </ScrollViewer>
+        <!--</ScrollViewer>-->
         
 
         <ScrollViewer Grid.Column="3" VerticalScrollBarVisibility="Auto">
