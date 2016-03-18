@@ -105,27 +105,27 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0">0.0</Label>
-                <Label Grid.Row="1">0.0</Label>
-                <Label Grid.Row="2">0.0</Label>
-                <Label Grid.Row="3">0.0</Label>
-                <Label Grid.Row="4">0.0</Label>
-                <Label Grid.Row="5">0.0</Label>
-                <Label Grid.Row="6">0.0</Label>
-                <Label Grid.Row="7">0.0</Label>
-                <Label Grid.Row="8">0.0</Label>
-                <Label Grid.Row="9">0.0</Label>
+                <Label Grid.Row="0" Name="y9" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="1" Name="y8" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="2" Name="y7" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="3" Name="y6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="4" Name="y5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="5" Name="y4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="6" Name="y3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="7" Name="y2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="8" Name="y1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Name="y0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
 
-                <Label Grid.Row="9" Grid.Column="0">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="1">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="2">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="3">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="4">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="5">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="6">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="7">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="8">0.0</Label>
-                <Label Grid.Row="9" Grid.Column="9">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="0" Name="x0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="1" Name="x1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="2" Name="x2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="3" Name="x3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="4" Name="x4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="5" Name="x5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="6" Name="x6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="7" Name="x7" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="8" Name="x8" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="9" Name="x9" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Padding="0">0.0</Label>
             </Grid>
             
             <!--<Path Stroke="Black" StrokeThickness="4">

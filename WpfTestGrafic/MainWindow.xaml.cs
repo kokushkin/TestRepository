@@ -270,6 +270,9 @@ namespace WpfTestGrafic
             DependencyProperty.Register("OffsetY", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
 
 
+        CostConverter xConverter;
+        CostConverter yConverter;
+
         public MainWindow()
         {
             UserMinX = double.NaN;
@@ -286,9 +289,9 @@ namespace WpfTestGrafic
             MaxYRestriction = double.NaN;
             YLengthRestriction = double.PositiveInfinity;
 
-            var xConverter = new CostConverter();
+            xConverter = new CostConverter();
             xConverter.cnv = new DoubleStringUnixTimeConverter();
-            var yConverter = new CostConverter();
+            yConverter = new CostConverter();
             yConverter.cnv = new DoubleStringUnixTimeConverter();
 
             this.Resources.Add("XConverter", xConverter);
@@ -365,13 +368,50 @@ namespace WpfTestGrafic
 
                 PathGeometry geometry = new PathGeometry();
                 geometry.Transform = (Transform)grid.FindResource("transform");
-
+                int i = 0, j = 0;
                 for (double x = minX; x < maxX; x += (maxX - minX) / 10)
                 {
                     var pf = new PathFigure();
                     pf.StartPoint = new Point(x, minY);
                     pf.Segments.Add(new LineSegment(new Point(x, maxY), true));
                     geometry.Figures.Add(pf);
+                    switch(i)
+                    {
+                        case 0:
+                            x0.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 1:
+                            x1.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 2:
+                            x2.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 3:
+                            x3.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 4:
+                            x4.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 5:
+                            x5.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 6:
+                            x6.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 7:
+                            x7.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 8:
+                            x8.Content = xConverter.cnv.ToString(x);
+                            break;
+                        case 9:
+                            x9.Content = xConverter.cnv.ToString(x);
+                            break;
+                        default:
+                            break;
+
+                    }
+                    i++;
                 }
                 for (double y = minY; y < maxY; y += (maxY - minY) / 10)
                 {
@@ -379,6 +419,43 @@ namespace WpfTestGrafic
                     pf.StartPoint = new Point(minX, y);
                     pf.Segments.Add(new LineSegment(new Point(maxX, y), true));
                     geometry.Figures.Add(pf);
+                    switch (j)
+                    {
+                        case 0:
+                            y0.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 1:
+                            y1.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 2:
+                            y2.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 3:
+                            y3.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 4:
+                            y4.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 5:
+                            y5.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 6:
+                            y6.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 7:
+                            y7.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 8:
+                            y8.Content = yConverter.cnv.ToString(y);
+                            break;
+                        case 9:
+                            y9.Content = yConverter.cnv.ToString(y);
+                            break;
+                        default:
+                            break;
+
+                    }
+                    j++;
                 }
 
                 Path path = new Path();
