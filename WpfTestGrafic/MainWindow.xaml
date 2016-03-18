@@ -32,11 +32,11 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBox  MinWidth="40" Text="{Binding UserMinY, Converter={StaticResource YConverter}}"/>
+                <TextBox  MinWidth="40" Text="{Binding UserMaxY, Converter={StaticResource YConverter}}"/>
             </StackPanel>
             <TextBox Grid.Row="1" MinWidth="40" Text="{Binding Path=UserYLength, Converter={StaticResource YConverter}}"></TextBox>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-                <TextBox  MinWidth="40" Text="{Binding Path=UserMaxY, Converter={StaticResource YConverter}}"></TextBox>
+                <TextBox  MinWidth="40" Text="{Binding Path=UserMinY, Converter={StaticResource YConverter}}"></TextBox>
             </StackPanel>
         </Grid>
         <!--<ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
@@ -79,7 +79,56 @@
 
 
                 </Grid.Resources>
-                <!--<Path Stroke="Black" StrokeThickness="4">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0">0.0</Label>
+                <Label Grid.Row="1">0.0</Label>
+                <Label Grid.Row="2">0.0</Label>
+                <Label Grid.Row="3">0.0</Label>
+                <Label Grid.Row="4">0.0</Label>
+                <Label Grid.Row="5">0.0</Label>
+                <Label Grid.Row="6">0.0</Label>
+                <Label Grid.Row="7">0.0</Label>
+                <Label Grid.Row="8">0.0</Label>
+                <Label Grid.Row="9">0.0</Label>
+
+                <Label Grid.Row="9" Grid.Column="0">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="1">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="2">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="3">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="4">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="5">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="6">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="7">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="8">0.0</Label>
+                <Label Grid.Row="9" Grid.Column="9">0.0</Label>
+            </Grid>
+            
+            <!--<Path Stroke="Black" StrokeThickness="4">
                     <Path.Data>
                         <LineGeometry  StartPoint="500,400" EndPoint="40,40" Transform="{StaticResource transform}"/>
                     </Path.Data>
