@@ -846,6 +846,18 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
             }
         }
 
+        private void Button_Click_Test_line(object sender, RoutedEventArgs e)
+        {
+            Path pth = new Path();
+            pth.Data = new LineGeometry(new Point(0, 0), new Point(10000, 10000));
+            pth.Stroke = new SolidColorBrush(Colors.Black);
+            pth.StrokeThickness = 3;
+            grid.Children.Add(pth);
+            var height = grid.ActualHeight;
+            var width = grid.ActualWidth;
+
+        }
+
 
 
     }
