@@ -179,7 +179,6 @@
             <TextBox Text="{Binding MaxYRestriction}" MinWidth="40"></TextBox>
             <Label>YLengthRestriction</Label>
             <TextBox Text="{Binding YLengthRestriction}" MinWidth="40"></TextBox>
-            <Button Click="Button_Click_Test_line">TestLine</Button>
         </StackPanel>
 
     </Grid>

@@ -229,7 +229,7 @@ namespace WpfTestGrafic
 
         // Using a DependencyProperty as the backing store for MaximumWidth.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MaximumWidthProperty =
-            DependencyProperty.Register("MaximumWidth", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
+            DependencyProperty.Register("MaximumWidth", typeof(double), typeof(GraficUserControl), new PropertyMetadata(double.NaN));
 
 
 
@@ -241,7 +241,7 @@ namespace WpfTestGrafic
 
         // Using a DependencyProperty as the backing store for MaximumHeight.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MaximumHeightProperty =
-            DependencyProperty.Register("MaximumHeight", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
+            DependencyProperty.Register("MaximumHeight", typeof(double), typeof(GraficUserControl), new PropertyMetadata(double.NaN));
 
 
         public double OffsetX
@@ -252,7 +252,7 @@ namespace WpfTestGrafic
 
         // Using a DependencyProperty as the backing store for OffsetX.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty OffsetXProperty =
-            DependencyProperty.Register("OffsetX", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
+            DependencyProperty.Register("OffsetX", typeof(double), typeof(GraficUserControl), new PropertyMetadata(double.NaN));
 
 
 
@@ -264,7 +264,7 @@ namespace WpfTestGrafic
 
         // Using a DependencyProperty as the backing store for OffsetY.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty OffsetYProperty =
-            DependencyProperty.Register("OffsetY", typeof(double), typeof(MainWindow), new PropertyMetadata(double.NaN));
+            DependencyProperty.Register("OffsetY", typeof(double), typeof(GraficUserControl), new PropertyMetadata(double.NaN));
 
 
         CostConverter xConverter;
@@ -738,23 +738,6 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
                         UpdateGrafic();
             }
         }
-
-
-        private void Button_Click_Test_line(object sender, RoutedEventArgs e)
-        {
-            Path pth = new Path();
-            pth.Data = new LineGeometry(new Point(0, 0), new Point(10000, 10000));
-            pth.Stroke = new SolidColorBrush(Colors.Black);
-            pth.StrokeThickness = 3;
-            grid.Children.Add(pth);
-            var height = grid.ActualHeight;
-            var width = grid.ActualWidth;
-        }
-
-
-
-
-
 
     }
 }
