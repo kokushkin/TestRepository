@@ -372,7 +372,7 @@ namespace WpfTestGrafic
                     pf.StartPoint = new Point(x, minY);
                     pf.Segments.Add(new LineSegment(new Point(x, maxY), true));
                     geometry.Figures.Add(pf);
-                    switch(i)
+                    switch (i)
                     {
                         case 0:
                             x0.Content = xConverter.cnv.ToString(x);
@@ -737,6 +737,16 @@ double nwMinX, double nwMaxX, double nwMinY, double nwMaxY)
                         fSqr.minX, fSqr.maxX, fSqr.minY, fSqr.maxY))
                         UpdateGrafic();
             }
+        }
+
+
+        private void Button_Click_Test_line(object sender, RoutedEventArgs e)
+        {
+            Path pth = new Path();
+            pth.Data = new LineGeometry(new Point(0, 0), new Point(10000, 10000));
+            grid.Children.Add(pth);
+            var height = grid.ActualHeight;
+            var width = grid.ActualWidth;
         }
 
 
