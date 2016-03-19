@@ -6,7 +6,7 @@
              xmlns:databinding="clr-namespace:WpfTestGrafic"
            xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+             d:DesignHeight="300" DataContext="{Binding RelativeSource={RelativeSource Self}}" Width="466">
     <UserControl.Resources>
         <databinding:ScaleConverter x:Key="ScConverter"></databinding:ScaleConverter>
         <databinding:ArifmeticConverter x:Key="ArConverter"></databinding:ArifmeticConverter>
@@ -24,23 +24,24 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <StackPanel>
-                <TextBox  MinWidth="40" Text="{Binding UserMaxY, Converter={StaticResource YConverter}}"/>
-            </StackPanel>
-            <TextBox Grid.Row="1" MinWidth="40" Text="{Binding Path=UserYLength, Converter={StaticResource YConverter}}"></TextBox>
-            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-                <TextBox  MinWidth="40" Text="{Binding Path=UserMinY, Converter={StaticResource YConverter}}"></TextBox>
-            </StackPanel>
-        </Grid>
+        <Expander ExpandDirection="Left">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <TextBox  MinWidth="40" Text="{Binding UserMaxY, Converter={StaticResource YConverter}}"/>
+                </StackPanel>
+                <TextBox Grid.Row="1" MinWidth="40" Text="{Binding Path=UserYLength, Converter={StaticResource YConverter}}"></TextBox>
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                    <TextBox  MinWidth="40" Text="{Binding Path=UserMinY, Converter={StaticResource YConverter}}"></TextBox>
+                </StackPanel>
+            </Grid>
+        </Expander>
+        
         <!--<ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
         <Grid Grid.Column="1"  x:Name="grid" >
             <Grid.Resources>
@@ -149,37 +150,57 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Grid Grid.Column="1" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <TextBox MinWidth="40" Text="{Binding Path=UserMinX, Converter={StaticResource XConverter}}"></TextBox>
-            </StackPanel>
-            <TextBox Grid.Column="1" MinWidth="40" Text="{Binding Path=UserXLength, Converter={StaticResource XConverter}}"></TextBox>
-            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBox MinWidth="40" Text="{Binding Path=UserMaxX, Converter={StaticResource XConverter}}"></TextBox>
-            </StackPanel>
-        </Grid>
+        <Expander Grid.Column="1" Grid.Row="1" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox MinWidth="40" Text="{Binding Path=UserMinX, Converter={StaticResource XConverter}}"></TextBox>
+                    </StackPanel>
+                    <TextBox Grid.Column="1" MinWidth="40" Text="{Binding Path=UserXLength, Converter={StaticResource XConverter}}"></TextBox>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBox MinWidth="40" Text="{Binding Path=UserMaxX, Converter={StaticResource XConverter}}"></TextBox>
+                    </StackPanel>
+                </Grid>
+                <Expander Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" >
+                            <Label>MinXRestriction</Label>
+                            <TextBox Text="{Binding MinXRestriction}" MinWidth="40"></TextBox>
+                            <Label>MaxXRestriction</Label>
+                            <TextBox Text="{Binding MaxXRestriction}" MinWidth="40"></TextBox>
+                            <Label>XLengthRestriction</Label>
+                            <TextBox Text="{Binding XLengthRestriction}" MinWidth="40"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1">
+                            <Label>MinYRestriction</Label>
+                            <TextBox Text="{Binding MinYRestriction}" MinWidth="40"></TextBox>
+                            <Label>MaxYRestriction</Label>
+                            <TextBox Text="{Binding MaxYRestriction}" MinWidth="40"></TextBox>
+                            <Label>YLengthRestriction</Label>
+                            <TextBox Text="{Binding YLengthRestriction}" MinWidth="40"></TextBox>
+                        </StackPanel>
+                    </Grid>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-            <Label>MinXRestriction</Label>
-            <TextBox Text="{Binding MinXRestriction}" MinWidth="40"></TextBox>
-            <Label>MaxXRestriction</Label>
-            <TextBox Text="{Binding MaxXRestriction}" MinWidth="40"></TextBox>
-            <Label>XLengthRestriction</Label>
-            <TextBox Text="{Binding XLengthRestriction}" MinWidth="40"></TextBox>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-            <Label>MinYRestriction</Label>
-            <TextBox Text="{Binding MinYRestriction}" MinWidth="40"></TextBox>
-            <Label>MaxYRestriction</Label>
-            <TextBox Text="{Binding MaxYRestriction}" MinWidth="40"></TextBox>
-            <Label>YLengthRestriction</Label>
-            <TextBox Text="{Binding YLengthRestriction}" MinWidth="40"></TextBox>
-        </StackPanel>
+                </Expander>
+            </Grid>
+        </Expander>
+        
+
+        
+
 
     </Grid>
 </UserControl>
