@@ -132,5 +132,14 @@ namespace WpfTestGrafic
             }
         }
 
+        private void Buttin_Click_TestLine(object sender, RoutedEventArgs e)
+        {
+            Path pth = new Path();
+            pth.Data = new LineGeometry(new Point(0, 0), new Point(10000, 10000));
+            Grafic.grid.Children.Add(pth);
+            var height = Grafic.grid.ActualHeight;
+            var width = Grafic.grid.ActualWidth;
+        }
+
     }
 }

@@ -18,6 +18,7 @@
             <Button Margin="3" Click="Button_Click_DeleteBlack">DeleteBlack</Button>
             <Button Margin="3" Click="Button_Click_AddGreenPoint">AddGreenPoint</Button>
             <Button Margin="3" Click="Button_Click_AddBlackPoint">AddBlackPoint</Button>
+            <Button Margin="3" Click="Buttin_Click_TestLine">TestLine</Button>
         </StackPanel>
 
     </Grid>
