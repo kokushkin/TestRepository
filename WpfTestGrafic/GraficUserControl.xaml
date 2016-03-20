@@ -6,7 +6,7 @@
              xmlns:databinding="clr-namespace:WpfTestGrafic"
            xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="300" DataContext="{Binding RelativeSource={RelativeSource Self}}" Width="466">
+             d:DesignHeight="300" DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
         <databinding:ScaleConverter x:Key="ScConverter"></databinding:ScaleConverter>
         <databinding:ArifmeticConverter x:Key="ArConverter"></databinding:ArifmeticConverter>
