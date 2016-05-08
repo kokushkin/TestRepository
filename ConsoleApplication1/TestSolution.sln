@@ -49,6 +49,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationCancelFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestGrafic", "..\WpfTestGrafic\WpfTestGrafic.csproj", "{87454BAD-311B-4D56-BB49-62A5DBDE38BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level17_2", "..\Level17_2\Level17_2.csproj", "{D3B0A683-6C8B-465F-9406-6B7E60FCB540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level17_4", "Level17_4\Level17_4.csproj", "{6A01D369-CAC8-46FC-8242-C589AB6584B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +151,14 @@ Global
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B0A683-6C8B-465F-9406-6B7E60FCB540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B0A683-6C8B-465F-9406-6B7E60FCB540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B0A683-6C8B-465F-9406-6B7E60FCB540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B0A683-6C8B-465F-9406-6B7E60FCB540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A01D369-CAC8-46FC-8242-C589AB6584B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A01D369-CAC8-46FC-8242-C589AB6584B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A01D369-CAC8-46FC-8242-C589AB6584B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A01D369-CAC8-46FC-8242-C589AB6584B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

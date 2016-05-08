@@ -1,0 +1,24 @@
+﻿<Window x:Class="Level17_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="5" Orientation="Horizontal">
+            <Button Name="Btn_visualTreeView" Padding="5" Margin="8,0,0,0"
+                      Click="Btn_visualTreeView_Click">Визуальное дерево</Button>
+            <GroupBox Margin="5">
+                <StackPanel>
+                    <RadioButton Name="InTreeView" Margin="3" IsChecked="True">Показать в TreeView</RadioButton>
+                    <RadioButton Name="InTextBox" Margin="3">Показать в TextBox</RadioButton>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <TextBox Name="txt" Grid.Row="1" Margin="5" TextWrapping="Wrap"
+               HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+               IsReadOnly="True" BorderBrush="#2f3bc5"></TextBox>
+    </Grid>
+</Window>
