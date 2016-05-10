@@ -24,5 +24,10 @@ namespace Level17_5
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string df = "sdffsd";
+        }
     }
 }
