@@ -30,6 +30,18 @@
                 <Trigger Property="IsKeyboardFocused" Value="True">
                     <Setter TargetName="FocusCue" Property="Visibility" Value="Visible"></Setter>
                 </Trigger>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="border" Duration="0:0:1"
+                                            Storyboard.TargetProperty="Background.Color"
+                                            To="Blue">
+                                </ColorAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>                
+                </EventTrigger>
             </ControlTemplate.Triggers>
 
         </ControlTemplate>
