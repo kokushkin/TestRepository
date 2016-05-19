@@ -181,10 +181,6 @@
             BorderThickness="1" 
             CornerRadius="2,2,0,0" >
                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="20" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
                                 <ToggleButton
                 IsChecked="{Binding Path=IsExpanded,Mode=TwoWay,
                                     RelativeSource={RelativeSource TemplatedParent}}"
