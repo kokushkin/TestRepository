@@ -112,7 +112,7 @@
     <SolidColorBrush x:Key="LightBorderBrush" Color="#AAA" />
 
     <!-- Miscellaneous Brushes -->
-    <SolidColorBrush x:Key="GlyphBrush" Color="#444" />
+    <SolidColorBrush x:Key="GlyphBrush" Color="#FFF" />
 
     <SolidColorBrush x:Key="LightColorBrush" Color="#DDD" />
 
@@ -123,12 +123,13 @@
     Background="Transparent"
     BorderBrush="{StaticResource NormalBorderBrush}"
     BorderThickness="0,0,1,0">
-            <Path 
+            <Path Stretch="Fill"
       Name="Arrow"
       Fill="{StaticResource GlyphBrush}"
+      Stroke="Black"
       HorizontalAlignment="Center"
       VerticalAlignment="Center"
-      Data="M 0 0 L 15 15 L 8 0 Z"/>
+      Data="M 0 0 L 10 0 L 10 10 L 0 10 Z"/>
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="ToggleButton.IsMouseOver" Value="true">
@@ -141,7 +142,7 @@
             </Trigger>
             <Trigger Property="IsChecked" Value="true">
                 <Setter TargetName="Arrow" Property="Data"
-              Value="M 0 4 L 4 0 L 8 4 Z" />
+              Value="M 0 0 L 10 0 L 10 10 L 0 10 Z" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter TargetName="Border" Property="Background"
@@ -165,7 +166,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Name="ContentRow" Height="0"/>
                         </Grid.RowDefinitions>
-                        <Border 
+                        <Border Padding="2"
             Name="Border" 
             Grid.Row="0" 
             Background="{StaticResource LightBrush}"
