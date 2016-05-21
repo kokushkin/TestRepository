@@ -173,21 +173,14 @@
             BorderThickness="1" 
             CornerRadius="2,2,0,0" >
                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="20" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+             
                                 <ToggleButton
                 IsChecked="{Binding Path=IsExpanded,Mode=TwoWay,
                                     RelativeSource={RelativeSource TemplatedParent}}"
                 OverridesDefaultStyle="True" 
                 Template="{StaticResource ExpanderToggleButton}" 
                 Background="{StaticResource NormalBrush}" />
-                                <ContentPresenter 
-                Grid.Column="1"
-                Margin="4" 
-                ContentSource="Header" 
-                RecognizesAccessKey="True" />
+           
                             </Grid>
                         </Border>
                         <Border 
