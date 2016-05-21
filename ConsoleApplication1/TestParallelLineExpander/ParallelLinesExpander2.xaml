@@ -166,7 +166,8 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Name="ContentRow" Height="0"/>
                         </Grid.RowDefinitions>
-                        <Border Padding="2"
+                        <Border 
+            Padding="1"
             Name="Border" 
             Grid.Row="0" 
             Background="{StaticResource LightBrush}"
@@ -175,7 +176,7 @@
             CornerRadius="2,2,0,0" >
                             <Grid>
              
-                                <ToggleButton
+                                <ToggleButton Height="5"
                 IsChecked="{Binding Path=IsExpanded,Mode=TwoWay,
                                     RelativeSource={RelativeSource TemplatedParent}}"
                 OverridesDefaultStyle="True" 
