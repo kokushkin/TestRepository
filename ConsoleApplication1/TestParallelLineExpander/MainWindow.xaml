@@ -11,7 +11,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Expander Header="ClickMe" Grid.Row="1" ExpandDirection="Down">
+        <Expander Header="ClickMe" Grid.Row="1" ExpandDirection="Right">
             <Grid>
                 <TextBlock Text="ExpanderText" Foreground="Black"/>
             </Grid>         
