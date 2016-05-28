@@ -50,6 +50,8 @@ namespace ColorPickerLib
             set { SetValue(BlueProperty, value); }
         }
 
+        private Color? previousColor;
+
         public event RoutedPropertyChangedEventHandler<Color> ColorChanged
         {
             add { AddHandler(ColorChangedEvent, value); }
@@ -59,6 +61,7 @@ namespace ColorPickerLib
         public ColorPicker()
         {
             InitializeComponent();
+            SetUpCommands();
         }
 
         static ColorPicker()
@@ -105,9 +108,27 @@ namespace ColorPickerLib
             colorpicker.Green = newColor.G;
             colorpicker.Blue = newColor.B;
 
-            
+            colorpicker.previousColor = (Color)e.OldValue;
 
             
+        }
+
+        private void SetUpCommands()
+        {
+            CommandBinding binding = new CommandBinding(ApplicationCommands.Undo,
+               UndoCommand_Executed, UndoCommand_CanExecute);
+
+            this.CommandBindings.Add(binding);
+        }
+
+        private void UndoCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = previousColor.HasValue;
+        }
+
+        private void UndoCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Color = (Color)previousColor;
         }
     }
 }
