@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestParallelLine", "..\Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestParallelLineExpander", "TestParallelLineExpander\TestParallelLineExpander.csproj", "{0B55CFDE-77AE-49F2-9306-7FD078A32A63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPickerLib18_2", "..\ColorPickerLib\ColorPickerLib18_2.csproj", "{E8AAF29B-892C-41B0-9E9A-B9BA2646CB80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPickerWpfApplication18_3", "..\ColorPickerWpfApplication18_3\ColorPickerWpfApplication18_3.csproj", "{513D2847-F822-475F-8587-7C15166F4280}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +187,14 @@ Global
 		{0B55CFDE-77AE-49F2-9306-7FD078A32A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B55CFDE-77AE-49F2-9306-7FD078A32A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B55CFDE-77AE-49F2-9306-7FD078A32A63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8AAF29B-892C-41B0-9E9A-B9BA2646CB80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AAF29B-892C-41B0-9E9A-B9BA2646CB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AAF29B-892C-41B0-9E9A-B9BA2646CB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AAF29B-892C-41B0-9E9A-B9BA2646CB80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513D2847-F822-475F-8587-7C15166F4280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513D2847-F822-475F-8587-7C15166F4280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513D2847-F822-475F-8587-7C15166F4280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513D2847-F822-475F-8587-7C15166F4280}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
