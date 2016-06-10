@@ -27,7 +27,7 @@ namespace ColorPickerWpfApplication18_3
 
         private void colorPicker_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
-            txb.Text = e.NewValue.ToString();
+            //txb.Text = e.NewValue.ToString();
         }
     }
 }

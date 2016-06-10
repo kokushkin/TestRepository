@@ -6,7 +6,7 @@
         >
     <Grid>
         <StackPanel>
-            <lib:ColorPicker Name="colorPicker" Margin="5" ColorChanged="colorPicker_ColorChanged"></lib:ColorPicker>
+            <lib:ColorPicker Name="colorPicker" Margin="5" ColorChanged="colorPicker_ColorChanged" Red="123" ></lib:ColorPicker>
             <TextBlock Name="txb"></TextBlock>
         </StackPanel>
         

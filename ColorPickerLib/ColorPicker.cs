@@ -18,7 +18,7 @@ namespace ColorPickerLib
     /// <summary>
     /// Логика взаимодействия для ColorPicker.xaml
     /// </summary>
-    public partial class ColorPicker : UserControl
+    public partial class ColorPicker : System.Windows.Controls.Control
     {
         public static DependencyProperty ColorProperty;
 
@@ -60,8 +60,8 @@ namespace ColorPickerLib
 
         public ColorPicker()
         {
-            InitializeComponent();
             SetUpCommands();
+
         }
 
         static ColorPicker()
@@ -78,6 +78,9 @@ namespace ColorPickerLib
             // Регистрация маршрутизируемого события
             ColorChangedEvent = EventManager.RegisterRoutedEvent("ColorChanged", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<Color>), typeof(ColorPicker));
+
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPicker),
+                    new FrameworkPropertyMetadata(typeof(ColorPicker)));
         }
 
         private static void OnColorRGBChanged(DependencyObject sender,
@@ -93,6 +96,8 @@ namespace ColorPickerLib
                 color.B = (byte)e.NewValue;
 
             colorPicker.Color = color;
+
+
         }
 
         private static void OnColorChanged(DependencyObject sender,
@@ -110,7 +115,7 @@ namespace ColorPickerLib
 
             colorpicker.previousColor = (Color)e.OldValue;
 
-            
+
         }
 
         private void SetUpCommands()
