@@ -21,12 +21,16 @@
                             </Grid.ColumnDefinitions>
 
                             <Slider Name="PART_RedSlider" Minimum="0" Maximum="255" 
-                       Margin="{TemplateBinding Padding}" Value="{TemplateBinding Red}"></Slider>
+                       Margin="{TemplateBinding Padding}" Value="{Binding Path=Red,
+                       RelativeSource={RelativeSource TemplatedParent}}"></Slider>
+                            
                             <Slider Grid.Row="1" Name="PART_GreenSlider" Minimum="0" Maximum="255"
-                       Margin="{TemplateBinding Padding}" Value="{TemplateBinding Green}"></Slider>
+                       Margin="{TemplateBinding Padding}" Value="{Binding Path=Green,
+                       RelativeSource={RelativeSource TemplatedParent}}"></Slider>
 
                             <Slider Grid.Row="2" Name="PART_BlueSlider" Minimum="0" Maximum="255"
-                       Margin="{TemplateBinding Padding}" Value="{TemplateBinding Blue}"></Slider>
+                       Margin="{TemplateBinding Padding}" Value="{Binding Path=Blue,
+                       RelativeSource={RelativeSource TemplatedParent}}"></Slider>
 
                             <Rectangle Grid.Column="1" Grid.RowSpan="3"
                          Margin="{TemplateBinding Padding}"
