@@ -2,5 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ColorPickerLib;component/themes/ColorPicker.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="/ColorPickerLib;component/themes/FlipPanel.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
