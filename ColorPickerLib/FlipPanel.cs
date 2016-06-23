@@ -61,7 +61,7 @@ namespace ColorPickerLib
             {
                 SetValue(IsFlippedProperty, value);
 
-                ChangeVisualState(true);
+                //ChangeVisualState(true);
             }
         }
 

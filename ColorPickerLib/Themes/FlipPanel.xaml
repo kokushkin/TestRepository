@@ -6,6 +6,30 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:FlipPanel}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!-- Передняя область -->
+                        <Border Background="{TemplateBinding Background}" x:Name="FrontContent"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <ContentPresenter Content="{TemplateBinding FrontContent}"></ContentPresenter>
+                        </Border>
+                        <!-- Задняя область -->
+                        <Border Background="{TemplateBinding Background}" x:Name="BackContent"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <ContentPresenter Content="{TemplateBinding BackContent}"></ContentPresenter>
+                        </Border>
+                        <!-- Кнопка -->
+                        <ToggleButton Grid.Row="1" x:Name="FlipButton" Margin="0,10,0,0" Width="19"
+                                      Height="19">
+                        </ToggleButton>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
