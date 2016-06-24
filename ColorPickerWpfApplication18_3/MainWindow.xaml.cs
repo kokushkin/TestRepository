@@ -30,5 +30,10 @@ namespace ColorPickerWpfApplication18_3
             if(txb != null)
                 txb.Text = e.NewValue.ToString();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            panel.IsFlipped = !panel.IsFlipped;
+        }
     }
 }
