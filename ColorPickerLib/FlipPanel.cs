@@ -61,7 +61,7 @@ namespace ColorPickerLib
             {
                 SetValue(IsFlippedProperty, value);
 
-                //ChangeVisualState(true);
+                ChangeVisualState(true);
             }
         }
 
@@ -90,5 +90,61 @@ namespace ColorPickerLib
         {
 
         }
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            ToggleButton flipButton = base.GetTemplateChild("FlipButton") as ToggleButton;
+            if (flipButton != null) flipButton.Click += flipButton_Click;
+
+            ToggleButton flipButtonAlternate = base.GetTemplateChild("FlipButtonAlternate") as ToggleButton;
+            if (flipButtonAlternate != null)
+                flipButtonAlternate.Click += flipButton_Click;
+
+            this.ChangeVisualState(false);
+        }
+
+        private void flipButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.IsFlipped = !this.IsFlipped;
+        }
+
+        private void ChangeVisualState(bool useTransitions)
+        {
+            if (!this.IsFlipped)
+            {
+                VisualStateManager.GoToState(this, "Normal", useTransitions);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "Flipped", useTransitions);
+            }
+
+            // Disable flipped side to prevent tabbing to invisible buttons.            
+            UIElement front = FrontContent as UIElement;
+            if (front != null)
+            {
+                if (IsFlipped)
+                {
+                    front.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    front.Visibility = Visibility.Visible;
+                }
+            }
+            UIElement back = BackContent as UIElement;
+            if (back != null)
+            {
+                if (IsFlipped)
+                {
+                    back.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    back.Visibility = Visibility.Hidden;
+                }
+            }
+        }  
     }
 }
