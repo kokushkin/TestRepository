@@ -9,6 +9,22 @@
                     <Grid>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="ViewStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.7" To="Flipped">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FlipButtonTransform"
+                                                             Storyboard.TargetProperty="Angle" 
+                                                             To="90" Duration="0:0:0.2"></DoubleAnimation>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition GeneratedDuration="0:0:0.7" To="Normal">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FlipButtonTransform"
+                                                             Storyboard.TargetProperty="Angle" 
+                                                             To="-90" Duration="0:0:0.2"></DoubleAnimation>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Normal">
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="BackContent"
