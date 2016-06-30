@@ -3,7 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525"
         xmlns:lib="clr-namespace:ColorPickerLib;assembly=ColorPickerLib"
+        xmlns:mylib="clr-namespace:ColorPickerWpfApplication18_3"
         >
+
+    <Window.Resources>
+        <ResourceDictionary Source="FlipPanelNewTemplate.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <TabControl>
             <TabItem Header="ColorPicker">
