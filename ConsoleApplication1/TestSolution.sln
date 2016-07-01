@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBilling.Monolithic",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBilling.Monolithic.RAD", "ProjectBilling.Monolithic.RAD\ProjectBilling.Monolithic.RAD.csproj", "{D560BCED-BEF7-4D0F-B1E2-BBEF03F5E338}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBilling.UI.MVC", "ProjectBilling.UI.MVC\ProjectBilling.UI.MVC.csproj", "{58BB609B-AAA7-475C-99F9-6F7F4F369FD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,10 @@ Global
 		{D560BCED-BEF7-4D0F-B1E2-BBEF03F5E338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D560BCED-BEF7-4D0F-B1E2-BBEF03F5E338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D560BCED-BEF7-4D0F-B1E2-BBEF03F5E338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58BB609B-AAA7-475C-99F9-6F7F4F369FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BB609B-AAA7-475C-99F9-6F7F4F369FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BB609B-AAA7-475C-99F9-6F7F4F369FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BB609B-AAA7-475C-99F9-6F7F4F369FD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
