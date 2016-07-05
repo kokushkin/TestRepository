@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectBilling.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +14,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjectBilling.MVP
+namespace ProjectBilling.UI.MVP
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IProjectsModel model = null;
+
         public MainWindow()
         {
             InitializeComponent();
+            model = new ProjectsModel();
+        }
+
+        private void showProjectsButton_Click(object sender,
+    RoutedEventArgs e)
+        {
+            ProjectsView view = new ProjectsView();
+            ProjectsPresenter presenter
+                = new ProjectsPresenter(view, model);
+            view.Owner = this;
+            view.Show();
         }
     }
 }
