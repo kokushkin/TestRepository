@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationCancelFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestGrafic", "..\WpfTestGrafic\WpfTestGrafic.csproj", "{87454BAD-311B-4D56-BB49-62A5DBDE38BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloneCovariantProject", "..\CloneCovariantProject\CloneCovariantProject.csproj", "{583796A2-2EB3-440E-8AA3-53795C00651E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87454BAD-311B-4D56-BB49-62A5DBDE38BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583796A2-2EB3-440E-8AA3-53795C00651E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583796A2-2EB3-440E-8AA3-53795C00651E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583796A2-2EB3-440E-8AA3-53795C00651E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583796A2-2EB3-440E-8AA3-53795C00651E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
