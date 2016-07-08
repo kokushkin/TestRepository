@@ -16,13 +16,13 @@ namespace CloneCovariantProject
         void DoSomething();
     }
 
-    public class MyClass : IMyInterface
-    {
-        public void DoSomething()
-        {
-            Console.WriteLine("I do something.");
-        }
-    }
+    //public class MyClass : IMyInterface
+    //{
+    //    public void DoSomething()
+    //    {
+    //        Console.WriteLine("I do something.");
+    //    }
+    //}
 
     public class MyClassCloneble<T> : IClonable<T>, IMyInterface
     {
@@ -30,6 +30,11 @@ namespace CloneCovariantProject
         public T ShallowClone()
         {
             return (T)this.ShallowClone();
+        }
+
+        public void DoSomething()
+        {
+            Console.WriteLine("I do something.");
         }
     }
 
@@ -39,7 +44,7 @@ namespace CloneCovariantProject
     {
         static void Main(string[] args)
         {
-            IClonable<IMyInterface> ref1 = new MyClassCloneble<MyClass>();
+            IClonable<IMyInterface> ref1 = new MyClassCloneble<IClonable<IMyInterface>>();
 
         }
     }
