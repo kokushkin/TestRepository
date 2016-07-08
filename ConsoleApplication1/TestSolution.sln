@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBilling.UI.MVC", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBilling.MVP", "..\ProjectBilling.MVP\ProjectBilling.MVP.csproj", "{962FD979-6AE5-4788-87F6-2A9B56C79E2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBilling.MVVM", "..\ProjectBilling.MVVM\ProjectBilling.MVVM.csproj", "{A8F0ED2B-C1DF-4EE4-8711-DEC9F1C37BCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -177,6 +179,10 @@ Global
 		{962FD979-6AE5-4788-87F6-2A9B56C79E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{962FD979-6AE5-4788-87F6-2A9B56C79E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{962FD979-6AE5-4788-87F6-2A9B56C79E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F0ED2B-C1DF-4EE4-8711-DEC9F1C37BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F0ED2B-C1DF-4EE4-8711-DEC9F1C37BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F0ED2B-C1DF-4EE4-8711-DEC9F1C37BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F0ED2B-C1DF-4EE4-8711-DEC9F1C37BCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
