@@ -12,7 +12,7 @@ namespace ProjectBilling.MVVM
         [STAThread]
         static void Main(string[] args)
         {
-            Application app = new Application();
+            System.Windows.Application app = new System.Windows.Application();
             app.Run(new MainWindow());
         }
     }
