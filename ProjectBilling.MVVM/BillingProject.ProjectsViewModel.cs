@@ -15,6 +15,7 @@ namespace ProjectBilling.Application
     public interface IProjectsViewModel : INotifyPropertyChanged
     {
         IProjectViewModel SelectedProject { get; set; }
+        ObservableCollection<IProjectViewModel> Projects { get; }
         void UpdateProject();
     }
 
@@ -31,8 +32,8 @@ namespace ProjectBilling.Application
         private readonly ICommand _updateCommand;
 
 
-        public ObservableCollection<IProject>
-            Projects { get { return _model.Projects; } }
+        public ObservableCollection<IProjectViewModel>
+            Projects { get { return new ObservableCollection<IProjectViewModel>(_model.Projects.Select(b => new ProjectViewModel(b))); } }
 
         public int? SelectedValue
         {
