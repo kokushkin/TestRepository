@@ -31,7 +31,7 @@ namespace ProjectBilling.Application
         private readonly ICommand _updateCommand;
 
 
-        public ObservableCollection<Project>
+        public ObservableCollection<IProject>
             Projects { get { return _model.Projects; } }
 
         public int? SelectedValue
@@ -40,7 +40,7 @@ namespace ProjectBilling.Application
             {
                 if (value == null)
                     return;
-                Project project = GetProject((int)value);
+                IProject project = GetProject((int)value);
                 if (SelectedProject == null)
                 {
                     SelectedProject
@@ -135,7 +135,7 @@ namespace ProjectBilling.Application
             }
         }
 
-        private Project GetProject(int projectId)
+        private IProject GetProject(int projectId)
         {
             return (from p in Projects
                     where p.ID == projectId

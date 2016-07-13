@@ -22,7 +22,7 @@ namespace ProjectBilling.Application
 
     public interface IProjectsModel
     {
-        ObservableCollection<Project> Projects { get; set; }
+        ObservableCollection<IProject> Projects { get; set; }
         event EventHandler<ProjectEventArgs> ProjectUpdated;
         void UpdateProject(IProject updatedProject);
     }
@@ -39,12 +39,12 @@ namespace ProjectBilling.Application
 
     public class ProjectsModel : IProjectsModel
     {
-        public ObservableCollection<Project> Projects { get; set; }
+        public ObservableCollection<IProject> Projects { get; set; }
         public event EventHandler<ProjectEventArgs> ProjectUpdated = delegate { };
 
         public ProjectsModel(IDataService dataService)
         {
-            Projects = new ObservableCollection<Project>();
+            Projects = new ObservableCollection<IProject>();
             foreach (Project project in dataService.GetProjects())
             {
                 Projects.Add(project);
@@ -58,7 +58,7 @@ namespace ProjectBilling.Application
                 new ProjectEventArgs(updatedProject));
         }
 
-        private Project GetProject(int projectId)
+        private IProject GetProject(int projectId)
         {
             return Projects.FirstOrDefault(
                 project => project.ID == projectId);
