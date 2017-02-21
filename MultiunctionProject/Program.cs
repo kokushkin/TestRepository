@@ -14,9 +14,15 @@ namespace MultiunctionProject
 
     public class Ship
     {
-        public virtual void Collapse(Asterod asteroid) { }
+        public virtual void Collapse(Asterod asteroid)
+        {
+            asteroid.Collapse(this);
+        }
 
-        public virtual void Collapse(Stantion stantion) { }
+        public virtual void Collapse(Stantion stantion)
+        {
+            stantion.Collapse(this);
+        }
 
         public virtual void Collapse(AsteroidA ship) { }
 
@@ -29,16 +35,6 @@ namespace MultiunctionProject
 
     public class ShipA : Ship
     {
-        public override void Collapse(Asterod asteroid)
-        {
-            asteroid.Collapse(this);
-        }
-
-        public override void Collapse(Stantion stantion)
-        {
-            stantion.Collapse(this);
-        }
-
         public override void Collapse(AsteroidA ship)
         {
             Console.WriteLine("AsteroidA collapse ShipA");
@@ -62,16 +58,6 @@ namespace MultiunctionProject
 
     public class ShipB : Ship
     {
-        public override void Collapse(Asterod asteroid)
-        {
-            asteroid.Collapse(this);
-        }
-
-        public override void Collapse(Stantion stantion)
-        {
-            stantion.Collapse(this);
-        }
-
         public override void Collapse(AsteroidA ship)
         {
             Console.WriteLine("AsteroidA collapse ShipB");
@@ -95,9 +81,15 @@ namespace MultiunctionProject
 
     public class Asterod
     {
-        public virtual void Collapse(Stantion stantion) { }
+        public virtual void Collapse(Stantion stantion)
+        {
+            stantion.Collapse(this);
+        }
 
-        public virtual void Collapse(Ship ship) { }
+        public virtual void Collapse(Ship ship)
+        {
+            ship.Collapse(this);
+        }
 
         public virtual void Collapse(ShipA ship){}
 
@@ -110,16 +102,6 @@ namespace MultiunctionProject
 
     public class AsteroidA : Asterod
     {
-        public override void Collapse(Stantion stantion)
-        {
-            stantion.Collapse(this);
-        }
-
-        public override void Collapse(Ship ship)
-        {
-            ship.Collapse(this);
-        }
-
         public override void Collapse(ShipA ship)
         {
             Console.WriteLine("ShipA collapse AsteroidA");
@@ -143,16 +125,6 @@ namespace MultiunctionProject
 
     public class AsteroidB :Asterod
     {
-        public override void Collapse(Stantion stantion)
-        {
-            stantion.Collapse(this);
-        }
-
-        public override void Collapse(Ship ship)
-        {
-            ship.Collapse(this);
-        }
-
         public override void Collapse(ShipA ship)
         {
             Console.WriteLine("ShipA collapse AsteroidB");
@@ -178,11 +150,12 @@ namespace MultiunctionProject
     {
         public virtual void Collapse(Asterod asteroid)
         {
+            asteroid.Collapse(this);
         }
 
         public virtual void Collapse(Ship ship)
         {
-
+            ship.Collapse(this);
         }
 
         public virtual void Collapse(ShipA ship) { }
@@ -196,16 +169,6 @@ namespace MultiunctionProject
 
     public class StantionA : Stantion
     {
-        public override void Collapse(Asterod asteroid)
-        {
-            asteroid.Collapse(this);
-        }
-
-        public override void Collapse(Ship ship)
-        {
-            ship.Collapse(this);
-        }
-
         public override void Collapse(ShipA ship)
         {
             Console.WriteLine("ShipA collapse StantionA");
@@ -229,16 +192,6 @@ namespace MultiunctionProject
 
     public class StantionB : Stantion
     {
-        public override void Collapse(Asterod asteroid)
-        {
-            asteroid.Collapse(this);
-        }
-
-        public override void Collapse(Ship ship)
-        {
-            ship.Collapse(this);
-        }
-
         public override void Collapse(ShipA ship)
         {
             Console.WriteLine("ShipA collapse StantionB");
