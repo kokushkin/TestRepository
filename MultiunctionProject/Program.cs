@@ -7,13 +7,21 @@ using System.Threading.Tasks;
 namespace MultiunctionProject
 {
 
-    public interface ICollapsed
+    public class Collapsed
     {
-        void Collapse(ICollapsed y);
+        public virtual void Collapse(Collapsed collapseObj)
+        {
+            collapseObj.Collapse(this);
+        }
     }
 
-    public class Ship
+    public class Ship : Collapsed
     {
+        public override void Collapse(Collapsed collapseObj)
+        {
+            collapseObj.Collapse(this);
+        }
+
         public virtual void Collapse(Asterod asteroid)
         {
             asteroid.Collapse(this);
@@ -79,8 +87,13 @@ namespace MultiunctionProject
         }
     }
 
-    public class Asterod
+    public class Asterod : Collapsed
     {
+        public override void Collapse(Collapsed collapseObj)
+        {
+            collapseObj.Collapse(this);
+        }
+
         public virtual void Collapse(Stantion stantion)
         {
             stantion.Collapse(this);
@@ -146,8 +159,13 @@ namespace MultiunctionProject
         }
     }
 
-    public class Stantion
+    public class Stantion : Collapsed
     {
+        public override void Collapse(Collapsed collapseObj)
+        {
+            collapseObj.Collapse(this);
+        }
+
         public virtual void Collapse(Asterod asteroid)
         {
             asteroid.Collapse(this);
@@ -221,10 +239,17 @@ namespace MultiunctionProject
             Stantion stantion = new StantionA();
             Asterod asteroid = new AsteroidB();
 
-            ship.Collapse(stantion);
-            ship.Collapse(asteroid);
-            asteroid.Collapse(ship);
-            asteroid.Collapse(stantion);
+
+            List<Collapsed> collapsedObjects = new List<Collapsed>();
+
+            collapsedObjects.Add(ship);
+            collapsedObjects.Add(stantion);
+            collapsedObjects.Add(asteroid);
+
+            Collapsed firstObj = collapsedObjects.FirstOrDefault();
+            Collapsed lastObj = collapsedObjects.LastOrDefault();
+
+            firstObj.Collapse(lastObj);
         }
     }
 }
