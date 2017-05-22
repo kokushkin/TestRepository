@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammClient", "Part1\Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceClient", "Part1\ReferenceClient\ReferenceClient.csproj", "{8565DBDE-5F67-4B2F-9DDA-BFC921E84DD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MexConfigSerciceWCFProg", "MexConfigSerciceWCFProg\MexConfigSerciceWCFProg.csproj", "{DEACEFCB-6BE5-4A13-9E58-387563531878}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MexConfigSerciceWCFProg", "Part1\MexConfigSerciceWCFProg\MexConfigSerciceWCFProg.csproj", "{DEACEFCB-6BE5-4A13-9E58-387563531878}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
