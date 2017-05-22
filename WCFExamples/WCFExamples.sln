@@ -17,6 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceClient", "Part1\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MexConfigSerciceWCFProg", "Part1\MexConfigSerciceWCFProg\MexConfigSerciceWCFProg.csproj", "{DEACEFCB-6BE5-4A13-9E58-387563531878}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncClient", "Part2\AsyncClient\AsyncClient.csproj", "{AEEABA57-7DC8-4634-8F67-2FA94BDA37E4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DEACEFCB-6BE5-4A13-9E58-387563531878} = {DEACEFCB-6BE5-4A13-9E58-387563531878}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +56,10 @@ Global
 		{DEACEFCB-6BE5-4A13-9E58-387563531878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEACEFCB-6BE5-4A13-9E58-387563531878}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEACEFCB-6BE5-4A13-9E58-387563531878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEEABA57-7DC8-4634-8F67-2FA94BDA37E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEEABA57-7DC8-4634-8F67-2FA94BDA37E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEEABA57-7DC8-4634-8F67-2FA94BDA37E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEEABA57-7DC8-4634-8F67-2FA94BDA37E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
