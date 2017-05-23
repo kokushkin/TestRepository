@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f0f26b12-5021-49f8-9524-a438d6417986" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:26220/DuplexService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DuplexService.xsd" MetadataType="Schema" ID="042961ca-34e3-469f-8000-c666f5db39c6" SourceId="1" SourceUrl="http://localhost:26220/DuplexService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DuplexService1.xsd" MetadataType="Schema" ID="0d244da6-3d8b-472f-a77f-35a12fcc8027" SourceId="1" SourceUrl="http://localhost:26220/DuplexService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DuplexService.disco" MetadataType="Disco" ID="82876518-f63b-431a-ad31-83ecc1623448" SourceId="1" SourceUrl="http://localhost:26220/DuplexService.svc?disco" />
+    <MetadataFile FileName="StockService.wsdl" MetadataType="Wsdl" ID="ce140759-dd34-4126-b9ab-58f2fc30a21e" SourceId="1" SourceUrl="http://localhost:26220/DuplexService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
