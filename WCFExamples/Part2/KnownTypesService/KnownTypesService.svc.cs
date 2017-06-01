@@ -37,5 +37,20 @@ namespace KnownTypesService
             }
             return new Price();
         }
+
+        public List<StockPrice> GetPricesAsCollection(string[] tickers)
+        {
+            List<StockPrice> list = new List<StockPrice>();
+            for (int i = 0; i < tickers.GetUpperBound(0) + 1; i++)
+            {
+                StockPrice p = new StockPrice();
+                p.Ticker = tickers[i];
+                p.CurrentPrice = 94.85;
+                p.CurrentTime = System.DateTime.Now;
+                list.Add(p);
+            }
+            return list;
+
+        }
     }
 }

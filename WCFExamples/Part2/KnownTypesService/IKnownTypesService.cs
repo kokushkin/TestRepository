@@ -37,11 +37,19 @@ namespace KnownTypesService
         public string Quality;
     }
 
+    [CollectionDataContract]
+    public class StockPriceCollection : List<StockPrice>
+    { }
+
 
     [ServiceContract(Namespace = "http://EssentialWCF/FinanceService/")]
     public interface IStockService
     {
         [OperationContract]
         Price GetPrice(string id, string type);
+
+        [OperationContract]
+        List<StockPrice> GetPricesAsCollection(string[] tickers);
+
+        }
     }
-}
