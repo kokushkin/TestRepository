@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssentialWCFClient", "Part4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssentialWCFDual", "Part4\EssentialWCFDual\EssentialWCFDual.csproj", "{4A10655F-F8F4-44E9-8049-A57126C1981A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssentialWCFClientDual", "Part4\EssentialWCFClientDual\EssentialWCFClientDual.csproj", "{F3622000-DF0F-4E51-9605-0969B34973B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,10 @@ Global
 		{4A10655F-F8F4-44E9-8049-A57126C1981A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A10655F-F8F4-44E9-8049-A57126C1981A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A10655F-F8F4-44E9-8049-A57126C1981A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3622000-DF0F-4E51-9605-0969B34973B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3622000-DF0F-4E51-9605-0969B34973B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3622000-DF0F-4E51-9605-0969B34973B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3622000-DF0F-4E51-9605-0969B34973B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,5 +167,6 @@ Global
 		{49EE98A8-B2F3-4B4F-A5A9-27BE9F6DDD82} = {91A0E367-B833-4460-BB8A-6025656DE751}
 		{2B00CF2B-F1FC-4926-B314-0B400375A720} = {91A0E367-B833-4460-BB8A-6025656DE751}
 		{4A10655F-F8F4-44E9-8049-A57126C1981A} = {91A0E367-B833-4460-BB8A-6025656DE751}
+		{F3622000-DF0F-4E51-9605-0969B34973B2} = {91A0E367-B833-4460-BB8A-6025656DE751}
 	EndGlobalSection
 EndGlobal

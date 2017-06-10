@@ -24,7 +24,7 @@ namespace EssentialWCF
         internal static void StartService()
         {
             myServiceHost = new
-            ServiceHost(typeof(EssentialWCF.StockQuoteService));
+            ServiceHost(typeof(EssentialWCF.StockQuoteDuplexService));
             myServiceHost.Open();
         }
         internal static void StopService()

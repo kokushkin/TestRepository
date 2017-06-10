@@ -7,16 +7,23 @@ using System.Threading.Tasks;
 
 namespace EssentialWCF
 {
-    [ServiceContract]
-    public interface IStockQuoteService
+    [ServiceContract(CallbackContract = typeof(IStockQuoteCallback),
+    SessionMode = SessionMode.Required)]
+    public interface IStockQuoteDuplexService
     {
-        [OperationContract]
-        double GetQuote(string symbol);
+        [OperationContract(IsOneWay = true)]
+        void SendQuoteRequest(string symbol);
     }
-
-    public class StockQuoteService : IStockQuoteService
+    public interface IStockQuoteCallback
     {
-        public double GetQuote(string symbol)
+        [OperationContract(IsOneWay = true)]
+        void SendQuoteResponse(string symbol, double price);
+    }
+    [ServiceBehavior(InstanceContextMode =
+    InstanceContextMode.PerSession)]
+    public class StockQuoteDuplexService : IStockQuoteDuplexService
+    {
+        public void SendQuoteRequest(string symbol)
         {
             double value;
             if (symbol == "MSFT")
@@ -27,7 +34,10 @@ namespace EssentialWCF
                 value = 450.75;
             else
                 value = double.NaN;
-            return value;
+            OperationContext ctx = OperationContext.Current;
+            IStockQuoteCallback callback =
+            ctx.GetCallbackChannel<IStockQuoteCallback>();
+            callback.SendQuoteResponse(symbol, value);
         }
     }
 }
