@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battery\Battery.cs" />
+    <Compile Include="Casing\Casing.cs" />
+    <Compile Include="Casing\ICasing.cs" />
     <Compile Include="ContainerMagic.cs" />
     <Compile Include="Dial.cs" />
     <Compile Include="Battery\IBattery.cs" />

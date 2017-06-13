@@ -41,6 +41,9 @@ namespace UnityDemo
             //ISpeaker priceySpeaker = container.Resolve<ISpeaker>("Expensive");
             //cheapSpeaker.Start();
             //priceySpeaker.Start();
+
+            ICasing casing = container.Resolve<ICasing>();
+            Console.WriteLine(casing.TypeOfMaterial());
         }
     }
 }

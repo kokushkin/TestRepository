@@ -16,6 +16,8 @@ namespace UnityDemo
                 WithMappings.FromMatchingInterface,
                 WithName.Default,
                 WithLifetime.ContainerControlled);
+
+            container.RegisterType<Casing>(new InjectionConstructor("Plastic"));
         }
     }
 }
