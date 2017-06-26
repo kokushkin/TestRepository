@@ -75,6 +75,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transaction", "Transaction"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionService", "Part5\TransactionService\TransactionService.csproj", "{6B56A52A-518D-4FFE-88B9-6F4DDFADB3C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionClient", "TransactionClient\TransactionClient.csproj", "{EA3941D7-4A7A-4D9F-825D-8EED44AD6808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -161,6 +163,10 @@ Global
 		{6B56A52A-518D-4FFE-88B9-6F4DDFADB3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B56A52A-518D-4FFE-88B9-6F4DDFADB3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B56A52A-518D-4FFE-88B9-6F4DDFADB3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA3941D7-4A7A-4D9F-825D-8EED44AD6808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3941D7-4A7A-4D9F-825D-8EED44AD6808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3941D7-4A7A-4D9F-825D-8EED44AD6808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3941D7-4A7A-4D9F-825D-8EED44AD6808}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,5 +200,6 @@ Global
 		{A30C800B-68F7-4318-92EF-6F31C086EA1B} = {91A0E367-B833-4460-BB8A-6025656DE751}
 		{70BD9F6C-FAE5-4AF8-8668-4064454C7151} = {7CDB52EF-52B9-4005-8DD1-7B20702090CA}
 		{6B56A52A-518D-4FFE-88B9-6F4DDFADB3C0} = {70BD9F6C-FAE5-4AF8-8668-4064454C7151}
+		{EA3941D7-4A7A-4D9F-825D-8EED44AD6808} = {70BD9F6C-FAE5-4AF8-8668-4064454C7151}
 	EndGlobalSection
 EndGlobal
