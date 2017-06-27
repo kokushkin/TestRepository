@@ -75,7 +75,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transaction", "Transaction"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionService", "Part5\TransactionService\TransactionService.csproj", "{6B56A52A-518D-4FFE-88B9-6F4DDFADB3C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionClient", "TransactionClient\TransactionClient.csproj", "{EA3941D7-4A7A-4D9F-825D-8EED44AD6808}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionClient", "Part5\TransactionClient\TransactionClient.csproj", "{EA3941D7-4A7A-4D9F-825D-8EED44AD6808}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

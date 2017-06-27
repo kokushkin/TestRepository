@@ -66,7 +66,7 @@ namespace EssentialWCF
         }
         public void Deposit(string AccountName, double amount)
         {
-            string sql = string.Format("Deposit {0}, {1}, “{2}”",
+            string sql = string.Format("Deposit {0}, {1}, '{2}'",
             AccountName, amount.ToString(),
             System.DateTime.Now.ToString());
             SqlCommand cmd = new SqlCommand(sql, conn);
@@ -74,7 +74,7 @@ namespace EssentialWCF
         }
         public void Withdraw(string AccountName, double amount)
         {
-            string sql = string.Format("Withdraw {0}, {1}, “{2}”",
+            string sql = string.Format("Withdraw {0}, {1}, '{2}'",
             AccountName, amount.ToString(),
             System.DateTime.Now.ToString());
             SqlCommand cmd = new SqlCommand(sql, conn);
@@ -82,14 +82,15 @@ namespace EssentialWCF
         }
         public double GetBalance(string AccountName)
         {
-
-            SqlCommand cmd = new SqlCommand("GetBalance " +
-AccountName, conn);
+            SqlCommand cmd = new SqlCommand("GetBalance " + AccountName, conn);
             SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            double amount = System.Convert.ToDouble(reader["Balance"].ToString());
-            reader.Close();
-            return amount;
+            if (reader.Read())
+            {
+                double amount = System.Convert.ToDouble(reader["Balance"].ToString());
+                reader.Close();
+                return amount;
+            }
+            return 0;
         }
 
         public void Audit(string AccountName, string Action, double amount)
@@ -102,7 +103,7 @@ AccountName, conn);
             else
                 Console.WriteLine("<no transaction> Audit:{0}",
                 Action);
-            string sql = string.Format("Audit {0}, {1}, {2}, “{3}”",
+            string sql = string.Format("Audit {0}, {1}, {2}, '{3}'",
             AccountName, Action, amount.ToString(),
             System.DateTime.Now.ToString());
             SqlCommand cmd = new SqlCommand(sql, conn);
