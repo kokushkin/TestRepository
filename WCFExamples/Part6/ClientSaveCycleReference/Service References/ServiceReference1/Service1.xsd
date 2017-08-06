@@ -11,7 +11,22 @@
       <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YourWorks" nillable="true" type="tns:ArrayOfWork" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="ArrayOfWork">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Work" nillable="true" type="tns:Work" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWork" nillable="true" type="tns:ArrayOfWork" />
+  <xs:complexType name="Work">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+      <xs:element minOccurs="0" name="Till" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Work" nillable="true" type="tns:Work" />
 </xs:schema>

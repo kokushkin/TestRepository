@@ -62,6 +62,7 @@ namespace ServiceSaveCycleReference
     public interface IEmployeeInformation
     {
         [OperationContract]
+        [ReferencePreservingDataContractFormat]
         Employee[] GetEmployeesOfTheMonth();
     }
 
