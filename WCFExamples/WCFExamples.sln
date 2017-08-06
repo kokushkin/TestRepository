@@ -101,6 +101,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSaveCycleReference",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientSaveCycleReference", "Part6\ClientSaveCycleReference\ClientSaveCycleReference.csproj", "{F2B0A910-2752-4C15-88F2-1B243D67BE53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeContractService", "Part6\ChangeContractService\ChangeContractService.csproj", "{DBE78B8F-93FD-4978-8744-DB7B21380C1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeContractClient", "ChangeContractClient\ChangeContractClient.csproj", "{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,6 +231,14 @@ Global
 		{F2B0A910-2752-4C15-88F2-1B243D67BE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2B0A910-2752-4C15-88F2-1B243D67BE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2B0A910-2752-4C15-88F2-1B243D67BE53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE78B8F-93FD-4978-8744-DB7B21380C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE78B8F-93FD-4978-8744-DB7B21380C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE78B8F-93FD-4978-8744-DB7B21380C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE78B8F-93FD-4978-8744-DB7B21380C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -272,5 +284,7 @@ Global
 		{172773A3-EF82-4979-B930-EEC6FD090F6B} = {E43D0044-3A5B-431F-97C3-84172A25D023}
 		{55926B52-DABB-4B35-A381-EDA8B2D1D97F} = {3DB5DEC7-91CD-4476-A6BE-60C6C4BA5210}
 		{F2B0A910-2752-4C15-88F2-1B243D67BE53} = {3DB5DEC7-91CD-4476-A6BE-60C6C4BA5210}
+		{DBE78B8F-93FD-4978-8744-DB7B21380C1B} = {3DB5DEC7-91CD-4476-A6BE-60C6C4BA5210}
+		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9} = {3DB5DEC7-91CD-4476-A6BE-60C6C4BA5210}
 	EndGlobalSection
 EndGlobal
