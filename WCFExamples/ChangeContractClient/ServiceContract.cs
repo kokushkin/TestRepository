@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChangeContractClient
+namespace ChangeContract
 {
     [ServiceContract]
     public interface IEmployeeInformation
