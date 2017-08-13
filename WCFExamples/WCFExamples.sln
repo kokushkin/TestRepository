@@ -105,6 +105,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeContractService", "Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeContractClient", "ChangeContractClient\ChangeContractClient.csproj", "{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part8", "Part8", "{D7B929D8-C806-405B-A50E-B1DB6BFE79A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TransportAuthenticationService", "TransportAuthenticationService", "{20CA4FA2-5D3A-4639-B581-063AAFB6C343}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportAuthenticationService", "Part8\TransportAuthenticationService\TransportAuthenticationService.csproj", "{09FC48C9-0680-49CF-B586-375E31C8C258}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -239,6 +245,10 @@ Global
 		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09FC48C9-0680-49CF-B586-375E31C8C258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FC48C9-0680-49CF-B586-375E31C8C258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FC48C9-0680-49CF-B586-375E31C8C258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FC48C9-0680-49CF-B586-375E31C8C258}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -286,5 +296,7 @@ Global
 		{F2B0A910-2752-4C15-88F2-1B243D67BE53} = {3DB5DEC7-91CD-4476-A6BE-60C6C4BA5210}
 		{DBE78B8F-93FD-4978-8744-DB7B21380C1B} = {3DB5DEC7-91CD-4476-A6BE-60C6C4BA5210}
 		{279C2F10-85DB-4AE0-88A8-FD48FA058DB9} = {3DB5DEC7-91CD-4476-A6BE-60C6C4BA5210}
+		{20CA4FA2-5D3A-4639-B581-063AAFB6C343} = {D7B929D8-C806-405B-A50E-B1DB6BFE79A1}
+		{09FC48C9-0680-49CF-B586-375E31C8C258} = {20CA4FA2-5D3A-4639-B581-063AAFB6C343}
 	EndGlobalSection
 EndGlobal
