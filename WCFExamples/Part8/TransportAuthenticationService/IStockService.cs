@@ -13,6 +13,7 @@ namespace EssentialWCF
     public interface IStockService
     {
         [OperationContract]
+        [WebGet]
         double GetPrice(string ticker);
     }
 
