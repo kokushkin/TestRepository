@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется в процессе публикации или упаковки вашего веб-проекта. Вы можете настроить поведение процесса,
+изменив этот файл MSBuild. Дополнительные сведения см. по адресу http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>F:\TestProject\WCFExamples\ServicesDeploy\TransportAuthenticationService</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>06/01/2017 07:10:44</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>06/01/2017 07:10:44</publishTime>
+    </File>
+    <File Include="bin/EssentialWCF.dll">
+      <publishTime>08/21/2017 11:22:03</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/01/2017 07:10:44</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>08/21/2017 11:23:35</publishTime>
+    </File>
+    <File Include="StockService.svc">
+      <publishTime>06/01/2017 07:10:44</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/20/2017 10:17:53</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
