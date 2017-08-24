@@ -1,0 +1,13 @@
+makecert.exe -r -pe -sky exchange
+–n "CN=MyClientCert" MyClientCert.cer
+-sv MyClientCert.pvk
+pvk2pfx.exe -pvk MyClientCert.pvk
+-spc MyClientCert.cer
+-pfx MyClientCert.pfx
+
+makecert.exe -r -pe -sky exchange
+-n "CN=MyServer.com" MyServerCert.cer
+-sv MyServerCert.pvk
+pvk2pfx.exe -pvk MyServerCert.pvk
+-spc MyServerCert.cer
+-pfx MyServerCert.pfx
