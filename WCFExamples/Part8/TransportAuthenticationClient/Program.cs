@@ -10,7 +10,7 @@ namespace TransportAuthenticationClient
     {
         static void Main(string[] args)
         {
-            ServiceReference1.StockServiceClient proxy = new ServiceReference1.StockServiceClient();
+            ServiceReference1.StockServiceClient proxy = new ServiceReference1.StockServiceClient("BasicHttpBinding_IStockService1");
             double p = proxy.GetPrice("MSFT");
             Console.WriteLine("Price:{0}", p);
             proxy.Close();
