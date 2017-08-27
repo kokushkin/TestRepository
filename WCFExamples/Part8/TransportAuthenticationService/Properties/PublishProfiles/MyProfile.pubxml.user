@@ -21,13 +21,13 @@
       <publishTime>06/01/2017 07:10:44</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/24/2017 22:46:24</publishTime>
+      <publishTime>08/26/2017 00:53:40</publishTime>
     </File>
     <File Include="StockService.svc">
       <publishTime>06/01/2017 07:10:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/24/2017 22:46:23</publishTime>
+      <publishTime>08/26/2017 00:53:38</publishTime>
     </File>
   </ItemGroup>
 </Project>
