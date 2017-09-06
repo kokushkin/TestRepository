@@ -15,19 +15,19 @@
       <publishTime>06/01/2017 07:10:44</publishTime>
     </File>
     <File Include="bin/EssentialWCF.dll">
-      <publishTime>08/28/2017 01:46:34</publishTime>
+      <publishTime>08/30/2017 23:35:56</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>06/01/2017 07:10:44</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/28/2017 01:46:42</publishTime>
+      <publishTime>09/03/2017 22:30:38</publishTime>
     </File>
     <File Include="StockService.svc">
       <publishTime>06/01/2017 07:10:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/28/2017 01:46:37</publishTime>
+      <publishTime>09/03/2017 22:30:36</publishTime>
     </File>
   </ItemGroup>
 </Project>
