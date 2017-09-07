@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,9 @@ namespace IntranetWindowsClient
             Console.WriteLine("Для обращения к службе нажмите ENTER");
             Console.ReadLine();
             ServiceReference1.SamplesClient proxy = new ServiceReference1.SamplesClient("netTcp");
+
+            proxy.ClientCredentials.Windows.ClientCredential =
+                new NetworkCredential("MACHINENAME\\peter", "Test123");
             try
             {
                 Console.WriteLine(proxy.GetPublicCode());
