@@ -6,26 +6,33 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Security.Permissions;
 
 namespace SampleService
 {
     public class Samples : ISamples
     {
+        [PrincipalPermission(SecurityAction.Demand, Name = @"ARTPK2\peter")]
         public string GetSecretCode()
         {
             DisplaySecurityDetails();
             return "The Secret Code";
         }
+
+        [PrincipalPermission(SecurityAction.Demand, Name = @"ARTPK2\peter")]
+        [PrincipalPermission(SecurityAction.Demand, Name = @"ARTPK2\jessica")]
         public string GetMemberCode()
         {
             DisplaySecurityDetails();
             return "The Member-Only Code";
         }
+
         public string GetPublicCode()
         {
             DisplaySecurityDetails();
             return "The Public Code";
         }
+
         private static void DisplaySecurityDetails()
         {
             Console.WriteLine("Windows Identity = " +

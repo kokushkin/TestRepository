@@ -16,7 +16,7 @@ namespace IntranetWindowsClient
             ServiceReference1.SamplesClient proxy = new ServiceReference1.SamplesClient("netTcp");
 
             proxy.ClientCredentials.Windows.ClientCredential =
-                new NetworkCredential("MACHINENAME\\peter", "Test123");
+                new NetworkCredential("ARTPK2\\jessica", "Test456");
             try
             {
                 Console.WriteLine(proxy.GetPublicCode());
