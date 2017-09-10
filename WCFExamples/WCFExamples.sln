@@ -125,6 +125,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntranetWindowsClient", "Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostedIntranetWindowsService", "Part8\IntranetAuthenticationAzMan\SelfHostedIntranetWindowsService\SelfHostedIntranetWindowsService.csproj", "{03C09567-8CFC-4420-8446-BBD4AD06194A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Audit", "Audit", "{7284713C-8916-4484-BB67-BE77DDD05DDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntranetWindowsClient", "Part8\Audit\IntranetWindowsClient\IntranetWindowsClient.csproj", "{5A80FF4A-8D90-4A48-A99E-610236A61102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostedIntranetWindowsService", "Part8\Audit\SelfHostedIntranetWindowsService\SelfHostedIntranetWindowsService.csproj", "{253093AC-0E9E-4B1E-A88D-481C4864D733}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -283,6 +289,14 @@ Global
 		{03C09567-8CFC-4420-8446-BBD4AD06194A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03C09567-8CFC-4420-8446-BBD4AD06194A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03C09567-8CFC-4420-8446-BBD4AD06194A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A80FF4A-8D90-4A48-A99E-610236A61102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A80FF4A-8D90-4A48-A99E-610236A61102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A80FF4A-8D90-4A48-A99E-610236A61102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A80FF4A-8D90-4A48-A99E-610236A61102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{253093AC-0E9E-4B1E-A88D-481C4864D733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{253093AC-0E9E-4B1E-A88D-481C4864D733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{253093AC-0E9E-4B1E-A88D-481C4864D733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{253093AC-0E9E-4B1E-A88D-481C4864D733}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -339,5 +353,8 @@ Global
 		{CC249BEF-4393-4E08-AAF5-245CA0CEB9D9} = {D7B929D8-C806-405B-A50E-B1DB6BFE79A1}
 		{1DF2A438-FC1E-44A1-8052-F0738BDD5E31} = {CC249BEF-4393-4E08-AAF5-245CA0CEB9D9}
 		{03C09567-8CFC-4420-8446-BBD4AD06194A} = {CC249BEF-4393-4E08-AAF5-245CA0CEB9D9}
+		{7284713C-8916-4484-BB67-BE77DDD05DDA} = {D7B929D8-C806-405B-A50E-B1DB6BFE79A1}
+		{5A80FF4A-8D90-4A48-A99E-610236A61102} = {7284713C-8916-4484-BB67-BE77DDD05DDA}
+		{253093AC-0E9E-4B1E-A88D-481C4864D733} = {7284713C-8916-4484-BB67-BE77DDD05DDA}
 	EndGlobalSection
 EndGlobal
