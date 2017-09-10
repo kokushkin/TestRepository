@@ -119,6 +119,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostedIntranetWindowsSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntranetWindowsClient", "Part8\IntranetWindowsClient\IntranetWindowsClient.csproj", "{A135BFE3-714D-4A95-B515-D7F3AEDF6B9C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntranetAuthenticationAzMan", "IntranetAuthenticationAzMan", "{CC249BEF-4393-4E08-AAF5-245CA0CEB9D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntranetWindowsClient", "Part8\IntranetAuthenticationAzMan\IntranetWindowsClient\IntranetWindowsClient.csproj", "{1DF2A438-FC1E-44A1-8052-F0738BDD5E31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostedIntranetWindowsService", "Part8\IntranetAuthenticationAzMan\SelfHostedIntranetWindowsService\SelfHostedIntranetWindowsService.csproj", "{03C09567-8CFC-4420-8446-BBD4AD06194A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -269,6 +275,14 @@ Global
 		{A135BFE3-714D-4A95-B515-D7F3AEDF6B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A135BFE3-714D-4A95-B515-D7F3AEDF6B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A135BFE3-714D-4A95-B515-D7F3AEDF6B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DF2A438-FC1E-44A1-8052-F0738BDD5E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF2A438-FC1E-44A1-8052-F0738BDD5E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF2A438-FC1E-44A1-8052-F0738BDD5E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF2A438-FC1E-44A1-8052-F0738BDD5E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C09567-8CFC-4420-8446-BBD4AD06194A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C09567-8CFC-4420-8446-BBD4AD06194A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C09567-8CFC-4420-8446-BBD4AD06194A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C09567-8CFC-4420-8446-BBD4AD06194A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -322,5 +336,8 @@ Global
 		{FACDFD7F-3BC9-4277-B9F4-1507C3747CA8} = {D7B929D8-C806-405B-A50E-B1DB6BFE79A1}
 		{743C9CE7-0276-4F3D-8888-9E6630518479} = {FACDFD7F-3BC9-4277-B9F4-1507C3747CA8}
 		{A135BFE3-714D-4A95-B515-D7F3AEDF6B9C} = {FACDFD7F-3BC9-4277-B9F4-1507C3747CA8}
+		{CC249BEF-4393-4E08-AAF5-245CA0CEB9D9} = {D7B929D8-C806-405B-A50E-B1DB6BFE79A1}
+		{1DF2A438-FC1E-44A1-8052-F0738BDD5E31} = {CC249BEF-4393-4E08-AAF5-245CA0CEB9D9}
+		{03C09567-8CFC-4420-8446-BBD4AD06194A} = {CC249BEF-4393-4E08-AAF5-245CA0CEB9D9}
 	EndGlobalSection
 EndGlobal
