@@ -16,34 +16,41 @@ namespace UnityDemo
             IUnityContainer container = new UnityContainer();
             ContainerMagic.RegisterElements(container);
 
-            IBattery battery = container.Resolve<IBattery>();
-            Console.WriteLine(battery.SerialNumber());
+            //IBattery battery = container.Resolve<IBattery>();
+            //Console.WriteLine(battery.SerialNumber());
 
-            //не сработало при Registration by convention
+            ////не сработало при Registration by convention
 
-            //Dial dial = container.Resolve<Dial>();
-            //Console.WriteLine(dial.DialType());
+            ////Dial dial = container.Resolve<Dial>();
+            ////Console.WriteLine(dial.DialType());
 
-            ITuner tuner = container.Resolve<ITuner>();
+            //ITuner tuner = container.Resolve<ITuner>();
 
 
-            //не нужно, если юзается Registration by convention
+            ////не нужно, если юзается Registration by convention
 
-            //IRadio radio = container.Resolve<IRadio>(new ParameterOverride("radioBattery", battery),
-            //    new ParameterOverride("radioTuner", tuner),
-            //    new ParameterOverride("radioName", "BrokenRadio"));
-            //var param1 = radio.Battery;
-            //var strManuf = param1.Manufacturer();
-            //var param2 = radio.Tuner;
-            //radio.Start();
+            ////IRadio radio = container.Resolve<IRadio>(new ParameterOverride("radioBattery", battery),
+            ////    new ParameterOverride("radioTuner", tuner),
+            ////    new ParameterOverride("radioName", "BrokenRadio"));
+            ////var param1 = radio.Battery;
+            ////var strManuf = param1.Manufacturer();
+            ////var param2 = radio.Tuner;
+            ////radio.Start();
 
-            //ISpeaker cheapSpeaker = container.Resolve<ISpeaker>("Cheap");
-            //ISpeaker priceySpeaker = container.Resolve<ISpeaker>("Expensive");
-            //cheapSpeaker.Start();
-            //priceySpeaker.Start();
+            ////ISpeaker cheapSpeaker = container.Resolve<ISpeaker>("Cheap");
+            ////ISpeaker priceySpeaker = container.Resolve<ISpeaker>("Expensive");
+            ////cheapSpeaker.Start();
+            ////priceySpeaker.Start();
 
-            ICasing casing = container.Resolve<ICasing>();
-            Console.WriteLine(casing.TypeOfMaterial());
+            //ICasing casing = container.Resolve<ICasing>();
+            //Console.WriteLine(casing.TypeOfMaterial());
+
+
+            ////IRadio radio = container.Resolve<IRadio>(new ParameterOverride("radioBattery", battery),
+            ////    new ParameterOverride("radioTuner", tuner),
+            ////    new ParameterOverride("radioName", "BrokenRadio"));
+
+            IRadio radio = container.Resolve<IRadio>(new ParameterOverride("radioName", "BrokenRadio"));
         }
     }
 }

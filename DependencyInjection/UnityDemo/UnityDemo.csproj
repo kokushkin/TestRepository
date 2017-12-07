@@ -69,6 +69,8 @@
     <Compile Include="Speaker\CheapSpeaker.cs" />
     <Compile Include="Speaker\ISpeaker.cs" />
     <Compile Include="Speaker\PriceySpeaker.cs" />
+    <Compile Include="Transistor\ITransistor.cs" />
+    <Compile Include="Transistor\Transistor.cs" />
     <Compile Include="Tuner\ITuner.cs" />
     <Compile Include="Demo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

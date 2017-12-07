@@ -12,7 +12,7 @@ namespace UnityDemo
         public ITuner Tuner { get; set; }
         public string Name { get; set; }
 
-        public Radio(IBattery radioBattery, ITuner radioTuner, string radioName)
+        public Radio(Battery radioBattery, Tuner radioTuner, string radioName)
         {
             Battery = radioBattery;
             Tuner = radioTuner;
