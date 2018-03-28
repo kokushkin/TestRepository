@@ -11,6 +11,7 @@ namespace EssentialWCF
     {
         public override void Validate(string userName, string password)
         {
+
             if (string.IsNullOrEmpty(userName))
                 throw new ArgumentNullException("userName");
             if (string.IsNullOrEmpty(password))

@@ -12,7 +12,7 @@ namespace TransportAuthenticationClient
     {
         static void Main(string[] args)
         {
-            ServiceReference1.StockServiceClient proxy = new ServiceReference1.StockServiceClient("BasicHttpsBinding_IStockService");
+            ServiceReference1.StockServiceClient proxy = new ServiceReference1.StockServiceClient("BasicHttpsBinding_IStockServiceStockService");
 
             //пришлось добавить из-за проблем с сертификатом
             System.Net.ServicePointManager.ServerCertificateValidationCallback +=

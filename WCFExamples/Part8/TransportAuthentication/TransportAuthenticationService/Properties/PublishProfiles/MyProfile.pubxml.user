@@ -5,29 +5,32 @@
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>F:\TestProject\WCFExamples\ServicesDeploy\TransportAuthenticationService</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\TestProject\WCFExamples\ServicesDeploy\TransportAuthenticationService</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
-      <publishTime>06/01/2017 07:10:44</publishTime>
+      <publishTime>03/17/2018 19:44:26</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>06/01/2017 07:10:44</publishTime>
+      <publishTime>03/17/2018 19:44:26</publishTime>
     </File>
     <File Include="bin/EssentialWCF.dll">
-      <publishTime>08/30/2017 23:35:56</publishTime>
+      <publishTime>03/22/2018 17:12:15</publishTime>
+    </File>
+    <File Include="bin/EssentialWCF.pdb">
+      <publishTime>03/22/2018 17:12:15</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/01/2017 07:10:44</publishTime>
+      <publishTime>03/17/2018 19:44:26</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/03/2017 22:30:38</publishTime>
+      <publishTime>03/22/2018 17:12:15</publishTime>
     </File>
     <File Include="StockService.svc">
-      <publishTime>06/01/2017 07:10:44</publishTime>
+      <publishTime>03/17/2018 19:44:26</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/03/2017 22:30:36</publishTime>
+      <publishTime>03/22/2018 17:10:43</publishTime>
     </File>
   </ItemGroup>
 </Project>
